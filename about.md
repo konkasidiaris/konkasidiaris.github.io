@@ -4,43 +4,24 @@ layout: page
 ---
 ![Profile Image]({{ site.url }}/{{ site.picture }})
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Hi, thank you for viewing my profile. I am Konstantinos.</p>
+<p>I like software engineering a lot, thus the career change. I also like test driven development, pair programming, coding reviews and agile. The best feeling in the world is seeing a happy customer using a product that I had contributed to its construction.</p>
+<p>The tools I use right now are Java, Groovy, Typescript & SQL. In my spare time, I study music -I am a self taught bass player!- and several skills which may help advance my career, such as Computer Science, Clojure & Docker. Indicatively, some books on my bookshelves are Clean Code series by Uncle Bob, The Art of Computer Programming by Donald Knuth, TDD by Kent Beck and Elements of the Theory of Computation by Lewis & Papadimitriou.</p>
+<p>If you find something on my site and want to talk about it, email me 🙂!</p>
 
 <h2>Skills</h2>
 
-<ul class="skill-list">
-	<li>HTML - Jade - Haml - Erb</li>
-	<li>Responsive (Mobile First)</li>
-	<li>CSS (Stylus, Sass, Less)</li>
-	<li>Css Frameworks (Bootstrap, Foundation)</li>
-	<li>Javascript (Design Patterns, Testes)</li>
-	<li>NodeJS</li>
-	<li>AngularJS - ReactJS</li>
-	<li>Grunt - Gulp - Yeoman</li>
-	<li>Git</li>
-	<li>PHP</li>
-	<li>Python</li>
-	<li>MySQL - MongoDB</li>
-	<li>Scrum and Kanban</li>
-	<li>TDD e Continuous Integration</li>
-</ul>
+| Languages | Frameworks | Tools |
+|:-----:|:-----:|:-----:|
+| Java | Spring | Eclipse/VS Code |
+| Groovy | Wicket | Git/SVN |
+| HTML/CSS| Spock | Gradle |
+| DB2 | Angular | DBeaver |
+| Javascript/Typescript | Scrum |   |
+| Clojure | XP (TDD, Pair programming, Code reviews) |   |
 
 <h2>Projects</h2>
 
 <ul>
-	<li><a href="https://github.com/">Lorem Lorem</a></li>
-	<li><a href="https://github.com/">Ipsum Dolor</a></li>
-	<li><a href="https://github.com/">Dolor Lorem</a></li>
+	<li><a href="https://github.com/">This site</a></li>
 </ul>
