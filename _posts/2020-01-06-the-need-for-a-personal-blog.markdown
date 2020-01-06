@@ -2,8 +2,8 @@
 title: "The need for a personal blog"
 layout: post
 date: 2020-01-06 06:00
-# image: /assets/images/markdown.jpg
-headerImage: false
+image: /assets/images/2020-01-06/blog.jpg
+headerImage: true
 tag:
 - personal growth
 star: false
