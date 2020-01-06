@@ -1,6 +1,6 @@
 # main text of home
 name: Konstantinos Kasidiaris
-bio: Software Engineer • Bass Player • Traveller • Scuba Diver • Martial Arts Enthusiast
+bio: Software Engineer • Bass Player • Traveller • Scuba Diver •  Judoka
 
 # twitter summary info
 description: This is a blog used for applying the Feynman's Technique to my skills
@@ -56,7 +56,7 @@ email: kkasidiaris@gmail.com
 authors:
     konkasidiaris:
         name: Konstantinos Kasidiaris
-        bio: Software Engineer • Bass Player • Traveller • Scuba Diver • Martial Arts Enthusiast
+        bio: Software Engineer • Bass Player • Traveller • Scuba Diver • Judoka
         external-image: false
         picture: assets/images/profile.jpg
         twitter: konkasidiaris
@@ -90,7 +90,7 @@ related: true
 post-advance-links: [blog]
 
 # show author block at the end of a post ?
-show-author: false
+show-author: true
 
 # do you want some animations?
 animation: true
