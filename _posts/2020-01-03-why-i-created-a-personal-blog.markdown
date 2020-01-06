@@ -1,5 +1,5 @@
 ---
-title: "Why I created a personal blog"
+title: "The need for a personal blog"
 layout: post
 date: 2020-01-03 21:11
 # image: /assets/images/markdown.jpg
