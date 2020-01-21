@@ -1,6 +1,6 @@
 # main text of home
 name: Konstantinos Kasidiaris
-bio: Software Engineer • Bass Player • Traveller • Scuba Diver •  Judoka
+bio: Software Engineer • Bass Player • Traveller • Scuba Diver • Judoka
 
 # twitter summary info
 description: This is a blog used for applying the Feynman's Technique to my skills
@@ -14,7 +14,7 @@ picture: assets/images/profile.jpg
 # and specify source (external or local).
 resume: true
 resume-external: false
-resume-url: assets/resume/resume-konstantinos_kasidiaris.pdf
+resume-url: assets/resume/resume-konstantinos-kasidiaris.pdf
 
 url: https://konkasidiaris.com
 # your url: http://USERNAME.github.io
