@@ -15,7 +15,7 @@ description: During the quest of creating better engineers in my team I fell on 
 
 ## The trigger
 
-While I was scrolling on my linkedin feed, I fell upon [this](https://blog.klipse.tech/clojure/2020/09/11/fizbuzz-clj.html) article -I think it was posted on [clojure users group](https://www.linkedin.com/groups/1058217/). To be honest I was sceptical, it seemed a nice approach on a problem that most people discuss only on interviews (spoiler alert: it is an everyday problem). I kept it burried in the back of my head until recently.
+While I was scrolling on my LinkedIn feed, I fell upon [this](https://blog.klipse.tech/clojure/2020/09/11/fizbuzz-clj.html) article -I think it was posted on [clojure users group](https://www.linkedin.com/groups/1058217/). To be honest I was skeptical, it seemed a nice approach on a problem that most people discuss only on interviews (spoiler alert: it is an everyday problem). I kept it buried in the back of my head until recently.
 
 A pull request was assigned to me, to review a super complex piece of code of a colleague, where I felt I was deep in a jungle consisted of _if/else_'s. Then it hit me, I rewrote the most complex part of it using the aforementioned technique, discussed which one was a better approach to the problem with the other engineer and both happily concluded to the latter. A few commits later we were ready to go.
 
@@ -75,7 +75,7 @@ function fizzBuzz(number) {
 }
 ```
 
-Still! There is a problem so simple and it requires handling of two different cases. Everytime, we shall check what happens for bot multiples of 3 and 5. I thought we were true developers, forged by boredom. We do not have time to check two whole different cases. If we squeeze our brains a little more, there comes this wild idea of using data structures. More specifically, the one which is a collection, does not change the series of its content and there is an index of showing us where is what. ...Drumroll... Arrays!
+Still! There is a problem so simple and it requires handling of two different cases. Every time, we shall check what happens for bot multiples of 3 and 5. I thought we were true developers, forged by boredom. We do not have time to check two whole different cases. If we squeeze our brains a little more, there comes this wild idea of using data structures. More specifically, the one which is a collection, does not change the series of its content and there is an index of showing us where is what. ...Drumroll... Arrays!
 
 Now our code is awesome:
 
