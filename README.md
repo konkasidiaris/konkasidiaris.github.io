@@ -1,4 +1,4 @@
-# Installation
+# Konstantinos' blog
 
-bundle install
-bundle exec jekyll serve --config \_config.yml,\_config-dev.yml
+This is a typical [astro](astro.build) static page website.
+A complete list of actions is documented in `package.json` file.

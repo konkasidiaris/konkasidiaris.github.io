@@ -1,0 +1,19 @@
+---
+import PageLayout from "@/layouts/Base";
+import { menuLinks } from "@/site-config";
+
+const safetyLink = menuLinks.find(l => l.title === "Home") as {path: string, title: string};
+
+const meta = {
+	title: "Oops! You found a missing page!",
+	description: "Oops! It looks like this page is lost in space!",
+};
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-6">404 | You should've turned left at Albuquerque</h1>
+	<p class="mb-8">Country roaaaads, take me<a
+					href={safetyLink.path}
+					class="px-4 py-2 sm:px-2 sm:py-0 sm:hover:text-textColor sm:underline"
+				>{safetyLink.title}</a></p>
+</PageLayout>
