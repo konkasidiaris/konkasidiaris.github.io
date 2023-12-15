@@ -1,0 +1,7 @@
+{
+	"name": "Personal website",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+  "remoteUser": "node"
+}
