@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import type { WebmentionsChildren } from "@/types";
 
 interface Props {
@@ -69,6 +69,7 @@ const comments = mentions.filter(
 								>
 									<Icon
 										class="h-5 w-5"
+										pack="mdi"
 										name="mdi:open-in-new"
 										aria-hidden="true"
 										focusable="false"
