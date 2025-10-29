@@ -1,7 +1,31 @@
 {
-	"name": "Personal website",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
-  "remoteUser": "node"
+  "name": "Personal Website",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "hugo_extended", // we use hugo_extended as we need to process images
+      "VERSION": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "html.format.templating": true
+      },
+      "extensions": [
+		    "bradlc.vscode-tailwindcss",
+        "budparr.language-hugo-vscode",
+        "davidanson.vscode-markdownlint",
+        "tamasfe.even-better-toml"
+      ]
+    }
+  },
+  "forwardPorts": [
+    1313
+  ],
+  "remoteUser": "vscode",
+  "runArgs": [
+    "--volume",
+    "/var/run/docker.sock:/var/run/docker.sock"
+  ]
 }
