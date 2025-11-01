@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: hsl(148, 65%, 20%);
+  
+  --color-bg-base: light-dark(hsl(0, 0%, 100%), hsl(0, 0%, 0%));
+  --color-bg-subtle: light-dark(hsl(0, 0%, 95%), hsl(0, 0%, 5%));
+  --color-bg-muted: light-dark(hsl(0, 0%, 90%), hsl(0, 0%, 10%));
+  
+  --color-text-base: light-dark(hsl(0, 0%, 5%), hsl(0, 0%, 95%));
+  --color-text-muted: light-dark(hsl(0, 0%, 30%), hsl(0, 0%, 70%));
+  
+  --color-border: light-dark(hsl(0, 0%, 85%), hsl(0, 0%, 15%));
+  --color-border-hover: light-dark(hsl(0, 0%, 70%), hsl(0, 0%, 30%));
+
+  --font-family-mono: 'JetBrains Mono', monospace;
+}
