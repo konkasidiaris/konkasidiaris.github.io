@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" class="motion-safe:scroll-smooth scroll-pt-32 [scrollbar-width:thin]">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="h-screen grid grid-rows-[auto_1fr_auto] transition-colors duration-200 bg-bg-base text-base">
+    {{ partial "header.html" . }}
+    
+    <main>
+      efiga
+        {{ block "main" . }}{{ end }}
+    </main>
+    
+    {{ partial "footer.html" . }}
+</body>
+</html>

@@ -1,3 +1,73 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://konkasidiaris.com/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+defaultContentLanguage = "en"
+title = "Kon's Internet Corner"
+enableRobotsTXT = true
+buildFuture = true
+hrefTargetBlank = true
+disableHugoGeneratorInject = true
+
+[frontmatter]
+  date = ['publishDate']
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  logo = "/images/logo.jpg"
+  description = 'Building scalable infrastructure, automating everything, and sharing platform engineering insights'
+  github = 'https://github.com/konkasidiaris'
+  linkedin = 'https://www.linkedin.com/in/konstantinos-kasidiaris/'
+  twitter = 'https://x.com/konkasidiaris'
+  email = 'kkasidiaris@gmail.com'
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+  [[menu.main]]
+    name = 'Blog'
+    url = '/posts/'
+  [[menu.main]]
+    name = 'About'
+    url = '/about/'
+  [[menu.main]]
+    name = 'Resume'
+    url = '/resume/'
+
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = false
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      keepCSS2 = false
+      precision = 0
+    [minify.tdewolff.html]
+      keepComments = false
+      keepConditionalComments = false
+      keepDefaultAttrVals = true
+      keepDocumentTags = true
+      keepEndTags = true
+      keepQuotes = false
+      keepWhitespace = false
+    [minify.tdewolff.js]
+      keepVarNames = false
+      precision = 0
+      version = 2022
+    [minify.tdewolff.json]
+      keepNumbers = false
+      precision = 0
+    [minify.tdewolff.svg]
+      keepComments = false
+      precision = 0
+    [minify.tdewolff.xml]
+      keepWhitespace = false
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+  section = ['HTML', 'RSS']

@@ -1,0 +1,24 @@
+<header class="flex flex-row justify-between gap-2 p-2 md:p-4 lg:p-6 sticky">
+    <div id="hamburger" class="w-6 h-4 relative rotate-0 ease-in-out duration-500 cursor-pointer group peer z-10">
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-0 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-2 group-[.open]:rotate-45"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-2 group-[.open]:-rotate-45"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-4 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
+    </div>
+    <form>
+        <span class="flex flex-row gap-2 bg-bg-subtle py-2 px-4 rounded-2xl">
+            {{ partial "svg/focuslent.html" . }}
+            <input type="text" placeholder="search" />
+        </span>
+    </form>
+    <button id="dark-mode-toggle" class="group/button cursor-pointer">
+        {{ partial "svg/lamp.html" (dict "class" "text-amber-300 group-[.dark]/button:text-text-base")}}
+    </button>
+    <nav
+        class="absolute hidden left-0 top-0 peer-[.open]:block bg-bg-base/0 backdrop-filter backdrop-blur-[1px] w-full h-screen z-auto">
+    </nav>
+</header>

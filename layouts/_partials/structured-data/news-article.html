@@ -1,0 +1,15 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "{{ .Title }}",
+  "datePublished": "{{ .Date }}",
+  "dateModified": "{{ .Lastmod }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Χορευτικός Όμιλος Τρίπολης"
+  },
+  "mainEntityOfPage": "{{ .Permalink }}",
+  "image": "{{ with .Params.ogImage }}{{ . }}{{ end }}"
+}
+</script>
