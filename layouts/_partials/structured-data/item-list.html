@@ -1,0 +1,17 @@
+{{ $pages := .Pages }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "{{ .LinkTitle }}",
+  "itemListElement": [
+    {{ range $index, $post := $pages }}
+        {
+          "@type": "ListItem",
+          "position": {{ add $index 1 }},
+          "url": "{{ $post.Permalink }}"
+        }{{ if not (eq (add $index 1) (len $pages)) }},{{ end }}
+    {{ end }}
+  ]
+}
+</script>

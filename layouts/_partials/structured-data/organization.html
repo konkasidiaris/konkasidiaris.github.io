@@ -1,0 +1,15 @@
+{{ $global := .Site.Data.global }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Χορευτικός Όμιλος Τρίπολης",
+  "url": "https://xot.gr",
+  "logo": "https://xot.gr/images/xot.png",
+  "sameAs": [
+    {{ range $i, $s := $global.footer.social }}
+      {{ if $i }},{{ end }}"{{ $s.url }}"
+    {{ end }}
+  ]
+}
+</script>
