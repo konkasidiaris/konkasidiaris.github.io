@@ -14,7 +14,7 @@ css:
 
 css-watch:
 	@echo "Watching Tailwind CSS..."
-	tailwindcss -i ./assets/css/main.css -o ./public/css/main.css --watch
+	NODE_ENV=development tailwindcss -i ./assets/css/main.css -o ./public/css/main.css --watch
 
 dev: css
 	@trap 'kill 0' EXIT; \

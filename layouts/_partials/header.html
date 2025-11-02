@@ -1,5 +1,5 @@
-<header class="flex flex-row justify-between gap-2 p-2 md:p-4 lg:p-6 sticky">
-    <div id="hamburger" class="w-6 h-4 relative rotate-0 ease-in-out duration-500 cursor-pointer group peer z-10">
+<header class="flex flex-row justify-between gap-2 sticky items-center">
+    <div id="hamburger" class="w-6 h-5 relative rotate-0 ease-in-out duration-500 cursor-pointer group peer z-10">
         <span
             class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-0 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
         <span
@@ -15,10 +15,18 @@
             <input type="text" placeholder="search" />
         </span>
     </form>
-    <button id="dark-mode-toggle" class="group/button cursor-pointer">
+    <button id="dark-mode-toggle" class="group/button cursor-pointer w-6">
         {{ partial "svg/lamp.html" (dict "class" "text-amber-300 group-[.dark]/button:text-text-base")}}
     </button>
     <nav
-        class="absolute hidden left-0 top-0 peer-[.open]:block bg-bg-base/0 backdrop-filter backdrop-blur-[1px] w-full h-screen z-auto">
+        class="absolute lg:fixed overflow-hidden hidden left-0 top-0 peer-[.open]:flex bg-bg-base/0 backdrop-filter backdrop-blur-[1px] w-full h-dvh z-auto
+              flex-row lg:flex-col gap-2 lg:gap-6 justify-end lg:justify-center items-end lg:items-center rounded-xl lg:rounded-none py-10">
+        {{ range .Site.Menus.main }}
+        <a href={{ .PageRef }}
+            class="w-20 lg:w-32 flex flex-col lg:flex-row bg-bg-subtle text-text-base p-4 rounded-2xl gap-2 items-center justify-center shadow-xl hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150">
+            {{partial .Params.svg .}}
+            <span>{{.Name}}</span>
+        </a>
+        {{ end }}
     </nav>
 </header>

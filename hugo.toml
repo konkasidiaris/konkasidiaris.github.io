@@ -24,16 +24,28 @@ disableHugoGeneratorInject = true
 [menu]
   [[menu.main]]
     name = 'Home'
-    url = '/'
+    pageRef = '/'
+    weight = 1
+    [menu.main.params]
+      svg = 'svg/home.html'
   [[menu.main]]
     name = 'Blog'
-    url = '/posts/'
+    pageRef = '/posts/'
+    weight = 3
+    [menu.main.params]
+      svg = 'svg/book.html'
   [[menu.main]]
     name = 'About'
-    url = '/about/'
+    pageRef = '/about/'
+    weight = 2
+    [menu.main.params]
+      svg = 'svg/person.html'
   [[menu.main]]
-    name = 'Resume'
-    url = '/resume/'
+    name = 'Résumé'
+    pageRef = '/resume/'
+    weight = 4
+    [menu.main.params]
+      svg = 'svg/newspaper.html'
 
 [minify]
   disableCSS = false
