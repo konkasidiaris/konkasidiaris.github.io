@@ -11,7 +11,7 @@
     </div>
     <form>
         <span class="flex flex-row gap-2 bg-bg-subtle py-2 px-4 rounded-2xl">
-            {{ partial "svg/focuslent.html" . }}
+            {{ partial "svg/magnifying-glass.html" . }}
             <input type="text" placeholder="search" />
         </span>
     </form>
@@ -19,11 +19,13 @@
         {{ partial "svg/lamp.html" (dict "class" "text-amber-300 group-[.dark]/button:text-text-base")}}
     </button>
     <nav
-        class="absolute lg:fixed overflow-hidden hidden left-0 top-0 peer-[.open]:flex bg-bg-base/0 backdrop-filter backdrop-blur-[1px] w-full h-dvh z-auto
-              flex-row lg:flex-col gap-2 lg:gap-6 justify-end lg:justify-center items-end lg:items-center rounded-xl lg:rounded-none py-10">
+        class="fixed overflow-hidden hidden left-0 top-0 peer-[.open]:flex bg-bg-base/0 backdrop-filter backdrop-blur-[1px] w-full h-dvh z-auto
+              flex-row lg:flex-col gap-2 lg:gap-6 justify-center items-end lg:items-center rounded-xl lg:rounded-none py-10">
         {{ range .Site.Menus.main }}
         <a href={{ .PageRef }}
-            class="w-20 lg:w-32 flex flex-col lg:flex-row bg-bg-subtle text-text-base p-4 rounded-2xl gap-2 items-center justify-center shadow-xl hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150">
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 
+             {{ if and .Page (eq $.Page.RelPermalink .Page.RelPermalink) }}bg-bg-subtle text-text-base scale-105 border border-text-base{{else}}bg-bg-muted text-text-muted{{end}}">
             {{partial .Params.svg .}}
             <span>{{.Name}}</span>
         </a>
