@@ -27,25 +27,25 @@ disableHugoGeneratorInject = true
     pageRef = '/'
     weight = 1
     [menu.main.params]
-      svg = 'svg/home.html'
+      svg = 'svg/identification.html'
   [[menu.main]]
     name = 'Blog'
     pageRef = '/posts/'
-    weight = 3
-    [menu.main.params]
-      svg = 'svg/book.html'
-  [[menu.main]]
-    name = 'About'
-    pageRef = '/about/'
     weight = 2
     [menu.main.params]
-      svg = 'svg/person.html'
+      svg = 'svg/newspaper.html'
+  [[menu.main]]
+    name = 'Projects'
+    pageRef = '/projects/'
+    weight = 3
+    [menu.main.params]
+      svg = 'svg/cpu-chip.html'
   [[menu.main]]
     name = 'Résumé'
     pageRef = '/resume/'
     weight = 4
     [menu.main.params]
-      svg = 'svg/newspaper.html'
+      svg = 'svg/queue-list.html'
 
 [minify]
   disableCSS = false
