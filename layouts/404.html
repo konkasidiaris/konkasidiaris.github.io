@@ -1,0 +1,61 @@
+{{ define "main" }}
+<div class="flex justify-center items-center h-full px-4 bg-bg-base">
+    <div class="w-full max-w-2xl">
+        <!-- Terminal Header -->
+        <div class="text-xs bg-bg-muted border border-border rounded-t-lg px-4 py-2 flex items-center gap-2">
+            <div class="flex gap-1.5">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <span class="text-text-muted ml-2">bash</span>
+        </div>
+        
+        <!-- Terminal Content -->
+        <div class="text-sm md:text-base bg-bg-subtle border-x border-b border-border rounded-b-lg p-6 shadow-lg">
+            <div class="space-y-1">
+                <div class="flex items-start gap-2">
+                    <span class="text-primary">$</span>
+                    <span class="text-text-base truncate">curl <span id="current-url"></span></span>
+                </div>
+                <div class="mt-3 text-text-muted space-y-0.5">
+                    <div class="text-red-500">HTTP/1.1 404 Not Found</div>
+                    <div>Server: nginx/1.21.3</div>
+                    <div>Content-Type: text/plain</div>
+                    <div>Date: <span id="current-date"></span></div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-border">
+                    <div class="text-text-muted mb-3">Available endpoints:</div>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="/" class="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-2 group">
+                                <span class="underline-offset-4 group-hover:underline">/home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/posts" class="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-2 group">
+                                <span class="underline-offset-4 group-hover:underline">/blog</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/projects" class="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-2 group">
+                                <span class="underline-offset-4 group-hover:underline">/projects</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/resume" class="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-2 group">
+                                <span class="underline-offset-4 group-hover:underline">/resume</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('current-url').textContent = window.location.href;
+    document.getElementById('current-date').textContent = new Date().toUTCString().replace("GMT", "UTC");
+</script>
+{{ end }}
