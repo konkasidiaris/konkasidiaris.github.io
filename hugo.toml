@@ -16,10 +16,6 @@ disableHugoGeneratorInject = true
 [params]
   logo = "/images/logo.jpg"
   description = 'Building scalable infrastructure, automating everything, and sharing platform engineering insights'
-  github = 'https://github.com/konkasidiaris'
-  linkedin = 'https://www.linkedin.com/in/konstantinos-kasidiaris/'
-  twitter = 'https://x.com/konkasidiaris'
-  email = 'kkasidiaris@gmail.com'
 
 [menu]
   [[menu.main]]
@@ -46,7 +42,31 @@ disableHugoGeneratorInject = true
     weight = 4
     [menu.main.params]
       svg = 'svg/queue-list.html'
-
+  [[menu.contact]]
+    name = 'Github'
+    url = 'https://github.com/konkasidiaris'
+    weight = 1
+    [menu.contact.params]
+      svg = 'svg/github.html'
+  [[menu.contact]]
+    name = 'LinkedIn'
+    url = 'https://www.linkedin.com/in/konstantinos-kasidiaris/'
+    weight = 1
+    [menu.contact.params]
+      svg = 'svg/linkedin.html'
+  [[menu.contact]]
+    name = 'X'
+    url = 'https://x.com/konkasidiaris'
+    weight = 1
+    [menu.contact.params]
+      svg = 'svg/x.html'
+  [[menu.contact]]
+    name = 'email'
+    url = 'mailto:kkasidiaris@gmail.com'
+    weight = 1
+    [menu.contact.params]
+      svg = 'svg/envelope.html'
+  
 [minify]
   disableCSS = false
   disableHTML = false

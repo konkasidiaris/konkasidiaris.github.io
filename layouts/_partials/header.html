@@ -24,8 +24,8 @@
         {{ range .Site.Menus.main }}
         <a href={{ .PageRef }}
             class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
-             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 
-             {{ if and .Page (eq $.Page.RelPermalink .Page.RelPermalink) }}bg-bg-subtle text-text-base scale-105 border border-text-base{{else}}bg-bg-muted text-text-muted{{end}}">
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             {{ if and .Page (eq $.Page.RelPermalink .Page.RelPermalink) }}bg-bg-muted text-text-base scale-105 border-2 border-text-base hover:border-primary{{else}}bg-bg-subtle text-text-subtle{{end}}">
             {{partial .Params.svg .}}
             <span>{{.Name}}</span>
         </a>

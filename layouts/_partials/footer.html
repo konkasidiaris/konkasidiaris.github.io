@@ -1,4 +1,42 @@
-<footer>
-    footer
-
+<footer class="border-t border-text-base flex flex-col gap-4 mx-auto p-2 pt-4 md:p-6">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 md:my-10">
+        <div class="col-span-1 flex flex-col md:flex-row gap-2 md:gap-6 items-center">
+            <div class="flex flex-row gap-2 items-center mx-auto shrink-0">
+                <img src="konkasidiaris-blue.png" class="size-20" />
+                <h2 class="font-semibold text-lg w-44 md:hidden">Konstantinos Kasidiaris</h2>
+            </div>
+            <div class="flex flex-col gap-2">
+                <h2 class="font-semibold text-lg hidden md:block">Konstantinos Kasidiaris</h2>
+                <p>
+                    Curious pragmatist <em>or maybe just a tinkerer who refuses to stop debugging life</em>. Building
+                    applications that can take a beating and keep performing.
+                </p>
+            </div>
+        </div>
+        <div class="col-span-1 flex flex-col md:flex-row gap-4 md:mt-10">
+            <div class="flex flex-col gap-4">
+                <p>
+                    Reach out if you want to build something that scales <em>and</em> makes sense.
+                </p>
+                <div class="flex flex-row gap-4 mx-auto md:mx-0">
+                    {{ range .Site.Menus.contact }}
+                    <a href="{{ .URL }}" class="hover:text-primary">
+                        {{ partial .Params.Svg . }}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="flex flex-row md:flex-col mx-auto md:w-20">
+                {{ range .Site.Menus.main }}
+                <a href={{ .PageRef }}
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">{{ .Name }}</a>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+    <section
+        class="border-t border-border-muted flex flex-col md:flex-row gap-2 md:mx-auto px-4 md:px-6 py-4 text-xs text-text-muted">
+        <span>&copy; 2018-{{ now.Format "2006" }} Konstantinos Kasidiaris</span> <span>All Rights and Lefts
+            reserved</span> <a href="/privacy-policy" class="underline hover:text-primary">Privacy policy</a>
+    </section>
 </footer>
