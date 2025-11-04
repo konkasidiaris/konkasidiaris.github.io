@@ -15,3 +15,7 @@
 
   --font-family-mono: 'JetBrains Mono', monospace;
 }
+
+::selection {
+  background-color: var(--color-primary);
+}
