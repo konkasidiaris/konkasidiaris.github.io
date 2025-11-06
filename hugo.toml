@@ -16,6 +16,8 @@ disableHugoGeneratorInject = true
 [params]
   logo = "/images/logo.jpg"
   description = 'Building scalable infrastructure, automating everything, and sharing platform engineering insights'
+  telegram = "https://t.me/konkasidiaris"
+  signal = "https://signal.me/#eu/MqrjhFzfVmRnsKGnW63FwZ4IP7JAdQJ0WSpOjqkdrT_FLVm6eLtM445kYTGScL1t"
 
 [menu]
   [[menu.main]]
@@ -101,5 +103,5 @@ disableHugoGeneratorInject = true
       keepWhitespace = false
 
 [outputs]
-  home = ['HTML', 'RSS', 'JSON']
+  home = ['HTML', 'RSS']
   section = ['HTML', 'RSS']
