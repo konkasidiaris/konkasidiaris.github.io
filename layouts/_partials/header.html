@@ -1,5 +1,5 @@
-<header class="flex flex-row justify-between gap-2 sticky items-center">
-    <div id="hamburger" class="w-6 h-5 relative rotate-0 ease-in-out duration-500 cursor-pointer group peer z-10">
+<header class="flex flex-row justify-between gap-2 sticky items-center z-50">
+    <div id="hamburger" class="w-6 h-5 relative rotate-0 ease-in-out duration-500 cursor-pointer group peer z-50">
         <span
             class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-0 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
         <span
@@ -19,7 +19,7 @@
         {{ partial "svg/lamp.html" (dict "class" "text-amber-300 group-[.dark]/button:text-text-base")}}
     </button>
     <nav
-        class="fixed overflow-hidden hidden left-0 top-0 peer-[.open]:flex bg-bg-base/0 backdrop-filter backdrop-blur-[1px] w-full h-dvh z-auto
+        class="fixed overflow-hidden hidden left-0 top-0 peer-[.open]:flex bg-bg-base/0 backdrop-filter backdrop-blur-[1px] w-full h-dvh z-40
               flex-row lg:flex-col gap-2 lg:gap-6 justify-center items-end lg:items-center rounded-xl lg:rounded-none py-10">
         {{ range .Site.Menus.main }}
         <a href={{ .PageRef }}
