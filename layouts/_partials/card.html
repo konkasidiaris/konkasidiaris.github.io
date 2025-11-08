@@ -1,0 +1,82 @@
+{{ $hasImage := .image }}
+{{ $textColorClass := cond $hasImage "text-white" "text-text-base" }}
+{{ $component := .component }}
+
+{{ if eq $component "li" }}
+<li class="group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden">
+{{ else if eq $component "article" }}
+<article class="group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden">
+{{ else }}
+<div class="group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden">
+{{ end }}
+    <a href="{{ .link }}" class="absolute inset-0 md:hidden z-20" aria-label="{{ .ctaText }}"></a>
+    
+    {{ if $hasImage }}
+        {{ $img := "" }}
+        {{ $pageContext := .context | default . }}
+        
+        {{/* Try to get image from page bundle first (collocated model) */}}
+        {{ with $pageContext.Resources.GetMatch .image }}
+            {{ $img = . }}
+        {{ else }}
+            {{/* Fallback to global assets */}}
+            {{ with resources.Get .image }}
+                {{ $img = . }}
+            {{ end }}
+        {{ end }}
+        
+        {{ if $img }}
+            {{ $jpg400 := $img.Resize "400x jpg q75" }}
+            {{ $jpg800 := $img.Resize "800x jpg q75" }}
+            {{ $webp400 := $img.Resize "400x webp q80" }}
+            {{ $webp800 := $img.Resize "800x webp q80" }}
+            
+            <picture class="absolute inset-0 pointer-events-none">
+                <source 
+                    srcset="{{ $webp400.RelPermalink }} 400w, {{ $webp800.RelPermalink }} 800w"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                    type="image/webp" />
+                <source 
+                    srcset="{{ $jpg400.RelPermalink }} 400w, {{ $jpg800.RelPermalink }} 800w"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                    type="image/jpeg" />
+                <img 
+                    src="{{ $jpg800.RelPermalink }}" 
+                    alt="{{ .title }}" 
+                    class="w-full h-full object-cover rounded-2xl"
+                    loading="lazy" />
+            </picture>
+        {{ else }}
+            {{/* Fallback for external URLs or missing images */}}
+            <img src="{{ .image }}" 
+                 alt="{{ .title }}" 
+                 class="absolute inset-0 w-full h-full object-cover rounded-2xl pointer-events-none" 
+                 loading="lazy" />
+        {{ end }}
+        <div class="absolute inset-0 bg-black/70 rounded-2xl pointer-events-none"></div>
+    {{ end }}
+    
+    <div class="relative flex z-10 w-full h-full flex-col gap-2 {{ .contentAlign | default "justify-center items-start" }} {{ $textColorClass }}">
+        <h2 class="flex flex-row gap-2 text-2xl font-semibold">{{ .title }}</h2>
+        <p class="text-sm">{{ .description }}</p>
+        {{ if .extraContent }}
+            {{ .extraContent }}
+        {{ end }}
+    </div>
+    
+    {{ if (ne .ctaText nil) }}
+    <a href="{{ .link }}"
+        class="absolute bottom-2 left-2 w-10 hover:w-36 group-hover/item:w-36 h-10 rounded-full bg-bg-base text-text-base hidden md:flex justify-center items-center hover:text-primary group-hover/item:text-primary text-xs italic flex-row hover:gap-2 group-hover/item:gap-2 z-10 group/link transition-all duration-300 ease-in-out overflow-hidden">
+        <span class="opacity-0 max-w-0 group-hover/item:opacity-100 group-hover/item:max-w-xs group-hover/link:opacity-100 group-hover/link:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">
+            {{ .ctaText }}
+        </span>
+        {{ partial "svg/arrow-up-right.html" (dict "size" "size-4") }}
+    </a>
+    {{ end }}
+{{ if eq $component "li" }}
+</li>
+{{ else if eq $component "article" }}
+</article>
+{{ else }}
+</div>
+{{ end }}

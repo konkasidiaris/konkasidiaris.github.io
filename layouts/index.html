@@ -12,7 +12,9 @@
                         <span>Software Developer</span>
                     </div>
                 </div>
-                <a href="/resume" class="text-xs text-text-muted hover:text-primary flex flex-row gap-2 items-center">Résumé {{ partial "svg/arrow-up-right.html" (dict "size" "size-3") }}</a>
+                <a href="/resume"
+                    class="text-xs text-text-muted hover:text-primary flex flex-row gap-2 items-center">Résumé
+                    {{ partial "svg/arrow-up-right.html" (dict "size" "size-3") }}</a>
             </div>
             <div class="px-2 md:px-4 my-2 md:mt-4">
                 <p class="text-sm mb-2">I spend an unreasonable amount of time thinking about how software,
@@ -34,24 +36,15 @@
                     Judoka, Home brewer, Scuba diver, Traveller</span>
             </div>
         </li>
-        <li
-            class="group/bento-item relative bg-[url('/toolbox-open-grey.jpg')] bg-center bg-cover col-start-5 col-span-2 row-start-1 row-span-3 rounded-2xl p-4 md:p-6 bg-bg-subtle">
-            <a href="/posts/toolbox" class="absolute inset-0 md:hidden z-20" aria-label="Open toolbox"></a>
-            <div
-                class="absolute inset-0 bg-black/70 rounded-2xl pointer-events-none">
-            </div>
-            <div
-                class="relative flex z-10 w-full h-full flex-col gap-2 justify-center items-start text-white">
-                <h2 class="text-2xl font-semibold">My toolbox</h2>
-                <p class="text-sm">I carefully selected each tool in my stack to build solutions efficiently.</p>
-            </div>
-            <a href="/posts/toolbox"
-                class="absolute bottom-2 left-2 w-10 hover:w-36 group-hover/bento-item:w-36 h-10 rounded-full bg-bg-base text-text-base hidden md:flex justify-center items-center hover:text-primary group-hover/bento-item:text-primary text-xs italic flex-row hover:gap-2 group-hover/bento-item:gap-2 z-10 group/link transition-all duration-300 ease-in-out overflow-hidden">
-                <span
-                    class="opacity-0 max-w-0 group-hover/bento-item:opacity-100 group-hover/bento-item:max-w-xs group-hover/link:opacity-100 group-hover/link:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">Open
-                    toolbox</span>{{ partial "svg/arrow-up-right.html" (dict "size" "size-4") }}
-            </a>
-        </li>
+        {{ partial "card.html" (dict 
+            "component" "li"
+            "class" "col-start-5 col-span-2 row-start-1 row-span-3"
+            "image" "/toolbox-open-grey.jpg"
+            "title" "My toolbox"
+            "description" "I carefully selected each tool in my stack to build solutions efficiently."
+            "link" "/posts/toolbox"
+            "ctaText" "Open toolbox"
+        ) }}
         <li
             class="col-start-7 col-span-2 row-start-1 row-span-2 rounded-2xl flex flex-col gap-4 justify-center items-center p-4 md:p-6 bg-bg-subtle">
             <h2>Reach out if you want to build something that scales <em>and</em> makes sense!</h2>
@@ -63,59 +56,32 @@
                 {{ end }}
             </div>
         </li>
-        <li
-            class="group/bento-item relative bg-[url('/mac-minimal-office.jpg')] bg-right bg-cover col-start-1 col-span-2 row-start-4 row-span-3 rounded-2xl p-4 md:p-6 bg-bg-subtle">
-            <a href="/projects" class="absolute inset-0 md:hidden z-20" aria-label="Browse projects"></a>
-            <div
-                class="absolute inset-0 bg-black/70 rounded-2xl pointer-events-none">
-            </div>
-            <div
-                class="relative flex z-10 w-full h-full flex-col gap-2 justify-center items-start text-white">
-                <h2 class="flex flex-row gap-2 text-2xl font-semibold">Projects</h2>
-                <p class="text-sm">Big or small, things that I've accomplished.</p>
-            </div>
-            <a href="/projects"
-                class="absolute bottom-2 left-2 w-10 hover:w-36 group-hover/bento-item:w-36 h-10 rounded-full bg-bg-base text-text-base hidden md:flex justify-center items-center hover:text-primary group-hover/bento-item:text-primary text-xs italic flex-row hover:gap-2 group-hover/bento-item:gap-2 z-10 group/link transition-all duration-300 ease-in-out overflow-hidden">
-                <span
-                    class="opacity-0 max-w-0 group-hover/bento-item:opacity-100 group-hover/bento-item:max-w-xs group-hover/link:opacity-100 group-hover/link:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">Browse
-                    projects</span>{{ partial "svg/arrow-up-right.html" (dict "size" "size-4") }}
-            </a>
-        </li>
-        <li
-            class="group/bento-item relative bg-[url('/open-books.jpg')] bg-center bg-cover col-start-3 col-span-4 row-start-4 row-span-3 rounded-2xl p-4 md:p-6 bg-bg-subtle">
-            <a href="/posts" class="absolute inset-0 md:hidden z-20" aria-label="Browse posts"></a>
-            <div
-                class="absolute inset-0 bg-black/70 rounded-2xl pointer-events-none">
-            </div>
-            <div
-                class="relative flex z-10 w-full h-full flex-col gap-2 justify-center items-start text-white">
-                <h2 class="flex flex-row gap-2 text-2xl font-semibold">Blog</h2>
-                <p class="text-sm">I write about things that either excite me or have given me a hard time in the past.</p>
-            </div>
-            <a href="/posts"
-                class="absolute bottom-2 left-2 w-10 hover:w-36 group-hover/bento-item:w-36 h-10 rounded-full bg-bg-base text-text-base hidden md:flex justify-center items-center hover:text-primary group-hover/bento-item:text-primary text-xs italic flex-row hover:gap-2 group-hover/bento-item:gap-2 z-10 group/link transition-all duration-300 ease-in-out overflow-hidden">
-                <span
-                    class="opacity-0 max-w-0 group-hover/bento-item:opacity-100 group-hover/bento-item:max-w-xs group-hover/link:opacity-100 group-hover/link:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">Browse
-                    posts</span>{{ partial "svg/arrow-up-right.html" (dict "size" "size-4") }}
-            </a>
-        </li>
-        <li
-            class="group/bento-item relative col-start-7 col-span-2 row-start-3 row-span-4 rounded-2xl flex flex-col gap-4 justify-center p-4 md:p-6 bg-bg-subtle">
-            <a href="/posts" class="absolute inset-0 md:hidden z-20" aria-label="About me"></a>
-            <div
-                class="flex z-10 w-full h-full flex-col gap-2 justify-center items-start">
-                <h2 class="flex flex-row gap-2 text-2xl font-semibold">How it started vs. how it's going</h2>
-                <p class="text-sm"> A short personal history as it relates to engineering and software, and how I've
-                    found value in the
-                    intersection of both disciplines.</p>
-            </div>
-            <a href="/about"
-                class="absolute bottom-2 left-2 w-10 hover:w-36 group-hover/bento-item:w-36 h-10 rounded-full bg-bg-base text-text-base hidden md:flex justify-center items-center hover:text-primary group-hover/bento-item:text-primary text-xs italic flex-row hover:gap-2 group-hover/bento-item:gap-2 z-10 group/link transition-all duration-300 ease-in-out overflow-hidden">
-                <span
-                    class="opacity-0 max-w-0 group-hover/bento-item:opacity-100 group-hover/bento-item:max-w-xs group-hover/link:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">About
-                    me</span>{{ partial "svg/arrow-up-right.html" (dict "size" "size-4") }}
-            </a>
-        </li>
+        {{ partial "card.html" (dict
+            "component" "li"
+            "class" "col-start-1 col-span-2 row-start-4 row-span-3"
+            "image" "/mac-minimal-office.jpg"
+            "title" "Projects"
+            "description" "Big or small, things that I've accomplished."
+            "link" "/projects"
+            "ctaText" "Browse projects"
+        ) }}
+        {{ partial "card.html" (dict
+            "component" "li"
+            "class" "col-start-3 col-span-4 row-start-4 row-span-3"
+            "image" "/open-books.jpg"
+            "title" "Blog"
+            "description" "I write about things that either excite me or have given me a hard time in the past."
+            "link" "/posts"
+            "ctaText" "Browse posts"
+        ) }}
+        {{ partial "card.html" (dict
+            "component" "li"
+            "class" "col-start-7 col-span-2 row-start-3 row-span-4"
+            "title" "How it started vs. how it's going"
+            "description" " A short personal history as it relates to engineering and software, and how I've found value in the intersection of both disciplines."
+            "link" "/about"
+            "ctaText" "About me"
+        ) }}
     </menu>
 </section>
 {{ end }}
