@@ -8,10 +8,10 @@ import (
 	"strings"
 )
 
-const sizeTemplate = `{{- $size := "size-5" -}}
+const classTemplate = `{{- $class := "size-5" -}}
 {{- if reflect.IsMap . -}}
-  {{- with .size -}}
-    {{- $size = . -}}
+  {{- with .class -}}
+    {{- $class = . -}}
   {{- end -}}
 {{- end -}}
 `
@@ -45,14 +45,30 @@ func processSVGFile(filename string) error {
 
 	contentStr := string(content)
 
-	if strings.Contains(contentStr, "{{- $size :=") {
+	if strings.Contains(contentStr, "{{- $class :=") {
 		template = ""
 	} else {
-		template = sizeTemplate
+		template = classTemplate
 	}
 
-	classRe := regexp.MustCompile(`class"[a-zA-Z0-9\-]"`)
-	contentStr = classRe.ReplaceAllString(contentStr, `class="{{ $size }}"`)
+	svgTagRe := regexp.MustCompile(`<svg\s+([^>]*)>`)
+
+	contentStr = svgTagRe.ReplaceAllStringFunc(contentStr, func(match string) string {
+		svgTagRe := regexp.MustCompile(`<svg\s+([^>]*)>`)
+		attrs := svgTagRe.FindStringSubmatch(match)[1]
+
+		classRe := regexp.MustCompile(`class=".*?"`)
+
+		classAttr := `class="{{ $class }}"`
+
+		if classRe.MatchString(attrs) {
+			attrs = classRe.ReplaceAllLiteralString(attrs, classAttr)
+		} else {
+			attrs = classAttr + " " + attrs
+		}
+
+		return "<svg " + attrs + ">"
+	})
 
 	newContent := template + contentStr
 

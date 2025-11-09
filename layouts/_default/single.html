@@ -22,13 +22,13 @@
                 <!-- Meta information -->
                 <div class="flex flex-wrap gap-4 text-sm text-text-muted">
                     <time datetime="{{ .Params.Date.Format "2006-01-02" }}" class="flex items-center gap-2">
-                        {{ partial "svg/calendar.html" (dict "size" "size-4") }}
+                        {{ partial "svg/calendar.html" (dict "class" "size-4") }}
                         {{ .Params.Date.Format "January 2, 2006" }}
                     </time>
                     
                     {{ if .Params.readingTime }}
                     <span class="flex items-center gap-2">
-                        {{ partial "svg/clock.html" (dict "size" "size-4") }}
+                        {{ partial "svg/clock.html" (dict "class" "size-4") }}
                         {{ .ReadingTime }} min read
                     </span>
                     {{ end }}
@@ -131,7 +131,7 @@
                     <p>
                         {{ if .url }}
                         <a href="{{ .url }}" class="hover:text-primary transition-colors inline-flex gap-2" target="_blank" rel="noopener">
-                            {{ .text }} {{ partial "svg/arrow-up-right.html" (dict "size" "size-4") }}
+                            {{ .text }} {{ partial "svg/arrow-up-right.html" (dict "class" "size-4") }}
                         </a>
                         {{ else }}
                         {{ .text }}
@@ -146,7 +146,7 @@
                     {{ with .PrevInSection }}
                     <a href="{{ .RelPermalink }}" 
                        class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors group">
-                        {{ partial "svg/arrow-left.html" (dict "size" "size-4") }}
+                        {{ partial "svg/arrow-left.html" (dict "class" "size-4") }}
                         <span class="group-hover:underline">{{ .Title }}</span>
                     </a>
                     {{ else }}
@@ -157,7 +157,7 @@
                     <a href="{{ .RelPermalink }}" 
                        class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors group">
                         <span class="group-hover:underline">{{ .Title }}</span>
-                        {{ partial "svg/arrow-right.html" (dict "size" "size-4") }}
+                        {{ partial "svg/arrow-right.html" (dict "class" "size-4") }}
                     </a>
                     {{ end }}
                 </nav>
@@ -166,7 +166,7 @@
                 <div class="text-center">
                     <a href="/posts" 
                        class="inline-flex items-center gap-2 px-6 py-3 bg-bg-muted hover:bg-primary hover:text-white rounded-full transition-colors">
-                        {{ partial "svg/arrow-left.html" (dict "size" "size-4") }}
+                        {{ partial "svg/arrow-left.html" (dict "class" "size-4") }}
                         Back to all posts
                     </a>
                 </div>
