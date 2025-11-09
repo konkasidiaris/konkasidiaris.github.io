@@ -1,7 +1,7 @@
 {{ define "main" }}
-<article class="w-full max-w-3xl mx-auto py-8 px-4">
+<article class="w-full py-8 px-4">
     <!-- Header -->
-    <header class="mb-12 space-y-6">
+    <header class="mb-12 flex flex-col gap-6 items-center">
         <h1 class="text-4xl md:text-5xl font-bold text-text-base leading-tight">
             {{ .Title }}
         </h1>
@@ -32,6 +32,8 @@
             {{ end }}
         </div>
         {{ end }}
+
+        <p class="text-xs text-text-muted">tldr; {{ .Params.Summary }}</p>
         
         <!-- Featured image -->
         {{ if .Params.image }}
@@ -50,7 +52,7 @@
             {{ $webp800 := $img.Resize "800x webp q85" }}
             {{ $webp1600 := $img.Resize "1600x webp q85" }}
             
-            <figure class="rounded-2xl overflow-hidden bg-bg-subtle">
+            <figure class="rounded-2xl overflow-hidden bg-bg-subtle max-w-3xl mx-auto aspect-video">
                 <picture>
                     <source 
                         srcset="{{ $webp800.RelPermalink }} 800w, {{ $webp1600.RelPermalink }} 1600w"
