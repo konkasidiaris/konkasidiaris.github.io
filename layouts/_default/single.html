@@ -1,3 +1,149 @@
 {{ define "main" }}
-
+<article class="w-full max-w-3xl mx-auto py-8 px-4">
+    <!-- Header -->
+    <header class="mb-12 space-y-6">
+        <h1 class="text-4xl md:text-5xl font-bold text-text-base leading-tight">
+            {{ .Title }}
+        </h1>
+        
+        <!-- Meta information -->
+        <div class="flex flex-wrap gap-4 text-sm text-text-muted">
+            <time datetime="{{ .Params.Date.Format "2006-01-02" }}" class="flex items-center gap-2">
+                {{ partial "svg/calendar.html" (dict "size" "size-4") }}
+                {{ .Params.Date.Format "January 2, 2006" }}
+            </time>
+            
+            {{ if .Params.readingTime }}
+            <span class="flex items-center gap-2">
+                {{ partial "svg/clock.html" (dict "size" "size-4") }}
+                {{ .ReadingTime }} min read
+            </span>
+            {{ end }}
+        </div>
+        
+        <!-- Tags -->
+        {{ if .Params.tags }}
+        <div class="flex flex-wrap gap-2">
+            {{ range .Params.tags }}
+            <a href="/tags/{{ . | urlize }}" 
+               class="px-3 py-1 bg-bg-muted text-text-muted hover:text-primary rounded-full text-xs transition-colors">
+                #{{ . }}
+            </a>
+            {{ end }}
+        </div>
+        {{ end }}
+        
+        <!-- Featured image -->
+        {{ if .Params.image }}
+        {{ $img := "" }}
+        {{ with .Resources.GetMatch .Params.image }}
+            {{ $img = . }}
+        {{ else }}
+            {{ with resources.Get .Params.image }}
+                {{ $img = . }}
+            {{ end }}
+        {{ end }}
+        
+        {{ if $img }}
+            {{ $jpg800 := $img.Resize "800x jpg q80" }}
+            {{ $jpg1600 := $img.Resize "1600x jpg q80" }}
+            {{ $webp800 := $img.Resize "800x webp q85" }}
+            {{ $webp1600 := $img.Resize "1600x webp q85" }}
+            
+            <figure class="rounded-2xl overflow-hidden bg-bg-subtle">
+                <picture>
+                    <source 
+                        srcset="{{ $webp800.RelPermalink }} 800w, {{ $webp1600.RelPermalink }} 1600w"
+                        sizes="(max-width: 768px) 100vw, 800px"
+                        type="image/webp" />
+                    <source 
+                        srcset="{{ $jpg800.RelPermalink }} 800w, {{ $jpg1600.RelPermalink }} 1600w"
+                        sizes="(max-width: 768px) 100vw, 800px"
+                        type="image/jpeg" />
+                    <img 
+                        src="{{ $jpg1600.RelPermalink }}" 
+                        alt="{{ .Title }}" 
+                        class="w-full h-auto"
+                        loading="eager" />
+                </picture>
+                {{ if .Params.imageCaption }}
+                <figcaption class="px-4 py-2 text-sm text-text-muted italic">
+                    {{ .Params.imageCaption }}
+                </figcaption>
+                {{ end }}
+            </figure>
+        {{ end }}
+        {{ end }}
+    </header>
+    
+    <!-- Content -->
+    <div class="prose prose-lg 
+                prose-headings:text-text-base prose-headings:font-semibold
+                prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6
+                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+                prose-p:text-text-base prose-p:leading-relaxed prose-p:mb-6
+                prose-a:text-primary prose-a:no-underline prose-a:hover:underline prose-a:transition-colors prose-a:selection:text-text-base
+                prose-strong:text-text-base prose-strong:font-semibold
+                prose-em:text-text-muted prose-em:italic
+                prose-code:text-primary prose-code:bg-bg-subtle prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+                prose-pre:bg-bg-subtle prose-pre:border prose-pre:border-border prose-pre:rounded-xl prose-pre:p-4
+                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-text-muted
+                prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-6
+                prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-6
+                prose-li:text-text-base prose-li:mb-2
+                prose-img:rounded-xl prose-img:shadow-lg
+                prose-hr:border-border prose-hr:my-12
+                max-w-none">
+        {{ .Content }}
+    </div>
+    
+    <!-- Footer -->
+    <footer class="mt-16 pt-8 border-t border-border space-y-8">
+        <!-- Author bio -->
+        {{ if .Params.author }}
+        <div class="flex gap-4 items-start p-6 bg-bg-subtle rounded-2xl">
+            {{ if .Site.Params.authorImage }}
+            <img src="{{ .Site.Params.authorImage }}" 
+                 alt="{{ .Params.author }}" 
+                 class="w-16 h-16 rounded-full" />
+            {{ end }}
+            <div class="flex-1">
+                <h3 class="font-semibold text-text-base mb-2">About {{ .Params.author }}</h3>
+                <p class="text-sm text-text-muted">{{ .Site.Params.authorBio }}</p>
+            </div>
+        </div>
+        {{ end }}
+        
+        <!-- Navigation -->
+        <nav class="flex justify-between items-center text-sm">
+            {{ with .PrevInSection }}
+            <a href="{{ .RelPermalink }}" 
+               class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors group">
+                {{ partial "svg/arrow-left.html" (dict "size" "size-4") }}
+                <span class="group-hover:underline">{{ .Title }}</span>
+            </a>
+            {{ else }}
+            <span></span>
+            {{ end }}
+            
+            {{ with .NextInSection }}
+            <a href="{{ .RelPermalink }}" 
+               class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors group">
+                <span class="group-hover:underline">{{ .Title }}</span>
+                {{ partial "svg/arrow-right.html" (dict "size" "size-4") }}
+            </a>
+            {{ end }}
+        </nav>
+        
+        <!-- Back to blog -->
+        <div class="text-center">
+            <a href="/posts" 
+               class="inline-flex items-center gap-2 px-6 py-3 bg-bg-muted hover:bg-primary hover:text-white rounded-full transition-colors">
+                {{ partial "svg/arrow-left.html" (dict "size" "size-4") }}
+                Back to all posts
+            </a>
+        </div>
+    </footer>
+</article>
 {{ end }}

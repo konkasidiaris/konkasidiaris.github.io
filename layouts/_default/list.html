@@ -1,3 +1,26 @@
 {{ define "main" }}
+<div class="flex flex-col gap-8 items-center justify-start w-full max-w-4xl mx-auto py-4">
+    <section class="w-full text-center space-y-4 py-4">
+        <h1 class="text-4xl md:text-5xl font-bold text-text-base">{{ .Title }}</h1>
+        {{ if .Params.Paragraph }}
+        <p class="text-lg text-text-muted max-w-2xl mx-auto">{{ .Params.Paragraph }}</p>
+        {{ end }}
+    </section>
 
+    <section class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+        {{ range .Pages }}
+        {{ partial "card.html" ( dict
+                "component" "article"
+                "image" .Params.image
+                "class" "aspect-square"
+                "context" .
+                "title" .Title
+                "description" .Summary
+                "link" .RelPermalink
+                "tags" .Params.tags
+                "ctaText" "Read more"
+            ) }}
+        {{ end }}
+    </section>
+</div>
 {{ end }}
