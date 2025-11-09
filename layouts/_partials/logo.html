@@ -1,0 +1,13 @@
+{{ $src := "images/logo.png" }}
+{{ $logo := resources.Get $src }}
+{{ if $logo }}
+    {{ $logoWebp := $logo.Resize "80x80 webp" }}
+    {{ $logoJpg := $logo.Resize "80x80 jpg" }}
+    <picture>
+        <source srcset="{{ $logoWebp.RelPermalink }}" type="image/webp">
+        <source srcset="{{ $logoJpg.RelPermalink }}" type="image/jpeg">
+        <img src="{{ $logoJpg.RelPermalink }}" class="size-20" alt="Konstantinos Kasidiaris" width="80" height="80" />
+    </picture>
+{{ else }}
+    <img src="{{ $src }}" class="size-20" alt="Konstantinos Kasidiaris" width="80" height="80" />
+{{ end }}
