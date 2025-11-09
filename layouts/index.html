@@ -39,7 +39,8 @@
         {{ partial "card.html" (dict 
             "component" "li"
             "class" "col-start-5 col-span-2 row-start-1 row-span-3"
-            "image" "/toolbox-open-grey.jpg"
+            "context" .
+            "image" "toolbox-open-grey.jpg"
             "title" "My toolbox"
             "description" "I carefully selected each tool in my stack to build solutions efficiently."
             "link" "/posts/toolbox"
@@ -59,7 +60,8 @@
         {{ partial "card.html" (dict
             "component" "li"
             "class" "col-start-1 col-span-2 row-start-4 row-span-3"
-            "image" "/mac-minimal-office.jpg"
+            "image" "mac-minimal-office.jpg"
+            "context" .
             "title" "Projects"
             "description" "Big or small, things that I've accomplished."
             "link" "/projects"
@@ -68,7 +70,8 @@
         {{ partial "card.html" (dict
             "component" "li"
             "class" "col-start-3 col-span-4 row-start-4 row-span-3"
-            "image" "/open-books.jpg"
+            "image" "open-books.jpg"
+            "context" .
             "title" "Blog"
             "description" "I write about things that either excite me or have given me a hard time in the past."
             "link" "/posts"

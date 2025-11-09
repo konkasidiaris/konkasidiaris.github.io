@@ -12,8 +12,12 @@
     <a href="{{ .link }}" class="absolute inset-0 md:hidden z-20" aria-label="{{ .ctaText }}"></a>
     
     {{ if $hasImage }}
+        {{ if not .context }}
+            {{ errorf "card.html: image '%s' provided but 'context' parameter is missing. Pass the page context with (dict \"context\" . ...)" .image }}
+        {{ end }}
+
         {{ $img := "" }}
-        {{ $pageContext := .context | default . }}
+        {{ $pageContext := .context }}
         
         {{/* Try to get image from page bundle first (collocated model) */}}
         {{ with $pageContext.Resources.GetMatch .image }}
