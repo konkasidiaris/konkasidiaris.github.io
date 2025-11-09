@@ -16,27 +16,32 @@ function toggleDarkMode() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", (_e) => {
-    (function () {
-        const savedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const button = document.getElementById("dark-mode-toggle");
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const button = document.getElementById("dark-mode-toggle");
 
-        const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
 
-        if (theme === 'dark') {
-            document.documentElement.style.colorScheme = 'dark';
-            button.classList.add("dark");
-            button.setAttribute("aria-label", "Enable light mode");
-        } else {
-            document.documentElement.style.colorScheme = 'light';
-            button.setAttribute("aria-label", "Enable dark mode");
-        }
-    })();
+    if (theme === 'dark') {
+        document.documentElement.style.colorScheme = 'dark';
+        button.classList.add("dark");
+        button.setAttribute("aria-label", "Enable light mode");
+    } else {
+        document.documentElement.style.colorScheme = 'light';
+        button.setAttribute("aria-label", "Enable dark mode");
+    }
 
+    document.getElementById("dark-mode-toggle").addEventListener("click", toggleDarkMode);
+}
+
+function initializeHamburgerMenu() {
     document.getElementById("hamburger").addEventListener("click", (e) => {
         e.currentTarget.classList.toggle("open");
     });
+}
 
-    document.getElementById("dark-mode-toggle").addEventListener("click", toggleDarkMode);
+document.addEventListener("DOMContentLoaded", (_e) => {
+    initializeTheme();
+    initializeHamburgerMenu();
 });
