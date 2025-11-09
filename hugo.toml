@@ -105,3 +105,9 @@ disableHugoGeneratorInject = true
 [outputs]
   home = ['HTML', 'RSS']
   section = ['HTML', 'RSS']
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false

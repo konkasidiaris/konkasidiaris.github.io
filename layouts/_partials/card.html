@@ -65,7 +65,7 @@
         {{ if .tags }}
             <ul class="flex flex-row gap-2 text-xs">
                 {{ range .tags }}
-                    <li><a href="/tags/{{ . }}" class="inline-flex gap-1 text-white/50 hover:text-primary">{{ partial "svg/tag.html" (dict "class" "size-4") }}{{ . }}</a></li>
+                    <li><a href="/tags/{{ . | urlize }}" class="inline-flex gap-1 text-white/50 hover:text-primary">{{ partial "svg/tag.html" (dict "class" "size-4") }}{{ . }}</a></li>
                 {{ end }}
             </ul>
         {{ end }}
