@@ -29,6 +29,11 @@ build HTML, CSS, and JS. It also optimizes images, which by itself is a huge win
 relieves the pain of creating a whole design system, because as a proper framework,
 it handles typography and class naming conventions. In other words, it saves you time.
 
+### JetBrains Mono
+
+[JetBrains Mono](https://www.jetbrains.com/lp/mono/) is an amazing, reading friendly font,
+that I use almost anywhere.
+
 ### Heroicons
 
 [Heroicons](https://heroicons.com/) is a collection of SVGs by the makers of *Tailwind*.

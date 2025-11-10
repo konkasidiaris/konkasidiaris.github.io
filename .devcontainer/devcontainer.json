@@ -13,7 +13,7 @@
         "html.format.templating": true
       },
       "extensions": [
-		    "bradlc.vscode-tailwindcss",
+        "bradlc.vscode-tailwindcss",
         "budparr.language-hugo-vscode",
         "davidanson.vscode-markdownlint",
         "tamasfe.even-better-toml"
