@@ -1,0 +1,51 @@
+{{- $siteTitle := .Site.Title -}}
+{{- $baseURL := .Site.BaseURL -}}
+{{- $description := .Site.Params.description -}}
+{{- $languageCode := .Site.LanguageCode -}}
+{{- $authorName := .Site.Params.author -}}
+{{- $logo := .Site.Params.logo -}}
+
+{{- if not $siteTitle -}}
+  {{- errorf "WebSite schema: .Site.Title is required" -}}
+{{- end -}}
+{{- if not $baseURL -}}
+  {{- errorf "WebSite schema: .Site.BaseURL is required" -}}
+{{- end -}}
+{{- if not $description -}}
+  {{- errorf "WebSite schema: .Site.Params.description is required" -}}
+{{- end -}}
+{{- if not $languageCode -}}
+  {{- errorf "WebSite schema: .Site.LanguageCode is required" -}}
+{{- end -}}
+{{- if not $authorName -}}
+  {{- errorf "WebSite schema: .Site.Params.author is required" -}}
+{{- end -}}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ $siteTitle }}",
+  "url": "{{ $baseURL }}",
+  "description": "{{ $description }}",
+  "inLanguage": "{{ $languageCode }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ $authorName }}",
+    "url": "{{ $baseURL }}",
+    "sameAs": [
+      "https://github.com/konkasidiaris",
+      "https://www.linkedin.com/in/konstantinos-kasidiaris/",
+      "https://x.com/konkasidiaris"
+    ]
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "{{ $authorName }}"
+  }
+  {{- with $logo -}}
+  ,
+  "image": "{{ . | absURL }}"
+  {{- end }}
+}
+</script>

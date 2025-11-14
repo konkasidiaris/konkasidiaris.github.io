@@ -1,0 +1,93 @@
+{{- if not .IsPage -}}
+  {{- errorf "BlogPosting schema: can only be used on single pages, not %s" .Kind -}}
+{{- end -}}
+
+{{- $title := .Title -}}
+{{- $summary := .Summary -}}
+{{- $permalink := .Permalink -}}
+{{- $publishDate := .PublishDate -}}
+{{- $wordCount := .WordCount -}}
+{{- $readingTime := .ReadingTime -}}
+{{- $author := .Site.Params.author -}}
+{{- $authorDescription := .Site.Params.authorDescription -}}
+{{- $logo := .Site.Params.logo -}}
+{{- $languageCode := .Site.LanguageCode -}}
+
+{{- if not $title -}}
+  {{- errorf "BlogPosting schema (%s): .Title is required" .File.Path -}}
+{{- end -}}
+{{- if not $summary -}}
+  {{- errorf "BlogPosting schema (%s): .Summary is required (add 'summary' to frontmatter)" .File.Path -}}
+{{- end -}}
+{{- if not $author -}}
+  {{- errorf "BlogPosting schema (%s): .Site.Params.author is required" .File.Path -}}
+{{- end -}}
+{{- if not $languageCode -}}
+  {{- errorf "BlogPosting schema (%s): .Site.LanguageCode is required" .File.Path -}}
+{{- end -}}
+
+{{- /* Find featured image: check frontmatter images, then page resources */ -}}
+{{- $image := "" -}}
+{{- with .Params.images -}}
+  {{- $image = index . 0 | absURL -}}
+{{- else -}}
+  {{- $images := .Resources.ByType "image" -}}
+  {{- with $images -}}
+    {{- $image = (index . 0).Permalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if not $image -}}
+  {{- warnf "BlogPosting schema (%s): no image found (add image to page bundle or 'images' in frontmatter)" .File.Path -}}
+{{- end -}}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ $title }}",
+  "description": "{{ $summary }}",
+  "url": "{{ $permalink }}",
+  "datePublished": "{{ $publishDate.Format "2006-01-02T15:04:05Z07:00" }}",
+  {{- with .Lastmod }}
+  "dateModified": "{{ .Format "2006-01-02T15:04:05Z07:00" }}",
+  {{- end }}
+  "author": {
+    "@type": "Person",
+    "name": "{{ $author }}"
+    {{- with $authorDescription -}}
+    ,
+    "description": "{{ . }}"
+    {{- end -}}
+    {{- with $.Site.BaseURL -}}
+    ,
+    "url": "{{ . }}"
+    {{- end }}
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ $author }}"
+    {{- with $logo -}}
+    ,
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ . | absURL }}"
+    }
+    {{- end }}
+  },
+  {{- with $image }}
+  "image": "{{ . }}",
+  {{- end }}
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ $permalink }}"
+  },
+  "wordCount": {{ $wordCount }},
+  "timeRequired": "PT{{ $readingTime }}M",
+  "inLanguage": "{{ $languageCode }}"
+  {{- with .Params.tags -}}
+  ,
+  "keywords": {{ . | jsonify }}
+  {{- end }}
+}
+</script>

@@ -1,0 +1,38 @@
+{{- $authorName := .Site.Params.author -}}
+{{- $baseURL := .Site.BaseURL -}}
+{{- $authorDescription := .Site.Params.authorDescription -}}
+{{- $logo := .Site.Params.logo -}}
+
+{{- if not $authorName -}}
+  {{- errorf "Person schema: .Site.Params.author is required" -}}
+{{- end -}}
+{{- if not $baseURL -}}
+  {{- errorf "Person schema: .Site.BaseURL is required" -}}
+{{- end -}}
+{{- if not $authorDescription -}}
+  {{- errorf "Person schema: .Site.Params.authorDescription is required" -}}
+{{- end -}}
+
+{{- /* Allow override via page params for person-specific pages */ -}}
+{{- $jobTitle := .Params.jobTitle | default "Software Developer" -}}
+{{- $knowsAbout := .Params.knowsAbout | default (slice "Platform Engineering" "DevOps" "Infrastructure as Code" "Automation" "Software Development") -}}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ $authorName }}",
+  "url": "{{ $baseURL }}",
+  "description": "{{ $authorDescription }}",
+  {{- with $logo }}
+  "image": "{{ . | absURL }}",
+  {{- end }}
+  "sameAs": [
+    "https://github.com/konkasidiaris",
+    "https://www.linkedin.com/in/konstantinos-kasidiaris/",
+    "https://x.com/konkasidiaris"
+  ],
+  "jobTitle": "{{ $jobTitle }}",
+  "knowsAbout": {{ $knowsAbout | jsonify }}
+}
+</script>

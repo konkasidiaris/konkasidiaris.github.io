@@ -1,0 +1,43 @@
+{{- if .IsHome -}}
+  {{- errorf "BreadcrumbList schema: cannot be used on homepage" -}}
+{{- end -}}
+
+{{- $baseURL := .Site.BaseURL -}}
+{{- if not $baseURL -}}
+  {{- errorf "BreadcrumbList schema: .Site.BaseURL is required" -}}
+{{- end -}}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ $baseURL }}"
+    }
+    {{- $position := 2 -}}
+    {{- range .Ancestors.Reverse -}}
+    ,
+    {
+      "@type": "ListItem",
+      "position": {{ $position }},
+      "name": "{{ .LinkTitle }}",
+      "item": "{{ .Permalink }}"
+    }
+    {{- $position = add $position 1 -}}
+    {{- end -}}
+    {{- if not .IsSection -}}
+    ,
+    {
+      "@type": "ListItem",
+      "position": {{ $position }},
+      "name": "{{ .LinkTitle }}",
+      "item": "{{ .Permalink }}"
+    }
+    {{- end }}
+  ]
+}
+</script>
