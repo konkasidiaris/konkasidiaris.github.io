@@ -99,27 +99,7 @@
                 </div>
             </nav>
             
-            <!-- Content -->
-            <div class="prose prose-lg 
-                        prose-headings:text-text-base prose-headings:font-semibold
-                        prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6
-                        prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-                        prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                        prose-p:text-text-base prose-p:leading-relaxed prose-p:mb-6
-                        prose-a:text-primary prose-a:no-underline prose-a:hover:underline prose-a:transition-colors
-                        prose-strong:text-text-base prose-strong:font-semibold
-                        prose-em:text-text-muted prose-em:italic
-                        prose-code:text-primary prose-code:bg-bg-subtle prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-                        prose-pre:bg-bg-subtle prose-pre:border prose-pre:border-border prose-pre:rounded-xl prose-pre:p-4
-                        prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-text-muted
-                        prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-6
-                        prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-6
-                        prose-li:text-text-base prose-li:mb-2
-                        prose-img:rounded-xl prose-img:shadow-lg
-                        prose-hr:border-border prose-hr:my-12
-                        max-w-none">
-                {{ .Content }}
-            </div>
+            {{ partial "prose.html" .Content }}
             
             <!-- Footer -->
             <footer class="mt-16 pt-8 border-t border-border space-y-8">
