@@ -1,7 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content={{ .Description | default site.Params.description }}>
-<link rel="preload" href="/fonts/JetBrainsMono-SemiBold-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/fonts/JetBrainsMono-SemiBold-subset.woff2" as="font" type="font/woff2"
+    crossorigin="anonymous">
 <link rel="preload" href="/fonts/JetBrainsMono-Medium-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="/fonts/JetBrainsMono-Italic-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
@@ -65,12 +66,15 @@
 
 <!-- css should be loaded before js -->
 {{ partialCached "head/css.html" . }}
-
-{{/*  <link rel="preload" href="/fonts/CavafyScript-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="/fonts/Gentium-Regular-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="/fonts/Gentium-ExtraBold-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="/fonts/Gentium-SemiBold-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">  */}}
-
 {{ partialCached "head/js.html" . }}
-{{/*  {{ $pagefind := resources.Get "js/pagefind.js" | resources.Minify | resources.Fingerprint }}
-<script src="{{ $pagefind.RelPermalink }}" defer></script> */}}
+
+{{ if .IsHome }}
+  {{ partial "structured-data/website.html" . }}
+  {{ partial "structured-data/person.html" . }}
+{{ else if .IsPage }}
+  {{ partial "structured-data/webpage.html" . }}
+  {{ partial "structured-data/breadcrumbs.html" . }}
+{{ else if .IsSection }}
+  {{ partial "structured-data/itemlist.html" . }}
+  {{ partial "structured-data/breadcrumbs.html" . }}
+{{ end }}

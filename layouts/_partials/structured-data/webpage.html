@@ -1,0 +1,45 @@
+{{- $title := .Title -}}
+{{- $description := .Summary | default .Description | default .Site.Params.description -}}
+{{- $permalink := .Permalink -}}
+{{- $publishDate := .PublishDate -}}
+{{- $languageCode := .Site.LanguageCode -}}
+{{- $author := .Site.Params.author -}}
+
+{{- if not $title -}}
+  {{- errorf "WebPage schema (%s): .Title is required" .File.Path -}}
+{{- end -}}
+{{- if not $description -}}
+  {{- warnf "WebPage schema (%s): no description found (add 'description' or 'summary' to frontmatter)" .File.Path -}}
+{{- end -}}
+{{- if not $languageCode -}}
+  {{- errorf "WebPage schema (%s): .Site.LanguageCode is required" .File.Path -}}
+{{- end -}}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ $title }}",
+  {{- with $description }}
+  "description": "{{ . }}",
+  {{- end }}
+  "url": "{{ $permalink }}",
+  "inLanguage": "{{ $languageCode }}",
+  {{- with $publishDate }}
+  "datePublished": "{{ .Format "2006-01-02T15:04:05Z07:00" }}",
+  {{- end }}
+  {{- with .Lastmod }}
+  "dateModified": "{{ .Format "2006-01-02T15:04:05Z07:00" }}",
+  {{- end }}
+  {{- with $author }}
+  "author": {
+    "@type": "Person",
+    "name": "{{ . }}"
+  },
+  {{- end }}
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "{{ .Site.BaseURL }}"
+  }
+}
+</script>

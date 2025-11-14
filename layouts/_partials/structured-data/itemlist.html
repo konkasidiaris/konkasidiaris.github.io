@@ -1,0 +1,38 @@
+{{- if not .IsSection -}}
+  {{- errorf "ItemList schema: can only be used on section pages, not %s" .Kind -}}
+{{- end -}}
+
+{{- $title := .Title -}}
+{{- $permalink := .Permalink -}}
+{{- $description := .Summary | default .Site.Params.description -}}
+{{- $pages := where .Site.RegularPages "Section" .Section -}}
+
+{{- if not $title -}}
+  {{- errorf "ItemList schema (%s): .Title is required" .File.Path -}}
+{{- end -}}
+{{- if not $description -}}
+  {{- warnf "ItemList schema (%s): no description found (add 'summary' to frontmatter or ensure .Site.Params.description exists)" .File.Path -}}
+{{- end -}}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "{{ $title }}",
+  {{- with $description }}
+  "description": "{{ . }}",
+  {{- end }}
+  "url": "{{ $permalink }}",
+  "numberOfItems": {{ len $pages }},
+  "itemListElement": [
+    {{- range $index, $post := $pages -}}
+    {
+      "@type": "ListItem",
+      "position": {{ add $index 1 }},
+      "url": "{{ $post.Permalink }}",
+      "name": "{{ $post.Title }}"
+    }{{ if not (eq (add $index 1) (len $pages)) }},{{ end }}
+    {{- end }}
+  ]
+}
+</script>

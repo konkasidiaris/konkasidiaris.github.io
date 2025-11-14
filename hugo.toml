@@ -14,8 +14,10 @@ disableHugoGeneratorInject = true
   tag = "tags"
 
 [params]
+  author = "Konstantinos Kasidiaris"
+  authorDescription = "Building scalable infrastructure, automating everything, and sharing engineering insights."
   logo = "/images/logo.jpg"
-  description = 'Building scalable infrastructure, automating everything, and sharing platform engineering insights'
+  description = 'Building scalable infrastructure, automating everything, and sharing engineering insights'
   telegram = "https://t.me/konkasidiaris"
   signal = "https://signal.me/#eu/MqrjhFzfVmRnsKGnW63FwZ4IP7JAdQJ0WSpOjqkdrT_FLVm6eLtM445kYTGScL1t"
 
