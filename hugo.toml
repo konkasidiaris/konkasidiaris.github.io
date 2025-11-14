@@ -6,6 +6,7 @@ enableRobotsTXT = true
 buildFuture = true
 hrefTargetBlank = true
 disableHugoGeneratorInject = true
+enableGitInfo = true # use .lastmod
 
 [frontmatter]
   date = ['publishDate']

@@ -1,0 +1,60 @@
+{{ define "main" }}
+<div class="w-full py-8 px-4 max-w-5xl mx-auto">
+    <article class="w-full mx-auto">
+        <header class="mb-12 flex flex-col gap-6 items-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-text-base leading-tight">
+                {{ .Title }}
+            </h1>
+
+            <div class="flex flex-wrap gap-4 text-sm text-text-muted">
+                <time datetime="{{ .Params.Date.Format "2006-01-02" }}" class="flex items-center gap-2">
+                    {{ partial "svg/calendar.html" (dict "class" "size-4") }}
+                    Last Updated: {{ .Params.Lastmod.Format "January 2, 2006" }}
+                </time>
+
+                {{ if .Params.readingTime }}
+                <span class="flex items-center gap-2">
+                    {{ partial "svg/clock.html" (dict "class" "size-4") }}
+                    {{ .ReadingTime }} min read
+                </span>
+                {{ end }}
+            </div>
+
+            {{ if .Params.image }}
+            {{ $img := "" }}
+            {{ with .Resources.GetMatch .Params.image }}
+            {{ $img = . }}
+            {{ else }}
+            {{ with resources.Get .Params.image }}
+            {{ $img = . }}
+            {{ end }}
+            {{ end }}
+
+            {{ if $img }}
+            {{ $jpg800 := $img.Resize "800x jpg q80" }}
+            {{ $jpg1600 := $img.Resize "1600x jpg q80" }}
+            {{ $webp800 := $img.Resize "800x webp q85" }}
+            {{ $webp1600 := $img.Resize "1600x webp q85" }}
+
+            <figure class="rounded-2xl max-w-3xl overflow-hidden bg-bg-subtle w-full aspect-video">
+                <picture>
+                    <source srcset="{{ $webp800.RelPermalink }} 800w, {{ $webp1600.RelPermalink }} 1600w"
+                        sizes="(max-width: 768px) 100vw, 800px" type="image/webp" />
+                    <source srcset="{{ $jpg800.RelPermalink }} 800w, {{ $jpg1600.RelPermalink }} 1600w"
+                        sizes="(max-width: 768px) 100vw, 800px" type="image/jpeg" />
+                    <img src="{{ $jpg1600.RelPermalink }}" alt="{{ .Title }}" class="w-full h-auto" loading="eager" />
+                </picture>
+                {{ if .Params.imageCaption }}
+                <figcaption class="px-4 py-2 text-sm text-text-muted italic">
+                    {{ .Params.imageCaption }}
+                </figcaption>
+                {{ end }}
+            </figure>
+            {{ end }}
+            {{ end }}
+        </header>
+
+        {{ partial "prose.html" .Content }}
+    </article>
+</div>
+{{ end }}
