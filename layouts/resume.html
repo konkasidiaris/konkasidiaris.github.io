@@ -1,0 +1,130 @@
+{{ define "main" }}
+<div class="py-12 px-4 sm:px-6 lg:px-8">
+    {{ $resume := .Site.Data.resume }}
+    
+    <!-- Header -->
+    <header class="mb-12 pb-8 border-b-2 border-border">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-2">
+        {{ $resume.first_name }} {{ $resume.last_name }}
+      </h1>
+      <p class="text-lg text-text-muted mb-6">{{ $resume.summary }}</p>
+      
+      <!-- Contact Info -->
+      <div class="flex flex-wrap gap-4 text-sm">
+        {{ with $resume.contact_info.email }}
+        <a href="mailto:{{ . }}" class="text-primary hover:underline">{{ . }}</a>
+        {{ end }}
+        {{ with $resume.contact_info.github }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">GitHub</a>
+        {{ end }}
+        {{ with $resume.contact_info.linkedin }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">LinkedIn</a>
+        {{ end }}
+        {{ with $resume.contact_info.x }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">X</a>
+        {{ end }}
+        {{ with $resume.contact_info.website }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Website</a>
+        {{ end }}
+      </div>
+    </header>
+
+    <!-- Work Experience -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-primary">Work Experience</h2>
+      {{ range $resume.work_experience }}
+      <div class="mb-8 pb-8 border-b border-border last:border-b-0">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+          <div class="flex flex-row gap-2 items-baseline">
+            <h3 class="text-xl font-semibold">{{ .title }}</h3>
+            <p class="text-text-muted">{{ .company_name }} • {{ .company_sector }}</p>
+          </div>
+          <div class="flex flex-row gap-2 text-sm text-text-muted sm:text-right mt-1 sm:mt-0">
+            <p>{{ .location }}</p>
+            <p>{{ .from }} - {{ .to }}</p>
+          </div>
+        </div>
+        
+        {{ if .achievements }}
+        <ul class="list-disc list-inside space-y-1 mb-3 text-text-base">
+          {{ range .achievements }}
+          <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+        {{ end }}
+        
+        {{ if .stack }}
+        <div class="flex flex-wrap gap-2 mt-3">
+          {{ range .stack }}
+          <span class="px-2 py-1 text-xs bg-bg-muted text-text-base rounded">{{ . }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </section>
+
+    <!-- Education -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-primary">Education</h2>
+      {{ range $resume.education }}
+      <div class="mb-4">
+        <h3 class="text-xl font-semibold">{{ .field }}</h3>
+        <p class="text-text-muted">{{ .institute }} • {{ .location }} • {{ .class }}</p>
+      </div>
+      {{ end }}
+    </section>
+
+    <!-- Personal Projects -->
+    {{ if $resume.personal_projects }}
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-primary">Personal Projects</h2>
+      {{ range $resume.personal_projects }}
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold">{{ .name }}</h3>
+        <p class="text-text-muted mb-2">{{ .description }}</p>
+        {{ if .stack }}
+        <div class="flex flex-wrap gap-2">
+          {{ range .stack }}
+          <span class="px-2 py-1 text-xs bg-bg-muted text-text-base rounded">{{ . }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Public Talks -->
+    {{ if $resume.public_talks }}
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-primary">Public Talks</h2>
+      {{ range $resume.public_talks }}
+      <div class="mb-4">
+        <h3 class="text-xl font-semibold">{{ .talk_name }}</h3>
+        <p class="text-text-muted">{{ .event_name }} • {{ .date }}</p>
+        <p class="text-text-base mt-1">{{ .description }}</p>
+        {{ if .link }}
+        <a href="{{ .link }}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline text-sm flex flex-row gap-2">View Event {{ partial "svg/arrow-up-right.html" (dict "class" "size-4") }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Languages -->
+    {{ if $resume.languages }}
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-primary">Languages</h2>
+      <div class="space-y-2">
+        {{ range $resume.languages }}
+        <div>
+          <span class="font-semibold">{{ .name }}</span>
+          <span class="text-text-muted"> - {{ .comment }}</span>
+        </div>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+</div>
+{{ end }}
