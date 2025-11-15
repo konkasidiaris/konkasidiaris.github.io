@@ -1,0 +1,217 @@
+{
+    "first_name": "Konstantinos",
+    "last_name": "Kasidiaris",
+    "summary": "Proactive engineer who prefers building infrastructure rather than fighting fires. Enjoys Everything as Code (EaC) and automates processes, empowering teams to deliver value faster with minimal friction.",
+    "contact_info": {
+        "email": "kkasidiaris@gmail.com",
+        "github": "https://github.com/konkasidiaris",
+        "x": "https://x.com/konkasidiaris",
+        "linkedin": "https://www.linkedin.com/in/konstantinos-kasidiaris/",
+        "website": "https://konkasidiaris.com/"
+    },
+    "work_experience": [
+        {
+            "title": "Software Engineer",
+            "location": "Remote",
+            "company_name": "Freelancer",
+            "company_sector": "Custom Software Solutions",
+            "from": "09.2024",
+            "to": "present",
+            "achievements": [
+                "Developed ergolabos.gr, a construction materials marketplace.",
+                "Developed xot.gr, a static website for a local nonprofit organization."
+            ],
+            "stack": [
+                "Elixir",
+                "Phoenix",
+                "LiveView",
+                "Tailwind",
+                "PostgreSQL",
+                "Render",
+                "Hugo",
+                "Docker",
+                "Devcontainers",
+                "GitHub Actions",
+                "FFmpeg",
+                "Copilot",
+                "Cloudflare"
+            ]
+        },
+        {
+            "title": "Software Engineer",
+            "company_name": "Blueground",
+            "company_sector": "PropTech",
+            "location": "Remote",
+            "from": "11.2021",
+            "to": "08.2024",
+            "achievements": [
+                "Worked primarily on the Backend for Frontend (BFF) service.",
+                "Optimized database queries and indexes leading to ~30% average reduction in P90 and ~50% average reduction in P99.",
+                "Implemented various code optimizations that increased website capacity from 90 rps to ~500 rps.",
+                "Took initiative to fix flaky integration test suites, improving reliability from a 70% failure rate to 99.9% test pass confidence.",
+                "Designed and implemented a robust inbox pattern, ensuring no messages were missed.",
+                "Assisted the platform team in creating playbooks for different alerts of the BFF app.",
+                "Created a Dashboard-as-Code solution in Datadog to help the business monitor various integration metrics.",
+                "Standardized logging practices across the service.",
+                "Migrated RabbitMQ integration to Kafka.",
+                "Integrated partners' systems into the platform.",
+                "Mirrored business pricing logic in the website for near-instant customer pricing results.",
+                "Implemented wishlists.",
+                "Served as the go-to person for upgrading runtimes and libraries."
+            ],
+            "stack": [
+                "Node.js",
+                "Express",
+                "Fastify",
+                "Vue",
+                "Jest",
+                "Bullmq",
+                "Docker",
+                "Testcontainers",
+                "Cypress",
+                "Datadog",
+                "Redis",
+                "MongoDB",
+                "Kafka",
+                "RabbitMQ",
+                "TypeScript",
+                "Git"
+            ]
+        },
+        {
+            "title": "Backend Software Developer",
+            "company_name": "Desquared",
+            "company_sector": "Software Agency",
+            "location": "Remote",
+            "from": "07.2020",
+            "to": "11.2021",
+            "achievements": [
+                "Worked mainly on the BOX food delivery application, responsible for creating and maintaining backend services. Contributed significantly to stabilizing the product.",
+                "Implemented SSE in the ordering system, resulting in a two-thirds reduction in required servers (from 3 Performance-L instances to 1), saving approximately $1,000 per month.",
+                "Implemented Node.js clustering, resulting in a $2,500 monthly reduction in operational costs while average weekly orders doubled.",
+                "Refactored BOX code to one-third of its original size (120k to 47k lines of code) and halved its volume (98.7 MB to 56.2 MB).",
+                "Optimized database queries and indexes, leading to an average ~55% reduction in P90 latency.",
+                "Onboarded and trained four backend engineers.",
+                "Standardized logging practices.",
+                "Introduced a deterministic test suite and a linter, improving code quality and consistency.",
+                "Served as the go-to person for upgrading runtimes and libraries."
+            ],
+            "stack": [
+                "Node.js",
+                "Express",
+                "MongoDB",
+                "Mongoose",
+                "Jest",
+                "Redis",
+                "Heroku",
+                "Git"
+            ]
+        },
+        {
+            "title": "Software Engineer",
+            "company_name": "Interamerican",
+            "company_sector": "InsurTech",
+            "location": "Athens, GR",
+            "from": "07.2018",
+            "to": "07.2020",
+            "achievements": [
+                "Developed portlets to improve insurance agents' daily workflows.",
+                "Led cross-team knowledge transfer on portlets, improving developer experience."
+            ],
+            "stack": [
+                "Java",
+                "Apache Wicket",
+                "Groovy",
+                "Spock",
+                "SVN",
+                "Gradle",
+                "DB2"
+            ]
+        },
+        {
+            "title": "Chemical Engineer",
+            "company_name": "C&A Stavros Kassidiaris S.A.",
+            "company_sector": "Shipbuilding Automations",
+            "location": "Piraeus, GR",
+            "from": "12.2016",
+            "to": "12.2017",
+            "achievements": [
+                "Monitored processes and ensured compliance with Greek, European, and IMO environmental regulations.",
+                "Played a leading role in the transition from ISO 9001:2008 to 9001:2015.",
+                "Designed new business cards and email signatures, leading to a more professional company profile."
+            ],
+            "stack": []
+        },
+        {
+            "title": "Chemical Engineer Intern",
+            "company_name": "Gaiatech",
+            "company_sector": "Wastewater Treatment",
+            "location": "Tripolis, GR",
+            "from": "06.2011",
+            "to": "08.2011",
+            "achievements": [
+                "Studied the wastewater treatment plants of Tripolis, Vytina, Astros, and Agioi Theodoroi (Korinthia)."
+            ],
+            "stack": []
+        }
+    ],
+    "education": [
+        {
+            "institute": "AFDEmp - Peoplecert",
+            "field": "Full Stack Java Developer",
+            "location": "Athens, GR",
+            "class": "2018"
+        },
+        {
+            "institute": "University of Patras",
+            "field": "Chemical Engineer (BEng-MEng)",
+            "location": "Patras, GR",
+            "class": "2018"
+        }
+    ],
+    "personal_projects": [
+        {
+            "name": "ergolabos",
+            "description": "Construction materials marketplace.",
+            "link": "",
+            "stack": [
+                "Elixir",
+                "Phoenix",
+                "LiveView",
+                "Tailwind",
+                "PostgreSQL",
+                "Docker"
+            ]
+        },
+        {
+            "name": "pestimate",
+            "description": "Showcase of company products on Android and iOS.",
+            "link": "",
+            "stack": [
+                "Angular",
+                "Apache Cordova",
+                "Spring Boot",
+                "PostgreSQL"
+            ]
+        }
+    ],
+    "public_talks": [
+        {
+            "talk_name": "Engineers Anonymous: Similar stack, different outcomes",
+            "description": "A philosophical reflection of what ultimately makes handling a difficult situation effective.",
+            "event_name": "DevOops Athens",
+            "date": "2024-12-19",
+            "link": "https://www.meetup.com/devoops-athens/events/304997193/"
+        }
+    ],
+    "languages": [
+        {
+            "name": "Greek",
+            "comment": "Native proficiency"
+        },
+        {
+            "name": "English",
+            "comment": "C2 (Full professional proficiency)"
+        }
+    ]
+}
