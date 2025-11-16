@@ -1,11 +1,14 @@
 ---
-date: '{{ .Date }}'
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
 draft: true
-title: '{{ replace .File.ContentBaseName "-" " " | title }}'
-slug: '{{ title }}' 
-tags: ["untagged"]
-image: "" # Featured image path
-description: "" # A brief summary for SEO and list pages
+slug: {{ .Name }}
+image: 
+imageCaption: 
+readingTime: true
+summary: 
+tags: []
+credits:
+    - text: 
+      url: 
 ---
-
-
