@@ -112,5 +112,5 @@ enableGitInfo = true # use .lastmod
 [markup]
   [markup.tableOfContents]
     startLevel = 2
-    endLevel = 4
+    endLevel = 3
     ordered = false
