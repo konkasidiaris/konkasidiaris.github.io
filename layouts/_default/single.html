@@ -5,7 +5,7 @@
         <aside class="hidden 2xl:block fixed right-28 3xl:right-36 w-56 top-32 max-h-[calc(100vh-10rem)] bg-bg-muted/20 rounded-2xl p-6">
             <nav class="sticky top-24 space-y-4">
                 <h2 class="text-sm font-semibold text-text-base uppercase tracking-wide">Table of Contents</h2>
-                <div id="toc-desktop" class="space-y-2 text-sm">
+                <div class="space-y-2 text-sm">
                     {{ .TableOfContents }}
                 </div>
             </nav>
@@ -94,7 +94,7 @@
             <!-- Table of Contents - Mobile -->
             <nav class="2xl:hidden mb-8 p-6 bg-bg-subtle rounded-2xl">
                 <h2 class="text-sm font-semibold text-text-base uppercase tracking-wide mb-4">Table of Contents</h2>
-                <div id="toc-mobile" class="space-y-2 text-sm">
+                <div class="space-y-2 text-sm">
                     {{ .TableOfContents }}
                 </div>
             </nav>
@@ -147,14 +147,16 @@
                     {{ $item := "" }}
                     {{ if eq .Section "posts" }}
                       {{ $item = "posts" }}
-                    {{ else }}
+                    {{ else if eq .Section "projects" }}
                       {{ $item = "projects" }}
                     {{ end }}
+                    {{ if ne $item "" }}
                     <a href="/{{ $item }}" 
                        class="inline-flex items-center gap-2 px-6 py-3 bg-bg-muted hover:bg-primary hover:text-white rounded-full transition-colors">
                         {{ partial "svg/arrow-left.html" (dict "class" "size-4") }}
                         Back to all {{ $item }}
                     </a>
+                    {{ end }}
                 </div>
             </footer>
         </article>
@@ -162,36 +164,35 @@
 </div>
 
 <style>
-    /* Style the TOC */
-    #toc-desktop nav, #toc-mobile nav {
+    #TableOfContents nav {
         padding-left: 0;
     }
     
-    #toc-desktop ul, #toc-mobile ul {
+    #TableOfContents ul {
         list-style: none;
         padding-left: 0;
         margin: 0;
     }
     
-    #toc-desktop ul ul, #toc-mobile ul ul {
+    #TableOfContents ul ul {
         padding-left: 1rem;
         margin-bottom: 1rem;
     }
     
-    #toc-desktop a, #toc-mobile a {
-        color: rgb(var(--text-muted));
+    #TableOfContents a {
+        color: var(--color-text-muted);
         text-decoration: none;
         transition: color 0.2s;
         display: block;
         padding: 0;
     }
     
-    #toc-desktop a:hover, #toc-mobile a:hover {
-        color: rgb(var(--primary));
+    #TableOfContents a:hover {
+        color: var(--color-primary);
     }
     
-    #toc-desktop a.active, #toc-mobile a.active {
-        color: rgb(var(--primary));
+    #TableOfContents a.active {
+        color: var(--color-primary);
         font-weight: 600;
     }
 </style>
