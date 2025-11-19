@@ -144,10 +144,16 @@
                 
                 <!-- Back to blog -->
                 <div class="text-center">
-                    <a href="/posts" 
+                    {{ $item := "" }}
+                    {{ if eq .Section "posts" }}
+                      {{ $item = "posts" }}
+                    {{ else }}
+                      {{ $item = "projects" }}
+                    {{ end }}
+                    <a href="/{{ $item }}" 
                        class="inline-flex items-center gap-2 px-6 py-3 bg-bg-muted hover:bg-primary hover:text-white rounded-full transition-colors">
                         {{ partial "svg/arrow-left.html" (dict "class" "size-4") }}
-                        Back to all posts
+                        Back to all {{ $item }}
                     </a>
                 </div>
             </footer>
