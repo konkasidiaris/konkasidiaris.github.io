@@ -1,0 +1,64 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $caption := .Get "caption" | default "" -}}
+{{- $class := .Get "class" | default "" -}}
+{{- $width := .Get "width" | default "800" -}}
+{{- $height := .Get "height" | default "" -}}
+{{- $mobileWidth := .Get "mobileWidth" | default "400" -}}
+
+{{- with .Page.Resources.GetMatch $src -}}
+  {{- $image := . -}}
+  
+  {{- /* Desktop versions */ -}}
+  {{- $desktop := $image -}}
+  {{- if $height -}}
+    {{- $desktop = $desktop.Fill (printf "%sx%s q80" $width $height) -}}
+  {{- else -}}
+    {{- $desktop = $desktop.Resize (printf "%sx q80" $width) -}}
+  {{- end -}}
+  {{- $desktopWebp := $desktop.Process "webp q80" -}}
+  
+  {{- /* Mobile versions */ -}}
+  {{- $mobile := $image -}}
+  {{- if $height -}}
+    {{- $mobileHeight := div (mul (int $height) (int $mobileWidth)) (int $width) -}}
+    {{- $mobile = $mobile.Fill (printf "%sx%d q80" $mobileWidth $mobileHeight) -}}
+  {{- else -}}
+    {{- $mobile = $mobile.Resize (printf "%sx q80" $mobileWidth) -}}
+  {{- end -}}
+  {{- $mobileWebp := $mobile.Process "webp q80" -}}
+  
+  <figure class="my-8 {{ $class }}">
+    <picture>
+      {{- /* Desktop WebP */ -}}
+      <source 
+        srcset="{{ $desktopWebp.RelPermalink }}" 
+        type="image/webp"
+        media="(min-width: 768px)">
+      {{- /* Desktop original format */ -}}
+      <source 
+        srcset="{{ $desktop.RelPermalink }}" 
+        media="(min-width: 768px)">
+      {{- /* Mobile WebP */ -}}
+      <source 
+        srcset="{{ $mobileWebp.RelPermalink }}" 
+        type="image/webp">
+      {{- /* Mobile fallback */ -}}
+      <img 
+        src="{{ $mobile.RelPermalink }}" 
+        alt="{{ $alt }}" 
+        width="{{ $desktop.Width }}"
+        height="{{ $desktop.Height }}"
+        class="rounded-lg shadow-md w-full h-auto"
+        loading="lazy"
+      />
+    </picture>
+    {{- if $caption -}}
+      <figcaption class="text-sm text-text-muted mt-2 text-center italic">
+        {{ $caption | markdownify }}
+      </figcaption>
+    {{- end -}}
+  </figure>
+{{- else -}}
+  {{- errorf "Image '%s' not found in page resources for page %q" $src .Page.Path -}}
+{{- end -}}
