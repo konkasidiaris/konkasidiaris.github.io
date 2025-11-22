@@ -9,12 +9,30 @@
         <span
             class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-4 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
     </div>
-    <form>
-        <span class="flex flex-row gap-2 bg-bg-subtle py-2 px-4 rounded-2xl">
+    <div class="relative">
+        <span class="flex flex-row gap-2 bg-bg-subtle/70 backdrop-blur py-2 px-4 rounded-2xl">
             {{ partial "svg/magnifying-glass.html" . }}
-            <input type="text" placeholder="search" />
+            <input
+                id="searchbox"
+                type="text"
+                placeholder="Search (Ctrl+K)"
+                autocomplete="off" />
         </span>
-    </form>
+    </div>
+    <div id="kbar"
+         class="fixed inset-0 z-50 hidden bg-bg-base/40 backdrop-blur-md items-start justify-center pt-32">
+        <div class="w-full max-w-2xl bg-bg-subtle rounded-2xl shadow-2xl p-6 space-y-4">
+            <div class="flex items-center gap-3 border border-border rounded-xl px-4 py-3">
+                {{ partial "svg/magnifying-glass.html" . }}
+                <input id="kbar-input" type="text" placeholder="Type to search…"
+                       class="flex-1" />
+                <kbd class="text-xs text-text-muted border border-border rounded-md px-2 py-1">Esc</kbd>
+            </div>
+            <div id="kbar-results" class="max-h-80 overflow-y-auto text-sm text-text-muted">
+                Start typing to see results…
+            </div>
+        </div>
+    </div>
     <button id="dark-mode-toggle" class="group/button cursor-pointer w-6">
         {{ partial "svg/lamp.html" (dict "class" "text-amber-300 group-[.dark]/button:text-black")}}
     </button>
