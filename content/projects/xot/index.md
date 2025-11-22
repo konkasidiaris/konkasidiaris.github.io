@@ -210,3 +210,5 @@ Keeping the running costs at $0: a static website, served by Cloudflare CDN, bui
 Overall, it was an interesting project. I learned a lot, helped a local nonprofit, and polished my rusty frontend skills. Web performance is a big beast to tame, and keeping every Web Vitals metric green is hard.
 
 I also learned that urgency can fade once a solution exists. As of now, the site still uses the default images and copy I provided. It has remained unchanged for about a month.
+
+Is the [website](https://xot.gr) perfect? Of course not. An experienced frontend engineer could easily point out a long list of potential improvements. Is it good enough? Absolutely. Compared with many similar local sites that take several seconds before the first content appears, show sluggish animations, and lean on endless loaders, this one is fast, clear, and pleasant to use.
