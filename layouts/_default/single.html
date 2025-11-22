@@ -23,7 +23,7 @@
                 <div class="flex flex-wrap gap-4 text-sm text-text-muted">
                     <time datetime="{{ .Params.Date.Format "2006-01-02" }}" class="flex items-center gap-2">
                         {{ partial "svg/calendar.html" (dict "class" "size-4") }}
-                        {{ .Params.Date.Format "January 2, 2006" }}
+                        <span data-pagefind-sort="date">{{ .Params.Date.Format "January 2, 2006" }}</span>
                     </time>
                     
                     {{ if .Params.readingTime }}
@@ -36,7 +36,11 @@
                 
                 <!-- Tags -->
                 {{ if .Params.tags }}
-                <div class="flex flex-wrap gap-2">
+                 {{ $.Scratch.Set "filters" (slice) }}
+                {{ range .Params.tags }}
+                  {{ $.Scratch.Add "filters" (printf "tag[%s]" .) }}
+                {{ end }}
+                <div class="flex flex-wrap gap-2" data-pagefind-filter="{{ delimit ($.Scratch.Get "filters") ", " }}">
                     {{ range .Params.tags }}
                     <a href="/tags/{{ . | urlize }}" 
                        class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
