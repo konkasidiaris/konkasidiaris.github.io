@@ -45,3 +45,39 @@ document.addEventListener("DOMContentLoaded", (_e) => {
     initializeTheme();
     initializeHamburgerMenu();
 });
+
+const overlay = document.getElementById("kbar");
+const kbarInput = document.getElementById("kbar-input");
+const searchbox = document.getElementById("searchbox");
+
+function openKbar() {
+    overlay.classList.remove("hidden");
+    overlay.classList.add("flex");
+    kbarInput.focus();
+}
+
+function closeKbar() {
+    overlay.classList.remove("flex");
+    overlay.classList.add("hidden");
+};
+
+document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k" || e.key === "/") {
+        e.preventDefault();
+        openKbar();
+    }
+    if ((e.key === "Escape" || (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "c") && overlay.classList.contains("flex")) {
+        closeKbar();
+    }
+});
+
+overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+        closeKbar();
+    }
+});
+
+searchbox.addEventListener("focus", () => {
+    openKbar();
+    searchbox.blur();
+});
