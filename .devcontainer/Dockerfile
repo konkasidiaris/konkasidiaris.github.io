@@ -29,6 +29,12 @@ RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/downlo
     chmod +x tailwindcss-linux-x64 && \
     mv tailwindcss-linux-x64 /usr/bin/tailwindcss
 
+RUN curl -sL https://github.com/Pagefind/pagefind/releases/download/v1.4.0/pagefind_extended-v1.4.0-x86_64-unknown-linux-musl.tar.gz -o pagefind.tar.gz && \
+    tar -xzf pagefind.tar.gz && \
+    rm pagefind.tar.gz && \
+    chmod +x pagefind_extended && \
+    mv pagefind_extended /usr/bin/pagefind
+
 # Switch to non-root user
 USER vscode
 
