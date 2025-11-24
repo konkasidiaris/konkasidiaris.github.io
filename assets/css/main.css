@@ -62,6 +62,43 @@
   animation-duration: 0ms;
 }
 
+.post-page::view-transition-old(root) {
+  animation-name: slide-out-right;
+}
+
+.post-page::view-transition-new(root) {
+  animation-name: slide-in-left;
+}
+
+@keyframes slide-out-right {
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.card-transition {
+  view-transition-name: var(--card-id);
+}
+
+::view-transition-old(card-*),
+::view-transition-new(card-*) {
+  animation-duration: 500ms;
+  mix-blend-mode: normal;
+  overflow: clip;
+}
+
+::view-transition-image-pair(card-*) {
+  isolation: isolate;
+}
+
 mark {
   background-color: var(--color-primary);
   color: var(--color-white);
