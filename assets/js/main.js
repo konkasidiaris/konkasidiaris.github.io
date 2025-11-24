@@ -41,43 +41,144 @@ function initializeHamburgerMenu() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", (_e) => {
-    initializeTheme();
-    initializeHamburgerMenu();
-});
+async function initializeSearchOverlay() {
+    const overlay = document.getElementById("kbar");
+    const kbarInput = document.getElementById("kbar-input");
+    const searchbox = document.getElementById("searchbox");
+    const resultsContainer = document.getElementById("kbar-results");
 
-const overlay = document.getElementById("kbar");
-const kbarInput = document.getElementById("kbar-input");
-const searchbox = document.getElementById("searchbox");
+    if (!overlay || !kbarInput || !searchbox || !resultsContainer) {
+        return;
+    }
 
-function openKbar() {
-    overlay.classList.remove("hidden");
-    overlay.classList.add("flex");
-    kbarInput.focus();
+    let previousFocus = null;
+    let latestQuery = "";
+
+    const setResultsMessage = (message) => {
+        resultsContainer.innerHTML = `<p class="text-sm text-text-muted">${message}</p>`;
+    };
+
+    // adding this as variable so eslint will treat the target
+    // as dynamic and not try to add it in compile time
+    const PAGEFIND_MODULE_PATH = "/pagefind/pagefind.js";
+    const pagefind = await import(PAGEFIND_MODULE_PATH);
+    pagefind.init();
+
+    async function performSearch(term) {
+        const query = term.trim();
+        latestQuery = query;
+
+        if (!query) {
+            setResultsMessage("Start typing to search…");
+            return;
+        }
+
+        try {
+            const search = await pagefind.search(query);
+
+            if (latestQuery !== query) {
+                return;
+            }
+
+            if (!search?.results?.length) {
+                setResultsMessage("No results yet. Try another phrase.");
+                return;
+            }
+            console.log(search.results)
+
+            const entries = await Promise.all(
+                search.results.slice(0, 10).map(async (hit) => {
+                    const data = await hit.data();
+                    const title = data.meta?.title ?? data.url;
+                    const excerpt = data.excerpt ?? data.meta?.description ?? "";
+                    return `
+                        <a href="${data.url}"
+                           class="block rounded-xl border border-border/40 p-3 transition hover:border-primary hover:text-primary focus-visible:outline focus-visible:outline-primary">
+                            <p class="font-medium">${title}</p>
+                            ${excerpt ? `<p class="text-xs text-text-muted">${excerpt}</p>` : ""}
+                        </a>`;
+                })
+            );
+
+            if (latestQuery === query) {
+                resultsContainer.innerHTML = entries.join("");
+            }
+        } catch (error) {
+            console.error("Pagefind search failed", error);
+            setResultsMessage("Search is temporarily unavailable.");
+        }
+    };
+
+    function openKbar() {
+        if (overlay.classList.contains("flex")) return;
+        previousFocus = document.activeElement;
+        overlay.classList.remove("hidden");
+        overlay.classList.add("flex");
+        kbarInput.value = "";
+        setResultsMessage("Start typing to search…");
+        kbarInput.focus();
+    }
+
+    function closeKbar() {
+        if (!overlay.classList.contains("flex")) return;
+        overlay.classList.remove("flex");
+        overlay.classList.add("hidden");
+        if (previousFocus && previousFocus !== searchbox && typeof previousFocus.focus === "function") {
+            previousFocus.focus();
+        } else {
+            searchbox.blur();
+        }
+    };
+
+    function isTypingField() {
+        const active = document.activeElement;
+        if (!active) return false;
+        const tag = active.tagName?.toLowerCase();
+        return active.isContentEditable || tag === "input" || tag === "textarea";
+    };
+
+    function toggleKBar(event) {
+        const key = event.key.toLowerCase();
+        const typedCtrlK = (event.ctrlKey || event.metaKey) && key === "k";
+        const typedSlash = !isTypingField() && key === "/";
+        const typedEsc = key === "escape";
+        const typedCtrlC = (event.ctrlKey || event.metaKey) && key === "c";
+
+        if (typedCtrlK || typedSlash) {
+            event.preventDefault();
+            openKbar();
+            return;
+        }
+
+        if ((typedEsc || typedCtrlC) && overlay.classList.contains("flex")) {
+            event.preventDefault();
+            closeKbar();
+        }
+    }
+
+    document.addEventListener("keydown", toggleKBar);
+
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) {
+            closeKbar();
+        }
+    });
+
+    const focusSearchbox = () => {
+        openKbar();
+        searchbox.blur();
+    };
+
+    searchbox.addEventListener("focus", focusSearchbox);
+    searchbox.addEventListener("click", focusSearchbox);
+
+    kbarInput.addEventListener("input", (event) => {
+        performSearch(event.target.value);
+    });
 }
 
-function closeKbar() {
-    overlay.classList.remove("flex");
-    overlay.classList.add("hidden");
-};
-
-document.addEventListener("keydown", (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k" || e.key === "/") {
-        e.preventDefault();
-        openKbar();
-    }
-    if ((e.key === "Escape" || (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "c") && overlay.classList.contains("flex")) {
-        closeKbar();
-    }
-});
-
-overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) {
-        closeKbar();
-    }
-});
-
-searchbox.addEventListener("focus", () => {
-    openKbar();
-    searchbox.blur();
+document.addEventListener("DOMContentLoaded", async (_e) => {
+    initializeTheme();
+    initializeHamburgerMenu();
+    await initializeSearchOverlay();
 });
