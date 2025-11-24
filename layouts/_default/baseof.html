@@ -6,7 +6,7 @@
 <body class="font-family-mono h-screen grid grid-rows-[auto_1fr_auto] transition-colors duration-500 ease-in-out text-base bg-bg-base text-text-base p-4 lg:p-6 max-w-7xl mx-auto">
     {{ partial "header.html" . }}
     
-    <main class="py-6" data-pagefind-body>
+    <main id="page-content" class="view-transition py-6" data-pagefind-body>
         {{ block "main" . }}{{ end }}
     </main>
     
