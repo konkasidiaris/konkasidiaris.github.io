@@ -1,13 +1,19 @@
 {{ $hasImage := .image }}
 {{ $textColorClass := cond $hasImage "text-white" "text-text-base" }}
 {{ $component := .component }}
+{{ $cardId := "" }}
+{{ if and .context .context.File }}
+  {{ $cardId = .context.File.UniqueID }}
+{{ else }}
+  {{ $cardId = md5 .link }}
+{{ end }}
 
 {{ if eq $component "li" }}
-<li class="group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden">
+<li class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden" style="view-transition-name: card-{{ $cardId }};">
 {{ else if eq $component "article" }}
-<article class="group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden">
+<article class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden" style="view-transition-name: card-{{ $cardId }};">
 {{ else }}
-<div class="group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden">
+<div class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden" style="view-transition-name: card-{{ $cardId }};">
 {{ end }}
     <a href="{{ .link }}" class="absolute inset-0 md:hidden z-20" aria-label="{{ .ctaText }}"></a>
     
