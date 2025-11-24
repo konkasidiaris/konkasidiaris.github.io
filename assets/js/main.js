@@ -197,11 +197,51 @@ function handleNavigation(e) {
     e.preventDefault();
     
     if (supportsViewTransitions()) {
-        document.startViewTransition(() => {
+        try {
+            const transition = document.startViewTransition(async () => {
+                const response = await fetch(link.href);
+                const html = await response.text();
+                const parser = new DOMParser();
+                const newDoc = parser.parseFromString(html, 'text/html');
+                
+                document.title = newDoc.title;
+                document.body.innerHTML = newDoc.body.innerHTML;
+                
+                history.pushState({}, '', link.href);
+                
+                initializeTheme();
+                initializeHamburgerMenu();
+                await initializeSearchOverlay();
+            });
+            
+            transition.finished.catch(() => {
+                window.location.href = link.href;
+            });
+        } catch (error) {
             window.location.href = link.href;
-        });
+        }
     } else {
         window.location.href = link.href;
+    }
+}
+
+function handlePopState() {
+    if (supportsViewTransitions()) {
+        document.startViewTransition(async () => {
+            const response = await fetch(location.href);
+            const html = await response.text();
+            const parser = new DOMParser();
+            const newDoc = parser.parseFromString(html, 'text/html');
+            
+            document.title = newDoc.title;
+            document.body.innerHTML = newDoc.body.innerHTML;
+            
+            initializeTheme();
+            initializeHamburgerMenu();
+            await initializeSearchOverlay();
+        });
+    } else {
+        location.reload();
     }
 }
 
@@ -213,5 +253,6 @@ document.addEventListener("DOMContentLoaded", async (_e) => {
     initializeHamburgerMenu();
     await initializeSearchOverlay();
 
-     document.addEventListener('click', handleNavigation);
+    document.addEventListener('click', handleNavigation);
+    window.addEventListener('popstate', handlePopState);
 });

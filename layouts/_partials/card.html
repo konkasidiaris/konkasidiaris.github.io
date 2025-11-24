@@ -9,11 +9,11 @@
 {{ end }}
 
 {{ if eq $component "li" }}
-<li class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden" style="view-transition-name: card-{{ $cardId }};">
+<li class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden"{{ if not .context.IsHome }} style="view-transition-name: card-{{ $cardId }};"{{ end }}>
 {{ else if eq $component "article" }}
-<article class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden" style="view-transition-name: card-{{ $cardId }};">
+<article class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden"{{ if not .context.IsHome }} style="view-transition-name: card-{{ $cardId }};"{{ end }}>
 {{ else }}
-<div class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden" style="view-transition-name: card-{{ $cardId }};">
+<div class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden"{{ if not .context.IsHome }} style="view-transition-name: card-{{ $cardId }};"{{ end }}>
 {{ end }}
     <a href="{{ .link }}" class="absolute inset-0 md:hidden z-20" aria-label="{{ .ctaText }}"></a>
     
