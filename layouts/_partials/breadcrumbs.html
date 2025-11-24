@@ -1,0 +1,17 @@
+<nav aria-label="Breadcrumb" class="mb-6">
+    <ol class="flex items-center gap-2 text-sm text-text-muted">
+        <li>
+            <a href="/" class="hover:text-primary transition-colors">Home</a>
+        </li>
+        {{ with .Section }}
+        <li class="flex items-center gap-2">
+            {{ partial "svg/chevron-right.html" (dict "class" "size-4") }}
+            <a href="/{{ . }}" class="hover:text-primary transition-colors capitalize">{{ . }}</a>
+        </li>
+        {{ end }}
+        <li class="flex items-center gap-2">
+            {{ partial "svg/chevron-right.html" (dict "class" "size-4") }}
+            <span class="text-text-base" aria-current="page">{{ .Title }}</span>
+        </li>
+    </ol>
+</nav>
