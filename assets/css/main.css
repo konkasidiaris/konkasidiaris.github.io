@@ -17,6 +17,51 @@
   --font-main: 'JetBrains Mono', monospace;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+}
+
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+#header {
+  view-transition-name: header;
+}
+
+#footer {
+  view-transition-name: footer;
+}
+
+::view-transition-old(header),
+::view-transition-new(header),
+::view-transition-old(footer),
+::view-transition-new(footer) {
+  animation-duration: 0ms;
+}
+
 mark {
   background-color: var(--color-primary);
   color: var(--color-white);

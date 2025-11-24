@@ -177,8 +177,41 @@ async function initializeSearchOverlay() {
     });
 }
 
+function supportsViewTransitions() {
+    return 'startViewTransition' in document;
+}
+
+function handleNavigation(e) {
+    const link = e.target.closest('a');
+    
+    // Only handle internal links
+    if (!link || link.origin !== location.origin || link.target === '_blank') {
+        return;
+    }
+    
+    // Skip if user is doing special navigation
+    if (e.ctrlKey || e.metaKey || e.shiftKey) {
+        return;
+    }
+    
+    e.preventDefault();
+    
+    if (supportsViewTransitions()) {
+        document.startViewTransition(() => {
+            window.location.href = link.href;
+        });
+    } else {
+        window.location.href = link.href;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", async (_e) => {
+     if (supportsViewTransitions()) {
+        document.startViewTransition();
+    }
     initializeTheme();
     initializeHamburgerMenu();
     await initializeSearchOverlay();
+
+     document.addEventListener('click', handleNavigation);
 });
