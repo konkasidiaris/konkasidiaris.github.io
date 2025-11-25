@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub Actions on Kon&#39;s Internet Corner</title>
+    <link>https://konkasidiaris.com/tags/github-actions/</link>
+    <description>Recent content in GitHub Actions on Kon&#39;s Internet Corner</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://konkasidiaris.com/tags/github-actions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>XOT - Static Website</title>
+      <link>https://konkasidiaris.com/projects/xot/</link>
+      <pubDate>Sun, 16 Nov 2025 00:04:42 +0000</pubDate>
+      <guid>https://konkasidiaris.com/projects/xot/</guid>
+      <description>How I built (and rocked!) a static website as a backend engineer for a local nonprofit traditional Greek dance studio</description>
+    </item>
+  </channel>
+</rss>

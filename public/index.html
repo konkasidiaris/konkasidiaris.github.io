@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en-us" class="motion-safe:scroll-smooth scroll-pt-32 [scrollbar-gutter:stable] [scrollbar-gutter:both-edges] [scrollbar-width:thin]">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content=Building&#32;scalable&#32;infrastructure,&#32;automating&#32;everything,&#32;and&#32;sharing&#32;engineering&#32;insights>
+<link rel="preload" href="/fonts/JetBrainsMono-SemiBold-subset.woff2" as="font" type="font/woff2"
+    crossorigin="anonymous">
+<link rel="preload" href="/fonts/JetBrainsMono-Medium-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/fonts/JetBrainsMono-Italic-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<title>Kon&#39;s Internet Corner</title>
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512x512.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+
+<meta name="mobile-web-app-capable" content="yes">
+
+
+
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+
+
+<meta name="msapplication-config" content="none">
+
+
+
+
+
+<link rel="canonical" href="https://konkasidiaris.com/">
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/index.xml" title="RSS Feed">
+
+
+
+<meta property="og:title" content="">
+<meta property="og:image" content="https://konkasidiaris.com/images/logo.jpg">
+<meta property="og:url" content="https://konkasidiaris.com/">
+<meta property="og:description" content="Building scalable infrastructure, automating everything, and sharing engineering insights">
+<meta property="og:site_name" content="Kon&#39;s Internet Corner">
+<meta property="og:locale" content="en">
+
+<meta property="og:type" content="website">
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="" />
+<meta name="twitter:description" content="Building scalable infrastructure, automating everything, and sharing engineering insights" />
+<meta name="twitter:image" content="https://konkasidiaris.com/images/logo.jpg" />
+
+
+
+  
+  
+    
+      
+        <link rel="stylesheet" href="/css/main.fdd0574fba266af4903f7b7a2d03439abcb9d7f499c578f013b356cbb7427509.css" integrity="sha256-/dBXT7omavSQP3t6LQNDmry51/SZxXjwE7NWy7dCdQk=" crossorigin="anonymous">
+      
+    
+  
+
+
+        <script src="/js/main.76cbd7043ca65df3c9824e3c7dc0cf65966fae6b3469a5239d247a66faffeb82.js" integrity="sha256-dsvXBDymXfPJgk48fcDPZZZvrms0aaUjnSR6Zvr/64I=" crossorigin="anonymous" defer></script>
+
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Kon\u0027s Internet Corner",
+  "url": "https:\/\/konkasidiaris.com\/",
+  "description": "Building scalable infrastructure, automating everything, and sharing engineering insights",
+  "inLanguage": "en-us",
+  "author": {
+    "@type": "Person",
+    "name": "Konstantinos Kasidiaris",
+    "url": "https:\/\/konkasidiaris.com\/",
+    "sameAs": [
+      "https://github.com/konkasidiaris",
+      "https://www.linkedin.com/in/konstantinos-kasidiaris/",
+      "https://x.com/konkasidiaris"
+    ]
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Konstantinos Kasidiaris"
+  },
+  "image": "https:\/\/konkasidiaris.com\/images\/logo.jpg"
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Konstantinos Kasidiaris",
+  "url": "https:\/\/konkasidiaris.com\/",
+  "description": "Building scalable infrastructure, automating everything, and sharing engineering insights.",
+  "image": "https:\/\/konkasidiaris.com\/images\/logo.jpg",
+  "sameAs": [
+    "https://github.com/konkasidiaris",
+    "https://www.linkedin.com/in/konstantinos-kasidiaris/",
+    "https://x.com/konkasidiaris"
+  ],
+  "jobTitle": "Software Developer",
+  "knowsAbout": "[\"Platform Engineering\",\"DevOps\",\"Infrastructure as Code\",\"Automation\",\"Software Development\"]"
+}
+</script>
+
+</head>
+<body class="font-family-mono h-screen grid grid-rows-[auto_1fr_auto] transition-colors duration-500 ease-in-out text-base bg-bg-base text-text-base p-4 lg:p-6 max-w-7xl mx-auto">
+    <header id="header" class="flex flex-row justify-between gap-2 sticky items-center z-50">
+    <div id="hamburger" class="w-6 h-5 relative rotate-0 ease-in-out duration-500 cursor-pointer group peer z-50">
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-0 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-2 group-[.open]:rotate-45"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-2 group-[.open]:-rotate-45"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-4 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
+    </div>
+    <div class="relative">
+        <span class="flex flex-row gap-2 bg-bg-subtle/70 backdrop-blur py-2 px-4 rounded-2xl">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+
+            <input
+                id="searchbox"
+                type="text"
+                placeholder="Search (Ctrl+K)"
+                autocomplete="off" />
+        </span>
+    </div>
+    <div id="kbar"
+         class="fixed inset-0 z-50 hidden bg-bg-base/40 backdrop-blur-md items-start justify-center pt-32">
+        <div class="w-full max-w-2xl bg-bg-subtle rounded-2xl shadow-2xl p-6 space-y-4">
+            <div class="flex items-center gap-3 border border-border rounded-xl px-4 py-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+
+                <input id="kbar-input" type="text" placeholder="Type to search…"
+                       class="flex-1" />
+                <kbd class="text-xs text-text-muted border border-border rounded-md px-2 py-1">Esc</kbd>
+            </div>
+            <div id="kbar-results" class="max-h-80 overflow-y-auto text-sm text-text-muted">
+                Start typing to see results…
+            </div>
+        </div>
+    </div>
+    <button id="dark-mode-toggle" class="group/button cursor-pointer w-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" aria-hidden="true" class="text-amber-300 group-[.dark]/button:text-black"><path fill="hsl(0, 0%, 50%)" d="M19.21 6.36c-1.04-2.1-3.05-3.65-5.38-4.16-2.44-.54-4.94.04-6.85 1.58a7.973 7.973 0 0 0-3.01 6.27c0 2.59 1.55 5.3 3.89 6.87v.83c-.01.28-.02.71.32 1.06.35.36.87.4 1.28.4h5.13c.54 0 .95-.15 1.23-.43.38-.39.37-.89.36-1.16v-.7c3.1-2.09 5.05-6.5 3.03-10.56Z" opacity=".4"/><path fill="hsl(0, 0%, 50%)" d="M15.26 22c-.06 0-.13-.01-.19-.03-2.01-.57-4.12-.57-6.13 0-.37.1-.76-.11-.86-.48a.69.69 0 0 1 .48-.86c2.26-.64 4.64-.64 6.9 0 .37.11.59.49.48.86-.1.31-.38.51-.68.51Z"/><path fill="currentColor" d="M12 13.85a.754.754 0 0 1-.65-1.12l.85-1.48h-.84c-.5 0-.91-.22-1.13-.59-.22-.38-.2-.84.05-1.28l1.07-1.86c.21-.36.67-.48 1.02-.28.36.21.48.67.28 1.02l-.85 1.49h.84c.5 0 .91.22 1.13.59.22.38.2.84-.05 1.28l-1.07 1.86c-.14.24-.39.37-.65.37Z"/></svg>
+    </button>
+    <nav
+        class="fixed overflow-hidden hidden left-0 top-0 peer-[.open]:flex bg-bg-base/0 backdrop-filter backdrop-blur-[1px] w-full h-dvh z-40
+              flex-row lg:flex-col gap-2 lg:gap-6 justify-center items-end lg:items-center rounded-xl lg:rounded-none py-10">
+        
+        <a href=/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-muted text-text-base scale-105 border-2 border-text-base hover:border-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"/></svg>
+
+            <span>Home</span>
+        </a>
+        
+        <a href=/posts/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-subtle text-text-subtle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"/></svg>
+
+            <span>Blog</span>
+        </a>
+        
+        <a href=/projects/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-subtle text-text-subtle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"/></svg>
+
+            <span>Projects</span>
+        </a>
+        
+        <a href=/resume/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-subtle text-text-subtle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z"/></svg>
+
+            <span>Résumé</span>
+        </a>
+        
+    </nav>
+</header>
+    
+    <main id="page-content" class="view-transition py-6" data-pagefind-body>
+        
+<section class="w-full h-full flex items-center justify-center">
+    <menu class="w-full h-full flex flex-col md:grid grid-cols-8 grid-rows-6 gap-4">
+        <li
+            class="col-start-1 col-span-4 row-start-1 row-span-3 rounded-2xl flex flex-col justify-center items-center p-2 md:p-4 bg-bg-subtle">
+            <div class="w-full flex flex-col md:flex-row justify-between items-center md:items-start gap-2">
+                <div class="flex flex-col md:flex-row gap-2 items-center">
+                    
+
+
+    
+    
+    <picture>
+        <source srcset="/images/logo_hu_89fccfd9bd40176b.webp" type="image/webp">
+        <source srcset="/images/logo_hu_250715c5ee4644d5.jpg" type="image/jpeg">
+        <img src="/images/logo_hu_250715c5ee4644d5.jpg" class="size-20" alt="Konstantinos Kasidiaris" width="80" height="80" />
+    </picture>
+
+                    <div class="flex flex-col items-center md:items-start">
+                        <span class="font-semibold">Konstantinos (<span class="text-primary text-xl">Kon</span>)
+                            Kasidiaris</span>
+                        <span>Software Developer</span>
+                    </div>
+                </div>
+                <a href="/resume"
+                    class="text-xs text-text-muted hover:text-primary flex flex-row gap-2 items-center">Résumé
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"/></svg>
+</a>
+            </div>
+            <div class="px-2 md:px-4 my-2 md:mt-4">
+                <p class="text-sm mb-2">I spend an unreasonable amount of time thinking about how software,
+                    <em>especially
+                        servers</em>, should actually work.
+                </p>
+                <h2 class="font-semibold">Why?</h2>
+                <p class="text-sm">Too much software today burns unnecessary cycles. I want to be part of the solution.
+                </p>
+            </div>
+            <div
+                class="flex flex-wrap gap-4 w-full m-2 md:m-4 p-4 rounded-2xl text-sm text-text-muted border border-border">
+                <span class="flex flex-row gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+
+                    Greece</span>
+                <span class="flex flex-row gap-1 items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5-3.9 19.5m-2.1-19.5-3.9 19.5"/></svg>
+
+                    Web Apps, Platforms, Devtools</span>
+                <span
+                    class="flex flex-row gap-2 md:gap-1 items-start md:items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"/></svg>
+
+                    Judoka, Home brewer, Scuba diver, Traveller</span>
+            </div>
+        </li>
+        
+
+
+
+
+  
+
+
+
+<li class="card-transition group/item relative col-start-5 col-span-2 row-start-1 row-span-3 rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden">
+
+    <a href="/toolbox" class="absolute inset-0 md:hidden z-20" aria-label="Open toolbox"></a>
+    
+    
+        
+
+        
+        
+        
+        
+        
+            
+        
+        
+        
+            
+            
+            
+            
+            
+            <picture class="absolute inset-0 pointer-events-none">
+                <source 
+                    srcset="/toolbox-open-grey_hu_8e1a648a874045cf.webp 400w, /toolbox-open-grey_hu_52c786faed4ccc68.webp 800w"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                    type="image/webp" />
+                <source 
+                    srcset="/toolbox-open-grey_hu_6a600bf027f883e1.jpg 400w, /toolbox-open-grey_hu_52f7067e14b94a5.jpg 800w"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                    type="image/jpeg" />
+                <img 
+                    src="/toolbox-open-grey_hu_52f7067e14b94a5.jpg" 
+                    alt="My toolbox" 
+                    class="w-full h-full object-cover rounded-2xl"
+                    loading="lazy" />
+            </picture>
+        
+        <div class="absolute inset-0 bg-black/70 rounded-2xl pointer-events-none"></div>
+    
+    
+    <div class="relative flex z-10 w-full h-full flex-col gap-4 justify-center items-start text-white">
+        <h2 class="flex flex-row gap-2 text-2xl font-semibold">My toolbox</h2>
+        
+        <p class="text-sm">I carefully selected each tool in my stack to build solutions efficiently.</p>
+        
+    </div>
+    
+    
+    <a href="/toolbox"
+        class="absolute bottom-6 left-6 w-10 hover:w-36 group-hover/item:w-36 h-10 rounded-xl bg-bg-base text-text-base hidden md:flex justify-center items-center hover:text-primary group-hover/item:text-primary text-xs italic flex-row hover:gap-2 group-hover/item:gap-2 z-10 group/link transition-all duration-300 ease-in-out overflow-hidden">
+        <span class="opacity-0 max-w-0 group-hover/item:opacity-100 group-hover/item:max-w-xs group-hover/link:opacity-100 group-hover/link:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">
+            Open toolbox
+        </span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"/></svg>
+
+    </a>
+    
+
+</li>
+
+        <li
+            class="col-start-7 col-span-2 row-start-1 row-span-2 rounded-2xl flex flex-col gap-4 justify-center items-center p-4 md:p-6 bg-bg-subtle">
+            <h2>Reach out if you want to build something that scales <em>and</em> makes sense!</h2>
+            <div class="flex flex-row gap-4">
+                
+                <a href="mailto:kkasidiaris@gmail.com" class="hover:text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+
+                </a>
+                
+                <a href="https://github.com/konkasidiaris" class="hover:text-primary">
+                    <svg class="size-5" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg"><path d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="currentColor"/></svg>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/konstantinos-kasidiaris/" class="hover:text-primary">
+                    <svg class="size-5" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 512 512"  fill="currentColor"><path d="M449.446 0C483.971 0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97 0 449.446V62.554C0 28.03 28.029 0 62.554 0h386.892ZM160.461 423.278V197.561h-75.04v225.717h75.04Zm270.539 0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804 0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181 0 225.717 0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135 0 38.007 20.707 38.007 51.037v120.768H431ZM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165 0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002Z"/></svg>
+                </a>
+                
+                <a href="https://x.com/konkasidiaris" class="hover:text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="size-5" viewBox="0 0 1200 1200"><g clip-path="url(#a)"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"/></g><defs><clipPath id="a"><path d="M0 0h1200v1227H0z"/></clipPath></defs></svg>
+                </a>
+                
+            </div>
+        </li>
+        
+
+
+
+
+  
+
+
+
+<li class="card-transition group/item relative col-start-1 col-span-2 row-start-4 row-span-3 rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden">
+
+    <a href="/projects" class="absolute inset-0 md:hidden z-20" aria-label="Browse projects"></a>
+    
+    
+        
+
+        
+        
+        
+        
+        
+            
+        
+        
+        
+            
+            
+            
+            
+            
+            <picture class="absolute inset-0 pointer-events-none">
+                <source 
+                    srcset="/mac-minimal-office_hu_a9a2e074632c0d58.webp 400w, /mac-minimal-office_hu_cb140e213fee9ebf.webp 800w"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                    type="image/webp" />
+                <source 
+                    srcset="/mac-minimal-office_hu_1c0da2c43babfed5.jpg 400w, /mac-minimal-office_hu_400893d1b8c01a27.jpg 800w"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                    type="image/jpeg" />
+                <img 
+                    src="/mac-minimal-office_hu_400893d1b8c01a27.jpg" 
+                    alt="Projects" 
+                    class="w-full h-full object-cover rounded-2xl"
+                    loading="lazy" />
+            </picture>
+        
+        <div class="absolute inset-0 bg-black/70 rounded-2xl pointer-events-none"></div>
+    
+    
+    <div class="relative flex z-10 w-full h-full flex-col gap-4 justify-center items-start text-white">
+        <h2 class="flex flex-row gap-2 text-2xl font-semibold">Projects</h2>
+        
+        <p class="text-sm">Big or small, things that I&#39;ve accomplished.</p>
+        
+    </div>
+    
+    
+    <a href="/projects"
+        class="absolute bottom-6 left-6 w-10 hover:w-36 group-hover/item:w-36 h-10 rounded-xl bg-bg-base text-text-base hidden md:flex justify-center items-center hover:text-primary group-hover/item:text-primary text-xs italic flex-row hover:gap-2 group-hover/item:gap-2 z-10 group/link transition-all duration-300 ease-in-out overflow-hidden">
+        <span class="opacity-0 max-w-0 group-hover/item:opacity-100 group-hover/item:max-w-xs group-hover/link:opacity-100 group-hover/link:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">
+            Browse projects
+        </span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"/></svg>
+
+    </a>
+    
+
+</li>
+
+        
+
+
+
+
+  
+
+
+
+<li class="card-transition group/item relative col-start-3 col-span-4 row-start-4 row-span-3 rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden">
+
+    <a href="/posts" class="absolute inset-0 md:hidden z-20" aria-label="Browse posts"></a>
+    
+    
+        
+
+        
+        
+        
+        
+        
+            
+        
+        
+        
+            
+            
+            
+            
+            
+            <picture class="absolute inset-0 pointer-events-none">
+                <source 
+                    srcset="/open-books_hu_35ef58540e7ed9f0.webp 400w, /open-books_hu_148214a4706ff219.webp 800w"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                    type="image/webp" />
+                <source 
+                    srcset="/open-books_hu_8a7975afc481c523.jpg 400w, /open-books_hu_906c477bb8a77ca9.jpg 800w"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                    type="image/jpeg" />
+                <img 
+                    src="/open-books_hu_906c477bb8a77ca9.jpg" 
+                    alt="Blog" 
+                    class="w-full h-full object-cover rounded-2xl"
+                    loading="lazy" />
+            </picture>
+        
+        <div class="absolute inset-0 bg-black/70 rounded-2xl pointer-events-none"></div>
+    
+    
+    <div class="relative flex z-10 w-full h-full flex-col gap-4 justify-center items-start text-white">
+        <h2 class="flex flex-row gap-2 text-2xl font-semibold">Blog</h2>
+        
+        <p class="text-sm">I write about things that either excite me or have given me a hard time in the past.</p>
+        
+    </div>
+    
+    
+    <a href="/posts"
+        class="absolute bottom-6 left-6 w-10 hover:w-36 group-hover/item:w-36 h-10 rounded-xl bg-bg-base text-text-base hidden md:flex justify-center items-center hover:text-primary group-hover/item:text-primary text-xs italic flex-row hover:gap-2 group-hover/item:gap-2 z-10 group/link transition-all duration-300 ease-in-out overflow-hidden">
+        <span class="opacity-0 max-w-0 group-hover/item:opacity-100 group-hover/item:max-w-xs group-hover/link:opacity-100 group-hover/link:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">
+            Browse posts
+        </span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"/></svg>
+
+    </a>
+    
+
+</li>
+
+        
+
+
+
+
+  
+
+
+
+<li class="card-transition group/item relative col-start-7 col-span-2 row-start-3 row-span-4 rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden" style="view-transition-name: card-77102f70526b1c2db0eced54632dc618;">
+
+    <a href="/about" class="absolute inset-0 md:hidden z-20" aria-label="About me"></a>
+    
+    
+    
+    <div class="relative flex z-10 w-full h-full flex-col gap-4 justify-center items-start text-text-base">
+        <h2 class="flex flex-row gap-2 text-2xl font-semibold">How it started vs. how it&#39;s going</h2>
+        
+        <p class="text-sm">My background is a short personal history at the intersection of engineering and software - and where I’ve found real value in combining both.</p>
+        
+    </div>
+    
+    
+    <a href="/about"
+        class="absolute bottom-6 left-6 w-10 hover:w-36 group-hover/item:w-36 h-10 rounded-xl bg-bg-base text-text-base hidden md:flex justify-center items-center hover:text-primary group-hover/item:text-primary text-xs italic flex-row hover:gap-2 group-hover/item:gap-2 z-10 group/link transition-all duration-300 ease-in-out overflow-hidden">
+        <span class="opacity-0 max-w-0 group-hover/item:opacity-100 group-hover/item:max-w-xs group-hover/link:opacity-100 group-hover/link:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap">
+            About me
+        </span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"/></svg>
+
+    </a>
+    
+
+</li>
+
+    </menu>
+</section>
+
+    </main>
+    
+    <footer id="footer" class="border-t border-text-base flex flex-col gap-4 mx-auto p-2 pt-4 md:p-6">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 md:my-10">
+        <div class="col-span-1 flex flex-col md:flex-row gap-2 md:gap-6 items-center">
+            <div class="flex flex-row gap-2 items-center mx-auto shrink-0">
+                
+
+
+    
+    
+    <picture>
+        <source srcset="/images/logo_hu_89fccfd9bd40176b.webp" type="image/webp">
+        <source srcset="/images/logo_hu_250715c5ee4644d5.jpg" type="image/jpeg">
+        <img src="/images/logo_hu_250715c5ee4644d5.jpg" class="size-20" alt="Konstantinos Kasidiaris" width="80" height="80" />
+    </picture>
+
+                <h2 class="font-semibold text-lg w-44 md:hidden">Konstantinos Kasidiaris</h2>
+            </div>
+            <div class="flex flex-col gap-2">
+                <h2 class="font-semibold text-lg hidden md:block">Konstantinos Kasidiaris</h2>
+                <p>
+                    Curious pragmatist <em>or maybe just a tinkerer who refuses to stop debugging life</em>. Building
+                    applications that can take a beating and keep performing.
+                </p>
+            </div>
+        </div>
+        <div class="col-span-1 flex flex-col md:flex-row gap-4 md:mt-10">
+            <div class="flex flex-col gap-4">
+                <p>
+                    Reach out if you want to build something that scales <em>and</em> makes sense.
+                </p>
+                <div class="flex flex-row gap-4 mx-auto md:mx-0">
+                    
+                    <a href="mailto:kkasidiaris@gmail.com" class="hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+
+                    </a>
+                    
+                    <a href="https://github.com/konkasidiaris" class="hover:text-primary">
+                        <svg class="size-5" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg"><path d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="currentColor"/></svg>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/konstantinos-kasidiaris/" class="hover:text-primary">
+                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 512 512"  fill="currentColor"><path d="M449.446 0C483.971 0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97 0 449.446V62.554C0 28.03 28.029 0 62.554 0h386.892ZM160.461 423.278V197.561h-75.04v225.717h75.04Zm270.539 0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804 0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181 0 225.717 0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135 0 38.007 20.707 38.007 51.037v120.768H431ZM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165 0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002Z"/></svg>
+                    </a>
+                    
+                    <a href="https://x.com/konkasidiaris" class="hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="size-5" viewBox="0 0 1200 1200"><g clip-path="url(#a)"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"/></g><defs><clipPath id="a"><path d="M0 0h1200v1227H0z"/></clipPath></defs></svg>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="flex flex-row md:flex-col mx-auto md:w-20">
+                
+                <a href=/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Home</a>
+                
+                <a href=/posts/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Blog</a>
+                
+                <a href=/projects/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Projects</a>
+                
+                <a href=/resume/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Résumé</a>
+                
+            </div>
+        </div>
+    </section>
+    <section
+        class="border-t border-border-muted flex flex-col md:flex-row gap-2 md:mx-auto px-4 md:px-6 py-4 text-xs text-text-muted">
+        <span>&copy; 2018-2025 Konstantinos Kasidiaris</span> <span>All Rights and Lefts
+            reserved</span>
+            <a href="/posts/credits" class="underline hover:text-primary">Credits</a>
+    </section>
+</footer>
+</body>
+</html>

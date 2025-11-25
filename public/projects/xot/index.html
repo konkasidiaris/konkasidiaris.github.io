@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en-us" class="motion-safe:scroll-smooth scroll-pt-32 [scrollbar-gutter:stable] [scrollbar-gutter:both-edges] [scrollbar-width:thin]">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content=Building&#32;scalable&#32;infrastructure,&#32;automating&#32;everything,&#32;and&#32;sharing&#32;engineering&#32;insights>
+<link rel="preload" href="/fonts/JetBrainsMono-SemiBold-subset.woff2" as="font" type="font/woff2"
+    crossorigin="anonymous">
+<link rel="preload" href="/fonts/JetBrainsMono-Medium-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/fonts/JetBrainsMono-Italic-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<title>XOT - Static Website | Kon&#39;s Internet Corner</title>
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512x512.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+
+<meta name="mobile-web-app-capable" content="yes">
+
+
+
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+
+
+<meta name="msapplication-config" content="none">
+
+
+
+
+
+<link rel="canonical" href="https://konkasidiaris.com/projects/xot/">
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/index.xml" title="RSS Feed">
+
+
+
+<meta property="og:title" content="XOT - Static Website">
+<meta property="og:image" content="xot_homepage_screenshot.jpg">
+<meta property="og:url" content="https://konkasidiaris.com/projects/xot/">
+<meta property="og:description" content="Building scalable infrastructure, automating everything, and sharing engineering insights">
+<meta property="og:site_name" content="Kon&#39;s Internet Corner">
+<meta property="og:locale" content="en">
+
+<meta property="og:type" content="website">
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="XOT - Static Website" />
+<meta name="twitter:description" content="Building scalable infrastructure, automating everything, and sharing engineering insights" />
+<meta name="twitter:image" content="xot_homepage_screenshot.jpg" />
+
+
+
+  
+  
+    
+      
+        <link rel="stylesheet" href="/css/main.fdd0574fba266af4903f7b7a2d03439abcb9d7f499c578f013b356cbb7427509.css" integrity="sha256-/dBXT7omavSQP3t6LQNDmry51/SZxXjwE7NWy7dCdQk=" crossorigin="anonymous">
+      
+    
+  
+
+
+        <script src="/js/main.76cbd7043ca65df3c9824e3c7dc0cf65966fae6b3469a5239d247a66faffeb82.js" integrity="sha256-dsvXBDymXfPJgk48fcDPZZZvrms0aaUjnSR6Zvr/64I=" crossorigin="anonymous" defer></script>
+
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "XOT - Static Website",
+  "description": "How I built (and rocked!) a static website as a backend engineer for a local nonprofit traditional Greek dance studio",
+  "url": "https:\/\/konkasidiaris.com\/projects\/xot\/",
+  "inLanguage": "en-us",
+  "datePublished": "2025-11-16T00:04:42Z",
+  "dateModified": "2025-11-22T11:58:58\u002b02:00",
+  "author": {
+    "@type": "Person",
+    "name": "Konstantinos Kasidiaris"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https:\/\/konkasidiaris.com\/"
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https:\/\/konkasidiaris.com\/"
+    },
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "https:\/\/konkasidiaris.com\/"
+    },
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Projects",
+      "item": "https:\/\/konkasidiaris.com\/projects\/"
+    },
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "XOT - Static Website",
+      "item": "https:\/\/konkasidiaris.com\/projects\/xot\/"
+    }
+  ]
+}
+</script>
+
+</head>
+<body class="font-family-mono h-screen grid grid-rows-[auto_1fr_auto] transition-colors duration-500 ease-in-out text-base bg-bg-base text-text-base p-4 lg:p-6 max-w-7xl mx-auto">
+    <header id="header" class="flex flex-row justify-between gap-2 sticky items-center z-50">
+    <div id="hamburger" class="w-6 h-5 relative rotate-0 ease-in-out duration-500 cursor-pointer group peer z-50">
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-0 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-2 group-[.open]:rotate-45"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-2 group-[.open]:-rotate-45"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-4 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
+    </div>
+    <div class="relative">
+        <span class="flex flex-row gap-2 bg-bg-subtle/70 backdrop-blur py-2 px-4 rounded-2xl">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+
+            <input
+                id="searchbox"
+                type="text"
+                placeholder="Search (Ctrl+K)"
+                autocomplete="off" />
+        </span>
+    </div>
+    <div id="kbar"
+         class="fixed inset-0 z-50 hidden bg-bg-base/40 backdrop-blur-md items-start justify-center pt-32">
+        <div class="w-full max-w-2xl bg-bg-subtle rounded-2xl shadow-2xl p-6 space-y-4">
+            <div class="flex items-center gap-3 border border-border rounded-xl px-4 py-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+
+                <input id="kbar-input" type="text" placeholder="Type to search…"
+                       class="flex-1" />
+                <kbd class="text-xs text-text-muted border border-border rounded-md px-2 py-1">Esc</kbd>
+            </div>
+            <div id="kbar-results" class="max-h-80 overflow-y-auto text-sm text-text-muted">
+                Start typing to see results…
+            </div>
+        </div>
+    </div>
+    <button id="dark-mode-toggle" class="group/button cursor-pointer w-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" aria-hidden="true" class="text-amber-300 group-[.dark]/button:text-black"><path fill="hsl(0, 0%, 50%)" d="M19.21 6.36c-1.04-2.1-3.05-3.65-5.38-4.16-2.44-.54-4.94.04-6.85 1.58a7.973 7.973 0 0 0-3.01 6.27c0 2.59 1.55 5.3 3.89 6.87v.83c-.01.28-.02.71.32 1.06.35.36.87.4 1.28.4h5.13c.54 0 .95-.15 1.23-.43.38-.39.37-.89.36-1.16v-.7c3.1-2.09 5.05-6.5 3.03-10.56Z" opacity=".4"/><path fill="hsl(0, 0%, 50%)" d="M15.26 22c-.06 0-.13-.01-.19-.03-2.01-.57-4.12-.57-6.13 0-.37.1-.76-.11-.86-.48a.69.69 0 0 1 .48-.86c2.26-.64 4.64-.64 6.9 0 .37.11.59.49.48.86-.1.31-.38.51-.68.51Z"/><path fill="currentColor" d="M12 13.85a.754.754 0 0 1-.65-1.12l.85-1.48h-.84c-.5 0-.91-.22-1.13-.59-.22-.38-.2-.84.05-1.28l1.07-1.86c.21-.36.67-.48 1.02-.28.36.21.48.67.28 1.02l-.85 1.49h.84c.5 0 .91.22 1.13.59.22.38.2.84-.05 1.28l-1.07 1.86c-.14.24-.39.37-.65.37Z"/></svg>
+    </button>
+    <nav
+        class="fixed overflow-hidden hidden left-0 top-0 peer-[.open]:flex bg-bg-base/0 backdrop-filter backdrop-blur-[1px] w-full h-dvh z-40
+              flex-row lg:flex-col gap-2 lg:gap-6 justify-center items-end lg:items-center rounded-xl lg:rounded-none py-10">
+        
+        <a href=/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-subtle text-text-subtle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"/></svg>
+
+            <span>Home</span>
+        </a>
+        
+        <a href=/posts/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-subtle text-text-subtle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"/></svg>
+
+            <span>Blog</span>
+        </a>
+        
+        <a href=/projects/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-subtle text-text-subtle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"/></svg>
+
+            <span>Projects</span>
+        </a>
+        
+        <a href=/resume/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-subtle text-text-subtle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z"/></svg>
+
+            <span>Résumé</span>
+        </a>
+        
+    </nav>
+</header>
+    
+    <main id="page-content" class="view-transition py-6" data-pagefind-body>
+        
+<div class="w-full py-8 px-4 max-w-5xl mx-auto relative post-page" style="view-transition-name: card-18b6cd1b97210dfd81c22c47ee93562a;">
+    <div class="flex flex-col lg:flex-row gap-8">
+        
+        <aside class="hidden 2xl:block fixed right-28 3xl:right-36 w-56 top-32 max-h-[calc(100vh-10rem)] bg-bg-muted/20 rounded-2xl p-6" data-pagefind-ignore="all">
+            <nav class="sticky top-24 space-y-4">
+                <h2 class="text-sm font-semibold text-text-base uppercase tracking-wide">Table of Contents</h2>
+                <div class="space-y-2 text-sm">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#some-context">Some context</a></li>
+    <li><a href="#features">Features</a>
+      <ul>
+        <li><a href="#homepage">Homepage</a></li>
+        <li><a href="#dressing-roomnews">Dressing Room/News</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#cms">CMS</a></li>
+        <li><a href="#seo">SEO</a></li>
+        <li><a href="#implicit-requests">Implicit requests</a></li>
+      </ul>
+    </li>
+    <li><a href="#tech-used">Tech used</a>
+      <ul>
+        <li><a href="#hugo">Hugo</a></li>
+        <li><a href="#tailwind">Tailwind</a></li>
+        <li><a href="#docker">Docker</a></li>
+        <li><a href="#dev-containers">Dev Containers</a></li>
+        <li><a href="#javascriptnodejs">JavaScript/Node.js</a></li>
+        <li><a href="#pagefind">Pagefind</a></li>
+        <li><a href="#sanityio">Sanity.io</a></li>
+        <li><a href="#github-actions">GitHub Actions</a></li>
+        <li><a href="#cloudflare">Cloudflare</a></li>
+        <li><a href="#ffmpeg">FFmpeg</a></li>
+        <li><a href="#lighthouse">Lighthouse</a></li>
+        <li><a href="#webaim">WebAIM</a></li>
+        <li><a href="#copilot">Copilot</a></li>
+      </ul>
+    </li>
+    <li><a href="#web-vitals-performance">Web Vitals (Performance)</a></li>
+    <li><a href="#answers-to-questions-that-may-arise">Answers to questions that may arise</a>
+      <ul>
+        <li><a href="#why-take-a-project-like-this-when-you-prefer-working-with-servers">Why take a project like this when you prefer working with servers?</a></li>
+        <li><a href="#which-part-did-you-enjoy-the-most">Which part did you enjoy the most?</a></li>
+        <li><a href="#what-did-you-learn">What did you learn?</a></li>
+        <li><a href="#which-part-provides-the-most-value-to-the-customer">Which part provides the most value to the customer?</a></li>
+      </ul>
+    </li>
+    <li><a href="#closing-thoughts">Closing thoughts</a></li>
+  </ul>
+</nav>
+                </div>
+            </nav>
+        </aside>
+
+        
+        <article class="w-full mx-auto">
+            <nav aria-label="Breadcrumb" class="mb-6">
+    <ol class="flex items-center gap-2 text-sm text-text-muted">
+        <li>
+            <a href="/" class="hover:text-primary transition-colors">Home</a>
+        </li>
+        
+        <li class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            <a href="/projects" class="hover:text-primary transition-colors capitalize">projects</a>
+        </li>
+        
+        <li class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            <span class="text-text-base" aria-current="page">XOT - Static Website</span>
+        </li>
+    </ol>
+</nav>
+            
+            <header class="mb-12 flex flex-col gap-6 items-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-text-base leading-tight">
+                    XOT - Static Website
+                </h1>
+                
+                
+                <div class="flex flex-wrap gap-4 text-sm text-text-muted">
+                    <time datetime="2025-11-16" class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"/></svg>
+
+                        <span data-pagefind-sort="date">November 16, 2025</span>
+                    </time>
+                    
+                    
+                    <span class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+
+                        11 min read
+                    </span>
+                    
+                </div>
+                
+                
+                
+                 
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <div class="flex flex-wrap gap-2" data-pagefind-filter="tag[Hugo], tag[Tailwind], tag[sanity.io], tag[SEO], tag[Pagefind], tag[Cloudflare], tag[Docker], tag[Dev Containers], tag[GitHub Actions], tag[Frontend]">
+                    
+                    <a href="/tags/hugo" 
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ Hugo
+                    </a>
+                    
+                    <a href="/tags/tailwind" 
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ Tailwind
+                    </a>
+                    
+                    <a href="/tags/sanity.io" 
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ sanity.io
+                    </a>
+                    
+                    <a href="/tags/seo" 
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ SEO
+                    </a>
+                    
+                    <a href="/tags/pagefind" 
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ Pagefind
+                    </a>
+                    
+                    <a href="/tags/cloudflare" 
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ Cloudflare
+                    </a>
+                    
+                    <a href="/tags/docker" 
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ Docker
+                    </a>
+                    
+                    <a href="/tags/dev-containers" 
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ Dev Containers
+                    </a>
+                    
+                    <a href="/tags/github-actions" 
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ GitHub Actions
+                    </a>
+                    
+                    <a href="/tags/frontend" 
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ Frontend
+                    </a>
+                    
+                </div>
+                
+
+                <p class="text-xs text-text-muted">tldr; How I built (and rocked!) a static website as a backend engineer for a local nonprofit traditional Greek dance studio</p>
+                
+                
+                
+                
+                
+                    
+                
+                
+                
+                    
+                    
+                    
+                    
+                    
+                    <figure class="rounded-2xl max-w-3xl overflow-hidden bg-bg-subtle w-full aspect-video">
+                        <picture>
+                            <source 
+                                srcset="/projects/xot/xot_homepage_screenshot_hu_7f8f6764d73dbd68.webp 800w, /projects/xot/xot_homepage_screenshot_hu_b88fa68cdd8aa2f4.webp 1600w"
+                                sizes="(max-width: 768px) 100vw, 800px"
+                                type="image/webp" />
+                            <source 
+                                srcset="/projects/xot/xot_homepage_screenshot_hu_ff4cf20863d4d967.jpg 800w, /projects/xot/xot_homepage_screenshot_hu_acdd469361cb954.jpg 1600w"
+                                sizes="(max-width: 768px) 100vw, 800px"
+                                type="image/jpeg" />
+                            <img 
+                                src="/projects/xot/xot_homepage_screenshot_hu_acdd469361cb954.jpg" 
+                                alt="XOT - Static Website" 
+                                class="w-full h-auto"
+                                loading="eager" />
+                        </picture>
+                        
+                        <figcaption class="px-4 py-2 text-sm text-text-muted italic">
+                            Screenshot of https://xot.gr
+                        </figcaption>
+                        
+                    </figure>
+                
+                
+            </header>
+
+            
+            <nav class="2xl:hidden mb-8 p-6 bg-bg-subtle rounded-2xl">
+                <h2 class="text-sm font-semibold text-text-base uppercase tracking-wide mb-4">Table of Contents</h2>
+                <div class="space-y-2 text-sm">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#some-context">Some context</a></li>
+    <li><a href="#features">Features</a>
+      <ul>
+        <li><a href="#homepage">Homepage</a></li>
+        <li><a href="#dressing-roomnews">Dressing Room/News</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#cms">CMS</a></li>
+        <li><a href="#seo">SEO</a></li>
+        <li><a href="#implicit-requests">Implicit requests</a></li>
+      </ul>
+    </li>
+    <li><a href="#tech-used">Tech used</a>
+      <ul>
+        <li><a href="#hugo">Hugo</a></li>
+        <li><a href="#tailwind">Tailwind</a></li>
+        <li><a href="#docker">Docker</a></li>
+        <li><a href="#dev-containers">Dev Containers</a></li>
+        <li><a href="#javascriptnodejs">JavaScript/Node.js</a></li>
+        <li><a href="#pagefind">Pagefind</a></li>
+        <li><a href="#sanityio">Sanity.io</a></li>
+        <li><a href="#github-actions">GitHub Actions</a></li>
+        <li><a href="#cloudflare">Cloudflare</a></li>
+        <li><a href="#ffmpeg">FFmpeg</a></li>
+        <li><a href="#lighthouse">Lighthouse</a></li>
+        <li><a href="#webaim">WebAIM</a></li>
+        <li><a href="#copilot">Copilot</a></li>
+      </ul>
+    </li>
+    <li><a href="#web-vitals-performance">Web Vitals (Performance)</a></li>
+    <li><a href="#answers-to-questions-that-may-arise">Answers to questions that may arise</a>
+      <ul>
+        <li><a href="#why-take-a-project-like-this-when-you-prefer-working-with-servers">Why take a project like this when you prefer working with servers?</a></li>
+        <li><a href="#which-part-did-you-enjoy-the-most">Which part did you enjoy the most?</a></li>
+        <li><a href="#what-did-you-learn">What did you learn?</a></li>
+        <li><a href="#which-part-provides-the-most-value-to-the-customer">Which part provides the most value to the customer?</a></li>
+      </ul>
+    </li>
+    <li><a href="#closing-thoughts">Closing thoughts</a></li>
+  </ul>
+</nav>
+                </div>
+            </nav>
+            
+            
+<div class="prose prose-lg 
+    prose-headings:text-text-base prose-headings:font-semibold
+    prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6
+    prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+    prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+    prose-p:text-text-base prose-p:leading-relaxed prose-p:mb-6
+    prose-a:text-primary prose-a:no-underline prose-a:hover:underline prose-a:transition-colors
+    prose-strong:text-text-base prose-strong:font-semibold
+    prose-em:text-text-muted prose-em:italic
+    prose-code:text-primary prose-code:bg-bg-subtle prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+    prose-pre:bg-bg-subtle prose-pre:border prose-pre:border-border prose-pre:rounded-xl prose-pre:p-4
+    prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-text-muted
+    prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-6
+    prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-6
+    prose-li:text-text-base prose-li:mb-2
+    prose-img:rounded-xl prose-img:shadow-lg
+    prose-hr:border-border prose-hr:my-12
+    max-w-none">
+    <h2 id="some-context">Some context</h2>
+<p>There is a local dance studio in my hometown that teaches traditional Greek dances. They wanted to get a bit more digital, as they felt they had fallen behind on the whole “internet” thing. In their defense, most of the board are over 60 years old—craftspeople by day, dancers by night. They already had some social media accounts and a voice in the local press. The main problem they faced was the lack of a centralized place to list their events, performances, and news.</p>
+<p>By now, you’ve probably understood that we’re talking about non‑technical people (point 1).</p>
+<p>The dance studio is also a nonprofit organization. Thus, they cannot afford to pay someone to build their website (point 2).</p>
+<p>For reasons irrelevant to this post, they reached out to me and we agreed that I would build their website in my free time, pro bono.</p>
+<h2 id="features">Features</h2>
+<p>In our initial conversation, they asked if I could build a simple blog. They also looked at several other websites to give me a sense of what they wanted and provided a color palette.</p>
+<h3 id="homepage">Homepage</h3>
+<p>Feature #1: the <a href="https://xot.gr/">homepage</a>. When someone lands on the homepage, they should immediately understand that this is about a traditional Greek dance studio.</p>
+<p>To achieve this, the hero section uses a blurred video background from a previous studio event, showing people dancing in traditional Greek attire, with calls to action (CTAs) to book a class and read the blog posts.</p>
+<p>Below that, there is an <a href="https://xot.gr/#about">About section</a>, conveying the studio’s accumulated love and knowledge of Greek dances.</p>
+<p>Two fonts are used: <a href="https://software.sil.org/gentium/">Gentium</a> -simple and easy to read- and <a href="https://www.onassis.org/initiatives/cavafy-archive/cavafy-script">CavafyScript</a>, an open‑source font made by the Onassis Foundation, based on the handwriting of <a href="https://en.wikipedia.org/wiki/Constantine_P._Cavafy">Constantine P. Cavafy</a>, one of the most famous Greek poets.</p>
+<h3 id="dressing-roomnews">Dressing Room/News</h3>
+<p>Features #2 and #3. <a href="https://xot.gr/dressing-room/">Dressing Room</a> and <a href="https://xot.gr/news/">News</a> are two different blog‑style sections. In Dressing Room, they will upload posts for each traditional costume with complementary text about its history. In News, they’ll post events, performances, and studio updates. Both should support search by text, date range, and tags.</p>
+<h3 id="schedule">Schedule</h3>
+<p>Feature #4. A clearly presented <a href="https://xot.gr/classes/">schedule</a> of each class. The height of each class block reflects its duration. Each class is color‑coded by hashing its name and mapping the result to an opacity of the primary color.</p>
+<h3 id="cms">CMS</h3>
+<p>Feature #5. Everything should be addable/editable/deletable by them. I should not be in the loop for content management -only for development, delivery, and occasional annual maintenance. Enter the CMS. My initial thought was to use a Git‑based CMS. That way, no infrastructure would be needed. Everything would be committed to GitHub -no backups, no servers.</p>
+<h4 id="tinacms">TinaCMS</h4>
+<p>I made a PoC using <a href="https://tina.io/">TinaCMS</a>. It felt unstable and buggy, and to make basic things work (like uploading an image), I had to implement many workarounds. It was a no‑go, as the people who would use it are not tech‑savvy.</p>
+<h4 id="other-gitbased-cmses">Other Git‑based CMSes</h4>
+<p>I also tried <a href="https://decapcms.org/">Decap CMS</a> and <a href="https://github.com/sveltia/sveltia-cms">Sveltia</a>, to name a few. All of them had rough edges. They may be perfect for developers, but for non‑technical users, it was a hard no.</p>
+<p>I ended up with <a href="https://www.sanity.io/">Sanity.io</a> for its generous free tier. More in the <a href="#sanityio">CMS</a> section.</p>
+<h3 id="seo">SEO</h3>
+<p>Feature #6: discoverability. I made it clear that this is not entirely my job. They have to keep the website content up to date and maintain backlinks to their social media at least. On my part, <a href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data">structured data</a> is set in the head where appropriate, there is always a title and a description on each page, and I added two hidden features (nobody asks for these, but everyone expects them).</p>
+<h4 id="hidden-feature-1-performance">Hidden feature 1: Performance</h4>
+<p>Want Google to rank you higher in results? Offer a fast user experience: pages load instantly, no layout shifts, images load quickly. Non‑negotiable.</p>
+<p>How?</p>
+<ul>
+<li>Serve AVIF or WebP images when possible</li>
+<li>Use fallback system fonts that closely match your web fonts</li>
+<li>Subset fonts to the characters used on the site</li>
+<li>Declare width and height for all visible media to avoid layout shifts</li>
+<li>Compress images</li>
+<li>Compress video</li>
+<li>Crop images and video for different devices/viewports</li>
+<li>Use a CDN for media</li>
+<li>Lazy‑load media, and add async or defer to scripts wherever possible</li>
+</ul>
+<h4 id="hidden-feature-2-accessibility">Hidden feature 2: Accessibility</h4>
+<p>Still want Google to rank you higher? Offer an accessible experience. Under many circumstances, everyone benefits from accessibility. Bright sunlight on your phone? That’s temporary low vision. Carrying groceries with one hand? You only have one free hand. You don’t need a permanent disability to benefit from accessibility features.</p>
+<p>How?</p>
+<ul>
+<li>Use high‑contrast colors</li>
+<li>Use readable fonts</li>
+<li>Use semantic HTML (proper headings, landmarks)</li>
+<li>Provide descriptive alt text and ARIA attributes when appropriate</li>
+</ul>
+<h3 id="implicit-requests">Implicit requests</h3>
+<p>No one will ever explicitly ask for the following features, but everyone expects them on their site.</p>
+<h4 id="hidden-feature-3-404-page">Hidden feature 3: 404 page</h4>
+<p>A missing page causes frustration. Keep users on your site and let them know something is missing with a helpful <a href="https://xot.gr/invalid-url">404</a> page.</p>
+<h4 id="hidden-feature-4-privacy-policy">Hidden feature 4: Privacy policy</h4>
+<p>You’re building a static site with little to no JavaScript and no cookies. Then someone wants to add a YouTube video, a Google Maps iframe, or an X post. These embeds may require a <a href="https://xot.gr/privacy-policy/">privacy statement</a> and sometimes a cookie banner.</p>
+<h4 id="hidden-feature-5-open-graph">Hidden feature 5: Open Graph</h4>
+<p>When sharing a page via social media or messaging apps, users expect a relevant image and descriptive text. Implement this yourself with <a href="https://ogp.me/">Open Graph</a> meta tags.</p>
+<h2 id="tech-used">Tech used</h2>
+<p>Let’s explore the stack I picked and why, based on the 6 + 5 features the client requested and needed.</p>
+<h3 id="hugo">Hugo</h3>
+<p>The website needs to be static. No running server means $0/month. There are several static site generators (SSGs) out there. I chose <a href="https://gohugo.io/">Hugo</a> as it is fast, robust, and battle‑tested, with built‑in image optimization (which I ended up not using -more on that in the <a href="#sanityio">CMS</a> section).</p>
+<p>The website needs to run at the lowest possible cost. The JavaScript SSG ecosystem felt messy (to me). I’ve used <a href="https://nuxt.com/">Nuxt</a> and <a href="https://astro.build/">Astro</a> in the past for SSG, and the breaking changes even months after release were frustrating. They are also slow. I’ve heard only good things about <a href="https://www.11ty.dev/">Eleventy</a>, but I didn’t want to spend time experimenting. Hugo—even though it’s still 0.x—has a record of very few breaking changes over the years.</p>
+<h3 id="tailwind">Tailwind</h3>
+<p>No need for a design system, CSS optimizations, <a href="https://web.dev/articles/extract-critical-css">critical CSS</a>, <a href="https://getbem.com/">BEM</a>, <a href="https://sass-lang.com/">SCSS</a>, or hunting for a good <a href="https://en.wikipedia.org/wiki/Reset_style_sheet">CSS reset</a> stylesheet. <a href="https://tailwindcss.com/">Tailwind</a> has me covered. Peace of mind.</p>
+<h3 id="docker">Docker</h3>
+<p>Several tools (e.g., font subsetting, glyphhanger) that I wanted to run only once—without installing them on my machine—were <a href="https://www.docker.com/">wrapped in a container</a>. Keep your workstation clean, folks!</p>
+<h3 id="dev-containers">Dev Containers</h3>
+<p>With an Everything‑as‑Code mindset, <a href="https://containers.dev/">Dev Containers</a> are a no‑brainer. From the versions of Node, Hugo, and Pagefind to the enabled VS Code extensions, Dev Containers have you covered. And if you have more than one workstation (e.g., a desktop and a laptop), you’re just a rebuild away from any change.</p>
+<h3 id="javascriptnodejs">JavaScript/Node.js</h3>
+<p>I picked <a href="https://nodejs.org/en">JS</a> for a couple of scripts -mostly for syncing the repo with the CMS- for three reasons: I know it well, it was already included in the container image, and Sanity.io uses it, too. <a href="https://go.dev/">Go</a> was a close second, though.</p>
+<h3 id="pagefind">Pagefind</h3>
+<p>I’m in love with <a href="https://pagefind.app/">this library</a>. Statically search a website based on indexes built at build time? Where do I sign?</p>
+<h3 id="sanityio">Sanity.io</h3>
+<p>I chose it for the generous free tier. Its customizability, though—chef’s kiss. I created an admin environment in Greek with custom buttons to trigger actions. It also optimizes JPEG images to WebP and AVIF, has a nice UI to crop them, and serves them from a CDN.</p>
+<h3 id="github-actions">GitHub Actions</h3>
+<p>To keep CMS API calls to a minimum, I created an <a href="https://github.com/features/actions">action</a> that pulls new data from Sanity.io, creates/updates/deletes files based on changes, and commits those changes. It’s triggered via a custom button in Sanity. This helps in scenarios where multiple changes happen -multiple photos uploaded, several posts written- resulting in a single website sync and a single API call.</p>
+<h3 id="cloudflare">Cloudflare</h3>
+<p>CDN, DDoS mitigation, and bot management are some of the reasons I like <a href="https://www.cloudflare.com/">Cloudflare</a>. Bonus: a generous free tier.</p>
+<h3 id="ffmpeg">FFmpeg</h3>
+<p>I needed to crop, modify, blur, compress, lower quality, and mute a video—all in a <a href="https://www.ffmpeg.org/">single command</a>.</p>
+<h3 id="lighthouse">Lighthouse</h3>
+<p>I used it via browser <a href="https://developer.chrome.com/docs/lighthouse/overview">dev tools</a>. It was an excellent indicator of what to change and what was holding back the website from loading properly with a good user experience.</p>
+<h3 id="webaim">WebAIM</h3>
+<p>Check <a href="https://webaim.org/resources/contrastchecker/">color contrast</a>. Background and text colors should have high contrast to be easily readable.</p>
+<h3 id="copilot">Copilot</h3>
+<p>You might wonder: “This bloke said he is a backend engineer, yet here we are talking about font subsetting, performance, image compression, Web Vitals, SEO, etc.” Enter <a href="https://github.com/features/copilot">Copilot</a>. I use it primarily as a pair programmer -constantly asking about the project’s direction, what to watch out for, and how to implement things. Most solutions I got stuck on were solved with custom code and heavy Googling. But what do you search for if you don’t know what to search for? LLMs helped me structure my initial queries to Google -and all of this inside my editor, minimizing context switching.</p>
+<h2 id="web-vitals-performance">Web Vitals (Performance)</h2>
+<p>For readability, I’m including only a fraction of the report for two pages. Feel free to visit <a href="https://pagespeed.web.dev">Web Vitals</a> and run your own tests.</p>
+<p><figure class="my-8 ">
+    <picture><source 
+        srcset="/projects/xot/xot_homepage_hu_b7d34c959f54714f.webp" 
+        type="image/webp"
+        media="(min-width: 768px)"><source 
+        srcset="/projects/xot/xot_homepage_hu_164983b53d64ac8e.jpg" 
+        media="(min-width: 768px)"><source 
+        srcset="/projects/xot/xot_homepage_hu_7561196676de11b3.webp" 
+        type="image/webp"><img 
+        src="/projects/xot/xot_homepage_hu_b34c31b400bb6d3a.jpg" 
+        alt="Web Vitals screenshot from &lt;https://pagespeed.web.dev/&gt; for xot.gr" 
+        width="800"
+        height="312"
+        class="rounded-lg shadow-md w-full h-auto"
+        loading="lazy"
+      />
+    </picture><figcaption class="text-sm text-text-muted mt-2 text-center italic">
+        Web Vitals screenshot from <a href="https://pagespeed.web.dev/">https://pagespeed.web.dev/</a> for xot.gr
+      </figcaption></figure>
+<figure class="my-8 ">
+    <picture><source 
+        srcset="/projects/xot/xot_classes_hu_bdea2502c30f1375.webp" 
+        type="image/webp"
+        media="(min-width: 768px)"><source 
+        srcset="/projects/xot/xot_classes_hu_a36f828fe3a4175d.jpg" 
+        media="(min-width: 768px)"><source 
+        srcset="/projects/xot/xot_classes_hu_f45dd5969acc27d9.webp" 
+        type="image/webp"><img 
+        src="/projects/xot/xot_classes_hu_17c62c931cd550b2.jpg" 
+        alt="Web Vitals screenshot from &lt;https://pagespeed.web.dev/&gt; for xot.gr/classes" 
+        width="800"
+        height="313"
+        class="rounded-lg shadow-md w-full h-auto"
+        loading="lazy"
+      />
+    </picture><figcaption class="text-sm text-text-muted mt-2 text-center italic">
+        Web Vitals screenshot from <a href="https://pagespeed.web.dev/">https://pagespeed.web.dev/</a> for xot.gr/classes
+      </figcaption></figure></p>
+<p>There is only a small penalty in performance, accessibility, and SEO from some injected scripts from Google Maps and Cloudflare. Not worth fighting for at the moment.</p>
+<h2 id="answers-to-questions-that-may-arise">Answers to questions that may arise</h2>
+<h3 id="why-take-a-project-like-this-when-you-prefer-working-with-servers">Why take a project like this when you prefer working with servers?</h3>
+<p>I consider myself an engineer. That being said, I craft systems. I may like working on some parts of a system more than others, but the end user does not <em>and should not</em> care about that. They care about the end product. I would be a terrible engineer if I selectively rejected work just because I don’t feel like it.</p>
+<p>When working with a team, I mostly gravitate toward backend tasks because I feel I can provide a better, faster solution than my frontend colleagues. To consistently create solutions suited for user‑facing applications, one must understand the constraints of the client application (in this context, the website).</p>
+<h3 id="which-part-did-you-enjoy-the-most">Which part did you enjoy the most?</h3>
+<p>Pagefind. Period. I had to find a way to accommodate search on a static site. I had previously considered <a href="https://lunrjs.com/">lunr.js</a> and <a href="https://www.algolia.com/">Algolia</a>. Reading the Pagefind docs and API felt familiar -easy to use, easy to understand.</p>
+<p>A close second was dockerizing CLIs. To run <a href="https://github.com/zachleat/glyphhanger">glyphhanger</a> to subset the fonts, I would otherwise need to install Python, globally install the glyphhanger library, and install FontTools, Brotli, and Zopfli. It may not seem difficult, but imagine having to do this for every library you want to explore -not for regular use, but just to try. Dockerize it, remove the container/image afterward, keep your workstation clean.</p>
+<h3 id="what-did-you-learn">What did you learn?</h3>
+<h4 id="web-performance-can-be-a-pita">Web performance can be a PITA</h4>
+<p>In what order will your scripts load? How will they load? Setting image formats, crop for different screens, and load them based on their position in the viewport.
+Forget to set a min‑height on the header? <a href="https://web.dev/articles/cls">CLS</a> will spike.
+Import fonts inside your Tailwind configuration instead of preloading them per page? Put <a href="https://www.youtube.com/watch?v=XhzpxjuwZy0">this</a> on before opening the page.</p>
+<h4 id="technology-promises-vs-reality">Technology promises vs. reality</h4>
+<p>Once again, just because a technology promises solutions does not mean that it actually offers them. I fought with CMSes a lot. I wanted TinaCMS to work properly -I really did. After spending a week, simple things still didn’t work (like uploading an image and then failing to upload a second one in a post), so I started over with Sanity.</p>
+<h4 id="accessibility-is-not-only-for-people-with-disabilities">Accessibility is not only for people with disabilities</h4>
+<p>Not everyone is viewing your website on a 4K screen in <a href="https://en.wikipedia.org/wiki/Standard_temperature_and_pressure">STP</a>. They might be holding a newborn, using their non‑dominant hand, and not wearing their glasses. It is important to make your website as accessible as possible. Keyboard‑navigation‑friendly ✅. Screen‑reader‑friendly ✅. Proper color contrast ✅.</p>
+<h3 id="which-part-provides-the-most-value-to-the-customer">Which part provides the most value to the customer?</h3>
+<p>Keeping the running costs at $0: a static website, served by Cloudflare CDN, built on demand using GitHub Actions triggered by a custom button in the Sanity.io dashboard.</p>
+<h2 id="closing-thoughts">Closing thoughts</h2>
+<p>Overall, it was an interesting project. I learned a lot, helped a local nonprofit, and polished my rusty frontend skills. Web performance is a big beast to tame, and keeping every Web Vitals metric green is hard.</p>
+<p>I also learned that urgency can fade once a solution exists. As of now, the site still uses the default images and copy I provided. It has remained unchanged for about a month.</p>
+<p>Is the <a href="https://xot.gr">website</a> perfect? Of course not. An experienced frontend engineer could easily point out a long list of potential improvements. Is it good enough? Absolutely. Compared with many similar local sites that take several seconds before the first content appears, show sluggish animations, and lean on endless loaders, this one is fast, clear, and pleasant to use.</p>
+
+</div>
+            
+            
+            <footer class="mt-16 pt-8 border-t border-border space-y-8">
+                
+                
+                
+                
+                <nav class="flex justify-between items-center text-sm">
+                    
+                    <span></span>
+                    
+                    
+                    
+                </nav>
+                
+                
+                <div class="text-center">
+                    
+                    
+                      
+                    
+                    
+                    <a href="/projects" 
+                       class="inline-flex items-center gap-2 px-6 py-3 bg-bg-muted hover:bg-primary hover:text-white rounded-full transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>
+
+                        Back to all projects
+                    </a>
+                    
+                </div>
+            </footer>
+        </article>
+    </div>
+</div>
+
+<style>
+    #TableOfContents nav {
+        padding-left: 0;
+    }
+    
+    #TableOfContents ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    
+    #TableOfContents ul ul {
+        padding-left: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    #TableOfContents a {
+        color: var(--color-text-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+        display: block;
+        padding: 0;
+    }
+    
+    #TableOfContents a:hover {
+        color: var(--color-primary);
+    }
+    
+    #TableOfContents a.active {
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+</style>
+
+    </main>
+    
+    <footer id="footer" class="border-t border-text-base flex flex-col gap-4 mx-auto p-2 pt-4 md:p-6">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 md:my-10">
+        <div class="col-span-1 flex flex-col md:flex-row gap-2 md:gap-6 items-center">
+            <div class="flex flex-row gap-2 items-center mx-auto shrink-0">
+                
+
+
+    
+    
+    <picture>
+        <source srcset="/images/logo_hu_89fccfd9bd40176b.webp" type="image/webp">
+        <source srcset="/images/logo_hu_250715c5ee4644d5.jpg" type="image/jpeg">
+        <img src="/images/logo_hu_250715c5ee4644d5.jpg" class="size-20" alt="Konstantinos Kasidiaris" width="80" height="80" />
+    </picture>
+
+                <h2 class="font-semibold text-lg w-44 md:hidden">Konstantinos Kasidiaris</h2>
+            </div>
+            <div class="flex flex-col gap-2">
+                <h2 class="font-semibold text-lg hidden md:block">Konstantinos Kasidiaris</h2>
+                <p>
+                    Curious pragmatist <em>or maybe just a tinkerer who refuses to stop debugging life</em>. Building
+                    applications that can take a beating and keep performing.
+                </p>
+            </div>
+        </div>
+        <div class="col-span-1 flex flex-col md:flex-row gap-4 md:mt-10">
+            <div class="flex flex-col gap-4">
+                <p>
+                    Reach out if you want to build something that scales <em>and</em> makes sense.
+                </p>
+                <div class="flex flex-row gap-4 mx-auto md:mx-0">
+                    
+                    <a href="mailto:kkasidiaris@gmail.com" class="hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+
+                    </a>
+                    
+                    <a href="https://github.com/konkasidiaris" class="hover:text-primary">
+                        <svg class="size-5" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg"><path d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="currentColor"/></svg>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/konstantinos-kasidiaris/" class="hover:text-primary">
+                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 512 512"  fill="currentColor"><path d="M449.446 0C483.971 0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97 0 449.446V62.554C0 28.03 28.029 0 62.554 0h386.892ZM160.461 423.278V197.561h-75.04v225.717h75.04Zm270.539 0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804 0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181 0 225.717 0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135 0 38.007 20.707 38.007 51.037v120.768H431ZM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165 0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002Z"/></svg>
+                    </a>
+                    
+                    <a href="https://x.com/konkasidiaris" class="hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="size-5" viewBox="0 0 1200 1200"><g clip-path="url(#a)"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"/></g><defs><clipPath id="a"><path d="M0 0h1200v1227H0z"/></clipPath></defs></svg>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="flex flex-row md:flex-col mx-auto md:w-20">
+                
+                <a href=/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Home</a>
+                
+                <a href=/posts/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Blog</a>
+                
+                <a href=/projects/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Projects</a>
+                
+                <a href=/resume/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Résumé</a>
+                
+            </div>
+        </div>
+    </section>
+    <section
+        class="border-t border-border-muted flex flex-col md:flex-row gap-2 md:mx-auto px-4 md:px-6 py-4 text-xs text-text-muted">
+        <span>&copy; 2018-2025 Konstantinos Kasidiaris</span> <span>All Rights and Lefts
+            reserved</span>
+            <a href="/posts/credits" class="underline hover:text-primary">Credits</a>
+    </section>
+</footer>
+</body>
+</html>

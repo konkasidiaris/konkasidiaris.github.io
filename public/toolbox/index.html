@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en-us" class="motion-safe:scroll-smooth scroll-pt-32 [scrollbar-gutter:stable] [scrollbar-gutter:both-edges] [scrollbar-width:thin]">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content=Building&#32;scalable&#32;infrastructure,&#32;automating&#32;everything,&#32;and&#32;sharing&#32;engineering&#32;insights>
+<link rel="preload" href="/fonts/JetBrainsMono-SemiBold-subset.woff2" as="font" type="font/woff2"
+    crossorigin="anonymous">
+<link rel="preload" href="/fonts/JetBrainsMono-Medium-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/fonts/JetBrainsMono-Italic-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<title>My toolbox | Kon&#39;s Internet Corner</title>
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512x512.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+
+<meta name="mobile-web-app-capable" content="yes">
+
+
+
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+
+
+<meta name="msapplication-config" content="none">
+
+
+
+
+
+<link rel="canonical" href="https://konkasidiaris.com/toolbox/">
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/index.xml" title="RSS Feed">
+
+
+
+<meta property="og:title" content="My toolbox">
+<meta property="og:image" content="toolbox-open-grey.jpg">
+<meta property="og:url" content="https://konkasidiaris.com/toolbox/">
+<meta property="og:description" content="Building scalable infrastructure, automating everything, and sharing engineering insights">
+<meta property="og:site_name" content="Kon&#39;s Internet Corner">
+<meta property="og:locale" content="en">
+
+<meta property="og:type" content="website">
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="My toolbox" />
+<meta name="twitter:description" content="Building scalable infrastructure, automating everything, and sharing engineering insights" />
+<meta name="twitter:image" content="toolbox-open-grey.jpg" />
+
+
+
+  
+  
+    
+      
+        <link rel="stylesheet" href="/css/main.fdd0574fba266af4903f7b7a2d03439abcb9d7f499c578f013b356cbb7427509.css" integrity="sha256-/dBXT7omavSQP3t6LQNDmry51/SZxXjwE7NWy7dCdQk=" crossorigin="anonymous">
+      
+    
+  
+
+
+        <script src="/js/main.76cbd7043ca65df3c9824e3c7dc0cf65966fae6b3469a5239d247a66faffeb82.js" integrity="sha256-dsvXBDymXfPJgk48fcDPZZZvrms0aaUjnSR6Zvr/64I=" crossorigin="anonymous" defer></script>
+
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "My toolbox",
+  "description": "Tools that I use to deliver reliable software",
+  "url": "https:\/\/konkasidiaris.com\/toolbox\/",
+  "inLanguage": "en-us",
+  "dateModified": "2025-11-24T08:34:13\u002b02:00",
+  "author": {
+    "@type": "Person",
+    "name": "Konstantinos Kasidiaris"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https:\/\/konkasidiaris.com\/"
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https:\/\/konkasidiaris.com\/"
+    },
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "https:\/\/konkasidiaris.com\/"
+    },
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "My toolbox",
+      "item": "https:\/\/konkasidiaris.com\/toolbox\/"
+    }
+  ]
+}
+</script>
+
+</head>
+<body class="font-family-mono h-screen grid grid-rows-[auto_1fr_auto] transition-colors duration-500 ease-in-out text-base bg-bg-base text-text-base p-4 lg:p-6 max-w-7xl mx-auto">
+    <header id="header" class="flex flex-row justify-between gap-2 sticky items-center z-50">
+    <div id="hamburger" class="w-6 h-5 relative rotate-0 ease-in-out duration-500 cursor-pointer group peer z-50">
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-0 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-2 group-[.open]:rotate-45"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-2 group-[.open]:-rotate-45"></span>
+        <span
+            class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-4 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
+    </div>
+    <div class="relative">
+        <span class="flex flex-row gap-2 bg-bg-subtle/70 backdrop-blur py-2 px-4 rounded-2xl">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+
+            <input
+                id="searchbox"
+                type="text"
+                placeholder="Search (Ctrl+K)"
+                autocomplete="off" />
+        </span>
+    </div>
+    <div id="kbar"
+         class="fixed inset-0 z-50 hidden bg-bg-base/40 backdrop-blur-md items-start justify-center pt-32">
+        <div class="w-full max-w-2xl bg-bg-subtle rounded-2xl shadow-2xl p-6 space-y-4">
+            <div class="flex items-center gap-3 border border-border rounded-xl px-4 py-3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+
+                <input id="kbar-input" type="text" placeholder="Type to search…"
+                       class="flex-1" />
+                <kbd class="text-xs text-text-muted border border-border rounded-md px-2 py-1">Esc</kbd>
+            </div>
+            <div id="kbar-results" class="max-h-80 overflow-y-auto text-sm text-text-muted">
+                Start typing to see results…
+            </div>
+        </div>
+    </div>
+    <button id="dark-mode-toggle" class="group/button cursor-pointer w-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" aria-hidden="true" class="text-amber-300 group-[.dark]/button:text-black"><path fill="hsl(0, 0%, 50%)" d="M19.21 6.36c-1.04-2.1-3.05-3.65-5.38-4.16-2.44-.54-4.94.04-6.85 1.58a7.973 7.973 0 0 0-3.01 6.27c0 2.59 1.55 5.3 3.89 6.87v.83c-.01.28-.02.71.32 1.06.35.36.87.4 1.28.4h5.13c.54 0 .95-.15 1.23-.43.38-.39.37-.89.36-1.16v-.7c3.1-2.09 5.05-6.5 3.03-10.56Z" opacity=".4"/><path fill="hsl(0, 0%, 50%)" d="M15.26 22c-.06 0-.13-.01-.19-.03-2.01-.57-4.12-.57-6.13 0-.37.1-.76-.11-.86-.48a.69.69 0 0 1 .48-.86c2.26-.64 4.64-.64 6.9 0 .37.11.59.49.48.86-.1.31-.38.51-.68.51Z"/><path fill="currentColor" d="M12 13.85a.754.754 0 0 1-.65-1.12l.85-1.48h-.84c-.5 0-.91-.22-1.13-.59-.22-.38-.2-.84.05-1.28l1.07-1.86c.21-.36.67-.48 1.02-.28.36.21.48.67.28 1.02l-.85 1.49h.84c.5 0 .91.22 1.13.59.22.38.2.84-.05 1.28l-1.07 1.86c-.14.24-.39.37-.65.37Z"/></svg>
+    </button>
+    <nav
+        class="fixed overflow-hidden hidden left-0 top-0 peer-[.open]:flex bg-bg-base/0 backdrop-filter backdrop-blur-[1px] w-full h-dvh z-40
+              flex-row lg:flex-col gap-2 lg:gap-6 justify-center items-end lg:items-center rounded-xl lg:rounded-none py-10">
+        
+        <a href=/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-subtle text-text-subtle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"/></svg>
+
+            <span>Home</span>
+        </a>
+        
+        <a href=/posts/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-subtle text-text-subtle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"/></svg>
+
+            <span>Blog</span>
+        </a>
+        
+        <a href=/projects/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-subtle text-text-subtle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"/></svg>
+
+            <span>Projects</span>
+        </a>
+        
+        <a href=/resume/
+            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+             bg-bg-subtle text-text-subtle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z"/></svg>
+
+            <span>Résumé</span>
+        </a>
+        
+    </nav>
+</header>
+    
+    <main id="page-content" class="view-transition py-6" data-pagefind-body>
+        
+<div class="w-full py-8 px-4 max-w-5xl mx-auto relative post-page" style="view-transition-name: card-cd7b9ec9d389296818d9a652cc39e742;">
+    <div class="flex flex-col lg:flex-row gap-8">
+        
+        <aside class="hidden 2xl:block fixed right-28 3xl:right-36 w-56 top-32 max-h-[calc(100vh-10rem)] bg-bg-muted/20 rounded-2xl p-6" data-pagefind-ignore="all">
+            <nav class="sticky top-24 space-y-4">
+                <h2 class="text-sm font-semibold text-text-base uppercase tracking-wide">Table of Contents</h2>
+                <div class="space-y-2 text-sm">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#core-languages">Core Languages</a>
+      <ul>
+        <li><a href="#go">Go</a></li>
+        <li><a href="#elixir">Elixir</a></li>
+        <li><a href="#nodejs">Node.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#frameworkslibraries">Frameworks/Libraries</a>
+      <ul>
+        <li><a href="#tailwind">Tailwind</a></li>
+        <li><a href="#hugo">Hugo</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-stores">Data Stores</a>
+      <ul>
+        <li><a href="#sqlite">SQLite</a></li>
+        <li><a href="#postgresql">PostgreSQL</a></li>
+        <li><a href="#redis">Redis</a></li>
+        <li><a href="#r2">R2</a></li>
+        <li><a href="#pagefind">Pagefind</a></li>
+      </ul>
+    </li>
+    <li><a href="#messaging">Messaging</a></li>
+    <li><a href="#infrastructure">Infrastructure</a>
+      <ul>
+        <li><a href="#docker">Docker</a></li>
+        <li><a href="#github-actions">GitHub Actions</a></li>
+        <li><a href="#cloudflare">Cloudflare</a></li>
+      </ul>
+    </li>
+    <li><a href="#observability">Observability</a></li>
+    <li><a href="#architecture--design-principles">Architecture &amp; Design Principles</a></li>
+    <li><a href="#tool-selection-criteria">Tool Selection Criteria</a></li>
+  </ul>
+</nav>
+                </div>
+            </nav>
+        </aside>
+
+        
+        <article class="w-full mx-auto">
+            <nav aria-label="Breadcrumb" class="mb-6">
+    <ol class="flex items-center gap-2 text-sm text-text-muted">
+        <li>
+            <a href="/" class="hover:text-primary transition-colors">Home</a>
+        </li>
+        
+        <li class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            <span class="text-text-base" aria-current="page">My toolbox</span>
+        </li>
+    </ol>
+</nav>
+            
+            <header class="mb-12 flex flex-col gap-6 items-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-text-base leading-tight">
+                    My toolbox
+                </h1>
+                
+                
+                <div class="flex flex-wrap gap-4 text-sm text-text-muted">
+                    <time datetime="" class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"/></svg>
+
+                        <span data-pagefind-sort="date"></span>
+                    </time>
+                    
+                    
+                    <span class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+
+                        3 min read
+                    </span>
+                    
+                </div>
+                
+                
+                
+
+                <p class="text-xs text-text-muted">tldr; Tools that I use to deliver reliable software</p>
+                
+                
+                
+                
+                
+                    
+                
+                
+                
+                    
+                    
+                    
+                    
+                    
+                    <figure class="rounded-2xl max-w-3xl overflow-hidden bg-bg-subtle w-full aspect-video">
+                        <picture>
+                            <source 
+                                srcset="/toolbox/toolbox-open-grey_hu_68d0f3300a52afc8.webp 800w, /toolbox/toolbox-open-grey_hu_39e5cb5ade56ea3.webp 1600w"
+                                sizes="(max-width: 768px) 100vw, 800px"
+                                type="image/webp" />
+                            <source 
+                                srcset="/toolbox/toolbox-open-grey_hu_2786ae70d0ef106a.jpg 800w, /toolbox/toolbox-open-grey_hu_8b3b1c861256c9a4.jpg 1600w"
+                                sizes="(max-width: 768px) 100vw, 800px"
+                                type="image/jpeg" />
+                            <img 
+                                src="/toolbox/toolbox-open-grey_hu_8b3b1c861256c9a4.jpg" 
+                                alt="My toolbox" 
+                                class="w-full h-auto"
+                                loading="eager" />
+                        </picture>
+                        
+                        <figcaption class="px-4 py-2 text-sm text-text-muted italic">
+                            An open toolbox in grey
+                        </figcaption>
+                        
+                    </figure>
+                
+                
+            </header>
+
+            
+            <nav class="2xl:hidden mb-8 p-6 bg-bg-subtle rounded-2xl">
+                <h2 class="text-sm font-semibold text-text-base uppercase tracking-wide mb-4">Table of Contents</h2>
+                <div class="space-y-2 text-sm">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#core-languages">Core Languages</a>
+      <ul>
+        <li><a href="#go">Go</a></li>
+        <li><a href="#elixir">Elixir</a></li>
+        <li><a href="#nodejs">Node.js</a></li>
+      </ul>
+    </li>
+    <li><a href="#frameworkslibraries">Frameworks/Libraries</a>
+      <ul>
+        <li><a href="#tailwind">Tailwind</a></li>
+        <li><a href="#hugo">Hugo</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-stores">Data Stores</a>
+      <ul>
+        <li><a href="#sqlite">SQLite</a></li>
+        <li><a href="#postgresql">PostgreSQL</a></li>
+        <li><a href="#redis">Redis</a></li>
+        <li><a href="#r2">R2</a></li>
+        <li><a href="#pagefind">Pagefind</a></li>
+      </ul>
+    </li>
+    <li><a href="#messaging">Messaging</a></li>
+    <li><a href="#infrastructure">Infrastructure</a>
+      <ul>
+        <li><a href="#docker">Docker</a></li>
+        <li><a href="#github-actions">GitHub Actions</a></li>
+        <li><a href="#cloudflare">Cloudflare</a></li>
+      </ul>
+    </li>
+    <li><a href="#observability">Observability</a></li>
+    <li><a href="#architecture--design-principles">Architecture &amp; Design Principles</a></li>
+    <li><a href="#tool-selection-criteria">Tool Selection Criteria</a></li>
+  </ul>
+</nav>
+                </div>
+            </nav>
+            
+            
+<div class="prose prose-lg 
+    prose-headings:text-text-base prose-headings:font-semibold
+    prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6
+    prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+    prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+    prose-p:text-text-base prose-p:leading-relaxed prose-p:mb-6
+    prose-a:text-primary prose-a:no-underline prose-a:hover:underline prose-a:transition-colors
+    prose-strong:text-text-base prose-strong:font-semibold
+    prose-em:text-text-muted prose-em:italic
+    prose-code:text-primary prose-code:bg-bg-subtle prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+    prose-pre:bg-bg-subtle prose-pre:border prose-pre:border-border prose-pre:rounded-xl prose-pre:p-4
+    prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-text-muted
+    prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-6
+    prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-6
+    prose-li:text-text-base prose-li:mb-2
+    prose-img:rounded-xl prose-img:shadow-lg
+    prose-hr:border-border prose-hr:my-12
+    max-w-none">
+    <p>Disclaimer: This is a live document; tools may change as I evolve as a programmer.</p>
+<h2 id="core-languages">Core Languages</h2>
+<h3 id="go">Go</h3>
+<p><strong>Binaries and simple API servers</strong>. I find that Go hits the sweet spot between agility and robustness for rapid iterations that may evolve into a full-blown solution in the future. The huge standard library, predictable performance, and the ergonomics of the language are solid reasons to choose it.</p>
+<h3 id="elixir">Elixir</h3>
+<p><strong>MVP creation</strong>. BEAM’s fault tolerance, Ecto’s integration with the database, the LiveView paradigm of UI creation, and the readability of Elixir are just some of the reasons to choose it. It is perfect for full-blown web apps.</p>
+<h3 id="nodejs">Node.js</h3>
+<p><strong>Scripting and SPAs</strong>. Each year I move away a bit more from Node.js and its ecosystem. Do not get me wrong: Node.js has become a wonderful runtime to work with. Much of the ecosystem is not viable for long-running applications and servers. To keep a system safe, you have to live on the bleeding edge. In all of my previous Node.js-centric jobs, we needed at least two developer-weeks (code reviews and non-automated tests included) each year just to update all the libraries and the runtime to the latest version. However, it is a popular language/runtime. It is easy to find people to work on/maintain the project once started.</p>
+<h2 id="frameworkslibraries">Frameworks/Libraries</h2>
+<h3 id="tailwind">Tailwind</h3>
+<ol>
+<li>No countless hours spent talking about naming CSS classes; no nit PR comments; no BEM; no SMACSS.</li>
+<li>No duplicated CSS just because there are different classes.</li>
+<li>No need for critical CSS.</li>
+<li>No need for a reset stylesheet.</li>
+<li>No need for a design system.</li>
+<li>HTML snapshot testing also tests CSS changes.</li>
+</ol>
+<p>Tailwind is an amazing concept. It removes so much cognitive load from the developer&rsquo;s mind.</p>
+<h3 id="hugo">Hugo</h3>
+<p>If you need a static site, Hugo has your back. Scales to thousands of pages. Builds almost instantly. It is stable. It has image resizing, cropping, quality control, and JPG to WebP conversion. It integrates well with tools like Tailwind.</p>
+<h2 id="data-stores">Data Stores</h2>
+<h3 id="sqlite">SQLite</h3>
+<p><strong>Prototyping, binaries, and MVPs</strong>. Using WAL mode to sync to object storage for extra durability—chef&rsquo;s kiss.</p>
+<h3 id="postgresql">PostgreSQL</h3>
+<p><strong>Web apps and servers</strong> that require more than <strong>100 writes/second</strong> and/or heavy analytics workloads.</p>
+<h3 id="redis">Redis</h3>
+<p><strong>Caching and ephemeral state</strong>. Workers, database caching, and data sync between different application nodes mostly.</p>
+<h3 id="r2">R2</h3>
+<p><strong>Object storage</strong>. It is S3-compatible and is provided by Cloudflare.</p>
+<h3 id="pagefind">Pagefind</h3>
+<p><strong>Static search</strong> for static websites made easy.</p>
+<h2 id="messaging">Messaging</h2>
+<p>I have worked with both <strong>RabbitMQ</strong> and <strong>Kafka</strong>. I find RabbitMQ easier to set up. However, once set up, both are robust, reliable solutions for burst smoothing and retries. Decoupling enables resilience, and these tools stabilize the system under load spikes. However, I typically introduce these in already established applications because there is significant operational overhead.</p>
+<h2 id="infrastructure">Infrastructure</h2>
+<h3 id="docker">Docker</h3>
+<p>I am a <strong>containerize-everything</strong> person. The benefits of reproducibility and security outweigh the small overhead of setting up Docker. Used in <strong>testing</strong> (testcontainers), <strong>development</strong> (devcontainers), and <strong>production</strong>.</p>
+<h3 id="github-actions">GitHub Actions</h3>
+<p>Automate everything: linting, formatting, testing, security checks, deployment to staging, deployment to production, packaging for XYZ platform. Using either GitHub&rsquo;s or self-hosted runners.</p>
+<h3 id="cloudflare">Cloudflare</h3>
+<p>CDN, request caching, bot mitigation, Brotli compression, missing headers? Cloudflare covers.</p>
+<h2 id="observability">Observability</h2>
+<p>I have worked with various technologies in the past, mostly with Datadog and New Relic. What I value most are:</p>
+<ul>
+<li>Structured logging</li>
+<li>Metrics (RED/USE patterns)</li>
+<li>Tracing readiness (OpenTelemetry)</li>
+<li>Actionable alert thresholds (avoid noise)</li>
+</ul>
+<h2 id="architecture--design-principles">Architecture &amp; Design Principles</h2>
+<p>These are conceptual, cognitive tools but deserve a place here.</p>
+<ul>
+<li>12-factor alignment</li>
+<li>Configuration over hardcoding</li>
+<li>Domain-Driven Design</li>
+<li>Test-Driven Design</li>
+</ul>
+<h2 id="tool-selection-criteria">Tool Selection Criteria</h2>
+<ul>
+<li>Maturity</li>
+<li>Community health</li>
+<li>Licensing</li>
+<li>Integration effort</li>
+<li>Lower recurring OPEX</li>
+</ul>
+
+</div>
+            
+            
+            <footer class="mt-16 pt-8 border-t border-border space-y-8">
+                
+                
+                <div class="text-xs text-text-muted space-y-1">
+                    <p class="font-semibold">Credits</p>
+                    
+                    <p>
+                        
+                        <a href="https://unsplash.com/@dancrile?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="hover:text-primary transition-colors inline-flex gap-2" target="_blank" rel="noopener">
+                            Photo by Dan Crile on Unsplash <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"/></svg>
+
+                        </a>
+                        
+                    </p>
+                    
+                </div>
+                
+                
+                
+                <nav class="flex justify-between items-center text-sm">
+                    
+                    <span></span>
+                    
+                    
+                    
+                </nav>
+                
+                
+                <div class="text-center">
+                    
+                    
+                    
+                </div>
+            </footer>
+        </article>
+    </div>
+</div>
+
+<style>
+    #TableOfContents nav {
+        padding-left: 0;
+    }
+    
+    #TableOfContents ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    
+    #TableOfContents ul ul {
+        padding-left: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    #TableOfContents a {
+        color: var(--color-text-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+        display: block;
+        padding: 0;
+    }
+    
+    #TableOfContents a:hover {
+        color: var(--color-primary);
+    }
+    
+    #TableOfContents a.active {
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+</style>
+
+    </main>
+    
+    <footer id="footer" class="border-t border-text-base flex flex-col gap-4 mx-auto p-2 pt-4 md:p-6">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 md:my-10">
+        <div class="col-span-1 flex flex-col md:flex-row gap-2 md:gap-6 items-center">
+            <div class="flex flex-row gap-2 items-center mx-auto shrink-0">
+                
+
+
+    
+    
+    <picture>
+        <source srcset="/images/logo_hu_89fccfd9bd40176b.webp" type="image/webp">
+        <source srcset="/images/logo_hu_250715c5ee4644d5.jpg" type="image/jpeg">
+        <img src="/images/logo_hu_250715c5ee4644d5.jpg" class="size-20" alt="Konstantinos Kasidiaris" width="80" height="80" />
+    </picture>
+
+                <h2 class="font-semibold text-lg w-44 md:hidden">Konstantinos Kasidiaris</h2>
+            </div>
+            <div class="flex flex-col gap-2">
+                <h2 class="font-semibold text-lg hidden md:block">Konstantinos Kasidiaris</h2>
+                <p>
+                    Curious pragmatist <em>or maybe just a tinkerer who refuses to stop debugging life</em>. Building
+                    applications that can take a beating and keep performing.
+                </p>
+            </div>
+        </div>
+        <div class="col-span-1 flex flex-col md:flex-row gap-4 md:mt-10">
+            <div class="flex flex-col gap-4">
+                <p>
+                    Reach out if you want to build something that scales <em>and</em> makes sense.
+                </p>
+                <div class="flex flex-row gap-4 mx-auto md:mx-0">
+                    
+                    <a href="mailto:kkasidiaris@gmail.com" class="hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+
+                    </a>
+                    
+                    <a href="https://github.com/konkasidiaris" class="hover:text-primary">
+                        <svg class="size-5" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg"><path d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="currentColor"/></svg>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/konstantinos-kasidiaris/" class="hover:text-primary">
+                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 512 512"  fill="currentColor"><path d="M449.446 0C483.971 0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97 0 449.446V62.554C0 28.03 28.029 0 62.554 0h386.892ZM160.461 423.278V197.561h-75.04v225.717h75.04Zm270.539 0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804 0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181 0 225.717 0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135 0 38.007 20.707 38.007 51.037v120.768H431ZM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165 0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002Z"/></svg>
+                    </a>
+                    
+                    <a href="https://x.com/konkasidiaris" class="hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="size-5" viewBox="0 0 1200 1200"><g clip-path="url(#a)"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"/></g><defs><clipPath id="a"><path d="M0 0h1200v1227H0z"/></clipPath></defs></svg>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="flex flex-row md:flex-col mx-auto md:w-20">
+                
+                <a href=/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Home</a>
+                
+                <a href=/posts/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Blog</a>
+                
+                <a href=/projects/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Projects</a>
+                
+                <a href=/resume/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Résumé</a>
+                
+            </div>
+        </div>
+    </section>
+    <section
+        class="border-t border-border-muted flex flex-col md:flex-row gap-2 md:mx-auto px-4 md:px-6 py-4 text-xs text-text-muted">
+        <span>&copy; 2018-2025 Konstantinos Kasidiaris</span> <span>All Rights and Lefts
+            reserved</span>
+            <a href="/posts/credits" class="underline hover:text-primary">Credits</a>
+    </section>
+</footer>
+</body>
+</html>
