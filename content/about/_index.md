@@ -1,36 +1,69 @@
 ---
 title: About me
-summary: A brief history on Kon's life
+summary: Curious pragmatist or maybe just a tinkerer who refuses to stop debugging life. Building applications that can take a beating and keep performing.
 layout: about
 ---
 
-Hello there! If "General Kenobi" is what came into your mind, we think alike. This is Kon, a software engineer from Greece!
+Hello there!  
+If "General Kenobi" is what came into your mind, we think alike. I'm Kon, a software engineer from Greece.
 
-Here are some facts about me:
+## Snapshot
 
-- I listen to tons of music daily. Music is a huge part of my life.
-- I play the bass guitar. Many genres. '60s rock, '70s rock, '80s rock, '90s rock, you get the point.
-- I am a martial arts enthusiast. I've trained in Judo and BJJ, but I admire almost all of them.
-- I can work under pressure. I mean, it is certified by my scuba diving instructor that I can dive up to 18 meters.
-- There is a list on my fridge with all the countries that I've visited. The size is over 50 and keeps growing.
+- Software engineer with a background in Chemical Engineering.
+- I like building infrastructure and tools that multiply other developers’ impact.
+- Bass player (’60s–’90s rock and beyond).
+- Martial arts enthusiast (Judo, BJJ).
+- Certified scuba diver (up to 18 meters).
+- Fridge-magnet collector with souvenirs from 50+ countries.
 
-Here are some of my programming milestones:
+## How I got into programming
 
-- 2005 - First running program written in QBasic. Rectangle area calculation.
-- 2012 - First serious program written in FORTRAN 90/95. All about computational chemistry.
-- 2017 - Automated some boring stuff with Python 3. This is how I fell in love with programming.
-- 2018 - First wage by writing code. Java 7 and Groovy 3.
-- 2020 - First encounter with a codebase that I really hated. Made it orders of magnitude better. Node.js 14.
-- 2021 - First encounter with real CI/CD and cloud-native software.
-- 2024 - Quit my job to pursuit a dream. Spoiler alert! It (kinda) failed.
+When I was younger, I actually hated programming.  
+That had less to do with code and more to do with bad teaching.
 
-When I was young, I actually hated programming. It was all about bad teachers, to be honest.
-My bachelor's/master's was in Chemical Engineering. The first couple of jobs were not in programming either.
-I had to automate some boring tasks in a job that made me love programming. I felt an instantaneous click back then.
+I studied Chemical Engineering and my first jobs weren’t about software at all. At some point I had to automate boring, repetitive tasks at work using Python. That "small script to save time" flipped a switch in my head. I realized I enjoyed:
 
-This blog is my way of giving back to the community that has been instrumental in my journey as a software engineer.
-Here, I share thoughts that trouble me, document solutions to problems I've encountered in the past, and engage in the Feynman's
-Technique by explaining peculiar tech to deepen my understanding and hopefully help others grasp these concepts.
+- turning messy, manual processes into reliable tools,
+- understanding systems deeply enough to break them down and improve them,
+- creating things that other people could actually use.
 
-If you found anything interesting, if you agree or disagree with anything I write, if you just want to say "Hi!",
-I would be more than happy to [receive an email from you](mailto:kkasidiaris@gmail.com).
+From there, I moved deliberately toward professional software engineering.
+
+## Today: what I actually do
+
+These days I focus on:
+
+- **Elixir/Phoenix and Go** - mostly for backend and infrastructure.
+- **Developer experience** - CI/CD, tooling, and automation that remove friction.
+- **Multiplying impact** - I’d rather fix a bottleneck once than watch ten people hit it every day.
+
+I don’t enjoy manual, repetitive work. If something is done more than a couple of times, my instinct is to script it, automate it, or remove the need for it altogether.
+
+## Milestones
+
+- **2005** - First running program in QBasic (rectangle area calculator).
+- **2012** - First serious program in FORTRAN 90/95 for computational chemistry.
+- **2017** - Automated boring work with Python 3 and fell in love with programming.
+- **2018** - First paycheck from code: Java 7 and Groovy 3.
+- **2020** - Faced a codebase I truly hated and made it orders of magnitude better (Node.js 14).
+- **2021** - First real exposure to CI/CD and cloud-native software.
+- **2024** - Left a job to pursue a long-held dream -an intense learning experience that reshaped my priorities.
+
+## How I’m useful in a team
+
+- Debugging performance issues and weird, “this only happens in prod” bugs.
+- Owning and improving CI/CD pipelines and build/release workflows.
+- Automating everything that doesn’t need a human brain.
+- Making code and systems easier to understand for the next person.
+
+## This blog
+
+This blog is my way of giving back to the community that helped me become a software engineer.
+
+Here I:
+
+- document solutions to problems I’ve actually faced,
+- write about tools and techniques I find useful,
+- use Feynman’s Technique to explain tricky tech, so I understand it better and maybe help someone else.
+
+If you found anything interesting, if you agree or disagree with something I write, or if you just want to say hi, I’d be happy to [receive an email from you](mailto:kkasidiaris@gmail.com).
