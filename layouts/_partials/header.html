@@ -1,5 +1,5 @@
 <header id="header" class="flex flex-row justify-between gap-2 sticky items-center z-50">
-    <div id="hamburger" class="w-6 h-5 relative rotate-0 ease-in-out duration-500 cursor-pointer group peer z-50">
+    <div id="hamburger" class="w-6 h-5 relative z-50 rotate-0 ease-in-out duration-500 cursor-pointer group">
         <span
             class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-0 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
         <span
@@ -17,34 +17,38 @@
             placeholder="Search (Ctrl+K)"
             autocomplete="off" />
     </span>
-    <div id="kbar"
-         class="fixed inset-0 z-50 hidden bg-bg-base/40 backdrop-blur-md items-start justify-center pt-32">
-        <div class="w-full max-w-2xl bg-bg-subtle rounded-2xl shadow-2xl p-6 space-y-4">
-            <div class="flex items-center gap-3 border border-border rounded-xl px-4 py-3">
-                {{ partial "svg/magnifying-glass.html" . }}
-                <input id="kbar-input" type="text" placeholder="Type to search…"
-                       class="flex-1" />
-                <kbd class="text-xs text-text-muted border border-border rounded-md px-2 py-1">Esc</kbd>
-            </div>
-            <div id="kbar-results" class="max-h-80 overflow-y-auto text-sm text-text-muted">
-                Start typing to see results…
-            </div>
-        </div>
-    </div>
     <button id="dark-mode-toggle" class="group/button cursor-pointer w-6">
         {{ partial "svg/lamp.html" (dict "class" "text-amber-300 group-[.dark]/button:text-black")}}
     </button>
-    <nav
-        class="fixed hidden inset-0 peer-[.open]:flex bg-bg-base/10 backdrop-blur-sm w-full h-dvh z-40
-              flex-row lg:flex-col gap-2 lg:gap-6 justify-center items-end lg:items-center rounded-xl lg:rounded-none py-10">
-        {{ range .Site.Menus.main }}
-        <a href={{ .PageRef }}
-            class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
-             hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
-             {{ if and .Page (eq $.Page.RelPermalink .Page.RelPermalink) }}bg-bg-muted text-text-base scale-105 border-2 border-text-base hover:border-primary{{else}}bg-bg-subtle text-text-subtle{{end}}">
-            {{partial .Params.svg .}}
-            <span>{{.Name}}</span>
-        </a>
-        {{ end }}
-    </nav>
 </header>
+
+<!-- Moved outside header for proper backdrop-blur -->
+<div id="kbar"
+     class="fixed inset-0 z-50 hidden bg-bg-base/40 backdrop-blur-sm items-start justify-center pt-32">
+    <div class="w-full max-w-2xl bg-bg-subtle rounded-2xl shadow-2xl p-6 space-y-4">
+        <div class="flex items-center gap-3 border border-border rounded-xl px-4 py-3">
+            {{ partial "svg/magnifying-glass.html" . }}
+            <input id="kbar-input" type="text" placeholder="Type to search…"
+                   class="flex-1" />
+            <kbd class="text-xs text-text-muted border border-border rounded-md px-2 py-1">Esc</kbd>
+        </div>
+        <div id="kbar-results" class="max-h-80 overflow-y-auto text-sm text-text-muted">
+            Start typing to see results…
+        </div>
+    </div>
+</div>
+
+<!-- Moved outside header for proper backdrop-blur -->
+<nav id="nav-menu"
+    class="fixed hidden inset-0 bg-bg-base/10 backdrop-blur-sm w-full h-dvh z-40
+          flex-row lg:flex-col gap-2 lg:gap-6 justify-center items-end lg:items-center rounded-xl lg:rounded-none py-10">
+    {{ range .Site.Menus.main }}
+    <a href={{ .PageRef }}
+        class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+         hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+         {{ if and .Page (eq $.Page.RelPermalink .Page.RelPermalink) }}bg-bg-muted text-text-base scale-105 border-2 border-text-base hover:border-primary{{else}}bg-bg-subtle text-text-subtle{{end}}">
+        {{partial .Params.svg .}}
+        <span>{{.Name}}</span>
+    </a>
+    {{ end }}
+</nav>

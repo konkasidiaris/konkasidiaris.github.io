@@ -27,6 +27,11 @@ build:
 	hugo --cleanDestinationDir --gc --minify; \
 	$(MAKE) pagefind
 
+production: 
+	$(MAKE) css; \
+	hugo --cleanDestinationDir --gc --minify --baseURL "https://konkasidiaris.com"; \
+	$(MAKE) pagefind
+
 serve:
 	hugo server --bind 0.0.0.0 --disableFastRender
 
