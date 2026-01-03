@@ -9,16 +9,14 @@
         <span
             class="block absolute h-1 w-full bg-text-base rounded-lg opacity-100 left-0 rotate-0 ease-in-out duration-250 top-4 group-[.open]:w-0 group-[.open]:left-1/2 group-[.open]:top-2"></span>
     </div>
-    <div class="relative">
-        <span class="flex flex-row gap-2 bg-bg-subtle/70 backdrop-blur py-2 px-4 rounded-2xl">
-            {{ partial "svg/magnifying-glass.html" . }}
-            <input
-                id="searchbox"
-                type="text"
-                placeholder="Search (Ctrl+K)"
-                autocomplete="off" />
-        </span>
-    </div>
+    <span class="flex flex-row gap-2 bg-bg-subtle/70 backdrop-blur py-2 px-4 rounded-2xl">
+        {{ partial "svg/magnifying-glass.html" . }}
+        <input
+            id="searchbox"
+            type="text"
+            placeholder="Search (Ctrl+K)"
+            autocomplete="off" />
+    </span>
     <div id="kbar"
          class="fixed inset-0 z-50 hidden bg-bg-base/40 backdrop-blur-md items-start justify-center pt-32">
         <div class="w-full max-w-2xl bg-bg-subtle rounded-2xl shadow-2xl p-6 space-y-4">
@@ -37,7 +35,7 @@
         {{ partial "svg/lamp.html" (dict "class" "text-amber-300 group-[.dark]/button:text-black")}}
     </button>
     <nav
-        class="fixed overflow-hidden hidden left-0 top-0 peer-[.open]:flex bg-bg-base/0 backdrop-filter backdrop-blur-[1px] w-full h-dvh z-40
+        class="fixed hidden inset-0 peer-[.open]:flex bg-bg-base/10 backdrop-blur-sm w-full h-dvh z-40
               flex-row lg:flex-col gap-2 lg:gap-6 justify-center items-end lg:items-center rounded-xl lg:rounded-none py-10">
         {{ range .Site.Menus.main }}
         <a href={{ .PageRef }}
