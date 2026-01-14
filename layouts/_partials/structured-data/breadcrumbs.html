@@ -8,6 +8,7 @@
 {{- end -}}
 
 <script type="application/ld+json">
+{{debug.Dump . }}
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -17,23 +18,18 @@
       "position": 1,
       "name": "Home",
       "item": "{{ $baseURL }}"
-    }
-    {{- $position := 2 -}}
-    {{- range .Ancestors.Reverse -}}
-    ,
+    },
     {
       "@type": "ListItem",
-      "position": {{ $position }},
-      "name": "{{ .LinkTitle }}",
+      "position": 2,
+      "name": "{{ title .Section }}",
       "item": "{{ .Permalink }}"
     }
-    {{- $position = add $position 1 -}}
-    {{- end -}}
     {{- if not .IsSection -}}
     ,
     {
       "@type": "ListItem",
-      "position": {{ $position }},
+      "position": 3,
       "name": "{{ .LinkTitle }}",
       "item": "{{ .Permalink }}"
     }
