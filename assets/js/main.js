@@ -182,82 +182,8 @@ async function initializeSearchOverlay() {
     });
 }
 
-function supportsViewTransitions() {
-    return 'startViewTransition' in document;
-}
-
-function handleNavigation(e) {
-    const link = e.target.closest('a');
-    
-    // Only handle internal links
-    if (!link || link.origin !== location.origin || link.target === '_blank') {
-        return;
-    }
-    
-    // Skip if user is doing special navigation
-    if (e.ctrlKey || e.metaKey || e.shiftKey) {
-        return;
-    }
-    
-    e.preventDefault();
-    
-    if (supportsViewTransitions()) {
-        try {
-            const transition = document.startViewTransition(async () => {
-                const response = await fetch(link.href);
-                const html = await response.text();
-                const parser = new DOMParser();
-                const newDoc = parser.parseFromString(html, 'text/html');
-                
-                document.title = newDoc.title;
-                document.body.innerHTML = newDoc.body.innerHTML;
-                
-                history.pushState({}, '', link.href);
-                
-                initializeTheme();
-                initializeHamburgerMenu();
-                await initializeSearchOverlay();
-            });
-            
-            transition.finished.catch(() => {
-                window.location.href = link.href;
-            });
-        } catch (error) {
-            window.location.href = link.href;
-        }
-    } else {
-        window.location.href = link.href;
-    }
-}
-
-function handlePopState() {
-    if (supportsViewTransitions()) {
-        document.startViewTransition(async () => {
-            const response = await fetch(location.href);
-            const html = await response.text();
-            const parser = new DOMParser();
-            const newDoc = parser.parseFromString(html, 'text/html');
-            
-            document.title = newDoc.title;
-            document.body.innerHTML = newDoc.body.innerHTML;
-            
-            initializeTheme();
-            initializeHamburgerMenu();
-            await initializeSearchOverlay();
-        });
-    } else {
-        location.reload();
-    }
-}
-
 document.addEventListener("DOMContentLoaded", async (_e) => {
-     if (supportsViewTransitions()) {
-        document.startViewTransition();
-    }
     initializeTheme();
     initializeHamburgerMenu();
     await initializeSearchOverlay();
-
-    document.addEventListener('click', handleNavigation);
-    window.addEventListener('popstate', handlePopState);
 });
