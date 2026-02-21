@@ -49,6 +49,7 @@ function initializeHamburgerMenu() {
 }
 
 async function initializeSearchOverlay() {
+    const body = document.getElementsByTagName("body")[0];
     const overlay = document.getElementById("kbar");
     const kbarInput = document.getElementById("kbar-input");
     const searchbox = document.getElementById("searchbox");
@@ -119,6 +120,7 @@ async function initializeSearchOverlay() {
     function openKbar() {
         if (overlay.classList.contains("flex")) return;
         previousFocus = document.activeElement;
+        body.classList.add("overflow-hidden");
         overlay.classList.remove("hidden");
         overlay.classList.add("flex");
         kbarInput.value = "";
@@ -128,6 +130,7 @@ async function initializeSearchOverlay() {
 
     function closeKbar() {
         if (!overlay.classList.contains("flex")) return;
+        body.classList.remove("overflow-hidden");
         overlay.classList.remove("flex");
         overlay.classList.add("hidden");
         if (previousFocus && previousFocus !== searchbox && typeof previousFocus.focus === "function") {
