@@ -42,7 +42,8 @@ clean:
 
 new-post:
 	@read -p "Enter post title: " title; \
-	hugo new content "posts/$$title/index.md"
+	slug=$$(echo "$$title" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/-\+/-/g' | sed 's/^-\|-$$//g'); \
+	hugo new content "posts/$$slug/index.md"
 
 pagefind:
 	pagefind --site public
