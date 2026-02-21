@@ -82,11 +82,11 @@ enableGitInfo = true # use .lastmod
   minifyOutput = false
   [minify.tdewolff]
     [minify.tdewolff.css]
-      keepCSS2 = false
+      version = 0
       precision = 0
     [minify.tdewolff.html]
       keepComments = false
-      keepConditionalComments = false
+      keepSpecialComments = false
       keepDefaultAttrVals = true
       keepDocumentTags = true
       keepEndTags = true

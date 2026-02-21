@@ -2,13 +2,15 @@
 
 help:
 	@echo "Available commands:"
-	@echo "  make dev        - Start development server with live reload"
-	@echo "  make build      - Build the site for production"
+	@echo "  make build      - Build the site"
+	@echo "  make clean      - Remove built files"
 	@echo "  make css        - Build Tailwind CSS"
 	@echo "  make css-watch  - Watch and rebuild Tailwind CSS"
+	@echo "  make dev        - Start development server with live reload"
+	@echo "  make new-post   - Scafolds a new post"
+	@echo "  make pagefind   - Builds search index"
+	@echo "  make production - Builds website for production"
 	@echo "  make serve      - Serve the built site"
-	@echo "  make clean      - Remove built files"
-	@echo "  make pagefind   - Builds search index
 
 css:
 	tailwindcss -i ./assets/css/main.css -o ./public/css/main.css --minify

@@ -41,7 +41,7 @@
             {{ $webp400 := $img.Resize "400x webp q80" }}
             {{ $webp800 := $img.Resize "800x webp q80" }}
             
-            <picture class="absolute inset-0 pointer-events-none">
+            <picture class="absolute inset-0 pointer-events-none z-0">
                 <source 
                     srcset="{{ $webp400.RelPermalink }} 400w, {{ $webp800.RelPermalink }} 800w"
                     sizes="(max-width: 768px) 100vw, 800px"
@@ -60,13 +60,13 @@
             {{/* Fallback for external URLs or missing images */}}
             <img src="{{ .image }}" 
                  alt="{{ .title }}" 
-                 class="absolute inset-0 w-full h-full object-cover rounded-2xl pointer-events-none" 
+                 class="absolute inset-0 w-full h-full object-cover rounded-2xl pointer-events-none z-0" 
                  loading="lazy" />
         {{ end }}
-        <div class="absolute inset-0 bg-black/70 rounded-2xl pointer-events-none"></div>
+        <div class="absolute inset-0 bg-black/70 rounded-2xl pointer-events-none z-0"></div>
     {{ end }}
     
-    <div class="relative flex z-10 w-full h-full flex-col gap-4 {{ .contentAlign | default "justify-center items-start" }} {{ $textColorClass }}">
+    <div class="relative flex z-0 w-full h-full flex-col gap-4 {{ .contentAlign | default "justify-center items-start" }} {{ $textColorClass }}">
         <h2 class="flex flex-row gap-2 text-2xl font-semibold">{{ .title }}</h2>
         {{ if .tags }}
             <ul class="flex flex-row gap-2 text-xs flex-wrap">
