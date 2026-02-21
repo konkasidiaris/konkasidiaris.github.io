@@ -38,11 +38,13 @@ function initializeTheme() {
 function initializeHamburgerMenu() {
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu");
+    const body = document.getElementsByTagName("body")[0];
 
     hamburger.addEventListener("click", (e) => {
         e.currentTarget.classList.toggle("open");
         navMenu.classList.toggle("hidden");
         navMenu.classList.toggle("flex");
+        body.classList.toggle("overflow-hidden");
     });
 }
 
