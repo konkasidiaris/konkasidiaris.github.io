@@ -33,19 +33,25 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/posts" class="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-2 group">
+                            {{ with site.GetPage "/posts" }}
+                            <a href={{ .Permalink }} class="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-2 group">
                                 <span class="underline-offset-4 group-hover:underline">/blog</span>
                             </a>
+                            {{ end }}
                         </li>
                         <li>
-                            <a href="/projects" class="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-2 group">
+                            {{ with site.GetPage "/projects" }}
+                            <a href={{ .Permalink }} class="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-2 group">
                                 <span class="underline-offset-4 group-hover:underline">/projects</span>
                             </a>
+                            {{ end }}
                         </li>
                         <li>
-                            <a href="/resume" class="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-2 group">
+                            {{ with site.GetPage "/resume" }}
+                            <a href={{ .Permalink }} class="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-2 group">
                                 <span class="underline-offset-4 group-hover:underline">/resume</span>
                             </a>
+                            {{ end }}
                         </li>
                     </ul>
                 </div>

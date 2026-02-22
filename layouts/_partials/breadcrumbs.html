@@ -6,7 +6,10 @@
         {{ with .Section }}
         <li class="flex items-center gap-2">
             {{ partial "svg/chevron-right.html" (dict "class" "size-4") }}
-            <a href="/{{ . }}" class="hover:text-primary transition-colors capitalize">{{ . }}</a>
+            {{ $page := . }}
+            {{ with site.GetPage $page }}
+            <a href={{ .Permalink }} class="hover:text-primary transition-colors capitalize">{{ $page }}</a>
+            {{ end }}
         </li>
         {{ end }}
         <li class="flex items-center gap-2">

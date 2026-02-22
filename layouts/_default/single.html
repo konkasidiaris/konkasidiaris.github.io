@@ -43,10 +43,14 @@
                 {{ end }}
                 <div class="flex flex-wrap gap-2" data-pagefind-filter="{{ delimit ($.Scratch.Get "filters") ", " }}">
                     {{ range .Params.tags }}
-                    <a href="/tags/{{ . | urlize }}" 
+                      {{ $tag := . }}
+                    {{ with site.GetPage (printf "/tags/%s" $tag) }}
+                        {{ $href := .Permalink }}
+                    <a href={{$href}}
                        class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
-                        {{ partial "svg/tag.html" (dict "class" "size-4") }} {{ . }}
+                        {{ partial "svg/tag.html" (dict "class" "size-4") }} {{ $tag }}
                     </a>
+                    {{ end }}
                     {{ end }}
                 </div>
                 {{ end }}
@@ -156,11 +160,13 @@
                       {{ $item = "projects" }}
                     {{ end }}
                     {{ if ne $item "" }}
-                    <a href="/{{ $item }}" 
+                    {{ with site.GetPage $item }}
+                    <a href={{ .Permalink }}
                        class="inline-flex items-center gap-2 px-6 py-3 bg-bg-muted hover:bg-primary hover:text-white rounded-full transition-colors">
                         {{ partial "svg/arrow-left.html" (dict "class" "size-4") }}
                         Back to all {{ $item }}
                     </a>
+                    {{ end }}
                     {{ end }}
                 </div>
             </footer>

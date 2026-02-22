@@ -92,7 +92,6 @@ async function initializeSearchOverlay() {
                 setResultsMessage("No results yet. Try another phrase.");
                 return;
             }
-            console.log(search.results)
 
             const entries = await Promise.all(
                 search.results.slice(0, 10).map(async (hit) => {

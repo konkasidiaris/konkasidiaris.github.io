@@ -8,15 +8,23 @@
   {{ $cardId = md5 .link }}
 {{ end }}
 
+{{ $tag := "div" }}
 {{ if eq $component "li" }}
-<li class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden"{{ if not .context.IsHome }} style="view-transition-name: card-{{ $cardId }};"{{ end }}>
+  {{ $tag = "li" }}
 {{ else if eq $component "article" }}
-<article class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden"{{ if not .context.IsHome }} style="view-transition-name: card-{{ $cardId }};"{{ end }}>
-{{ else }}
-<div class="card-transition group/item relative {{ .class }} rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden"{{ if not .context.IsHome }} style="view-transition-name: card-{{ $cardId }};"{{ end }}>
+  {{ $tag = "article" }}
 {{ end }}
+
+{{/* New: shared attrs */}}
+{{ $classes := printf "card-transition group/item relative %s rounded-2xl p-4 md:p-6 bg-bg-subtle overflow-hidden" (.class | default "") }}
+{{ $styleAttr := "" }}
+{{ if and .context (not .context.IsHome) }}
+  {{ $styleAttr = printf ` style="view-transition-name: card-%s;"` $cardId }}
+{{ end }}
+
+{{/* Replaces the 3-way opening tag branch */}}
+{{ printf "<%s class=%q%s>" $tag $classes $styleAttr | safeHTML }}
     <a href="{{ .link }}" class="absolute inset-0 md:hidden z-10" aria-label="{{ .ctaText }}"></a>
-    
     {{ if $hasImage }}
         {{ if not .context }}
             {{ errorf "card.html: image '%s' provided but 'context' parameter is missing. Pass the page context with (dict \"context\" . ...)" .image }}
@@ -71,7 +79,10 @@
         {{ if .tags }}
             <ul class="flex flex-row gap-2 text-xs flex-wrap">
                 {{ range .tags }}
-                    <li><a href="/tags/{{ . | urlize }}" class="inline-flex gap-1 text-white/50 hover:text-primary">{{ partial "svg/tag.html" (dict "class" "size-4") }}{{ . }}</a></li>
+                    {{ $tag := . }}
+                    {{ with site.GetPage $tag }}
+                    <li><a href={{ .Permalink }} class="inline-flex gap-1 text-white/50 hover:text-primary">{{ partial "svg/tag.html" (dict "class" "size-4") }}{{ $tag }}</a></li>
+                    {{ end }}
                 {{ end }}
             </ul>
         {{ end }}
@@ -90,10 +101,4 @@
         {{ partial "svg/arrow-up-right.html" (dict "class" "size-4") }}
     </a>
     {{ end }}
-{{ if eq $component "li" }}
-</li>
-{{ else if eq $component "article" }}
-</article>
-{{ else }}
-</div>
-{{ end }}
+{{ printf "</%s>" $tag | safeHTML }}
