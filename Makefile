@@ -2,15 +2,17 @@
 
 help:
 	@echo "Available commands:"
-	@echo "  make build      - Build the site"
-	@echo "  make clean      - Remove built files"
-	@echo "  make css        - Build Tailwind CSS"
-	@echo "  make css-watch  - Watch and rebuild Tailwind CSS"
-	@echo "  make dev        - Start development server with live reload"
-	@echo "  make new-post   - Scafolds a new post"
-	@echo "  make pagefind   - Builds search index"
-	@echo "  make production - Builds website for production"
-	@echo "  make serve      - Serve the built site"
+	@echo "  make build       - Build the site"
+	@echo "  make clean       - Remove built files"
+	@echo "  make css         - Build Tailwind CSS"
+	@echo "  make css-watch   - Watch and rebuild Tailwind CSS"
+	@echo "  make dev         - Start development server with live reload"
+	@echo "  make help        - Prints available commands"
+	@echo "  make new-post    - Scafolds a new post"
+	@echo "  make new-project - Scafolds a new project"
+	@echo "  make pagefind    - Builds search index"
+	@echo "  make production  - Builds website for production"
+	@echo "  make serve       - Serve the built site"
 
 css:
 	tailwindcss -i ./assets/css/main.css -o ./public/css/main.css --minify
@@ -44,6 +46,11 @@ new-post:
 	@read -p "Enter post title: " title; \
 	slug=$$(echo "$$title" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/-\+/-/g' | sed 's/^-\|-$$//g'); \
 	hugo new content "posts/$$slug/index.md"
+
+new-project:
+	@read -p "Enter project title: " title; \
+	slug=$$(echo "$$title" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/-\+/-/g' | sed 's/^-\|-$$//g'); \
+	hugo new content "projects/$$slug/index.md"
 
 pagefind:
 	pagefind --site public
