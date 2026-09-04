@@ -11,7 +11,7 @@
 {{- $author := .Site.Params.author -}}
 {{- $authorDescription := .Site.Params.authorDescription -}}
 {{- $logo := .Site.Params.logo -}}
-{{- $languageCode := .Site.LanguageCode -}}
+{{- $languageCode := .Site.Language.Locale -}}
 
 {{- if not $title -}}
   {{- errorf "BlogPosting schema (%s): .Title is required" .File.Path -}}
@@ -23,7 +23,7 @@
   {{- errorf "BlogPosting schema (%s): .Site.Params.author is required" .File.Path -}}
 {{- end -}}
 {{- if not $languageCode -}}
-  {{- errorf "BlogPosting schema (%s): .Site.LanguageCode is required" .File.Path -}}
+  {{- errorf "BlogPosting schema (%s): .Site.Language.Locale is required" .File.Path -}}
 {{- end -}}
 
 {{- /* Find featured image: check frontmatter images, then page resources */ -}}

@@ -2,7 +2,7 @@
 {{- $description := .Summary | default .Description | default .Site.Params.description -}}
 {{- $permalink := .Permalink -}}
 {{- $publishDate := .PublishDate -}}
-{{- $languageCode := .Site.LanguageCode -}}
+{{- $languageCode := .Site.Language.Locale -}}
 {{- $author := .Site.Params.author -}}
 
 {{- if not $title -}}
@@ -12,7 +12,7 @@
   {{- warnf "WebPage schema (%s): no description found (add 'description' or 'summary' to frontmatter)" .File.Path -}}
 {{- end -}}
 {{- if not $languageCode -}}
-  {{- errorf "WebPage schema (%s): .Site.LanguageCode is required" .File.Path -}}
+  {{- errorf "WebPage schema (%s): .Site.Language.Locale is required" .File.Path -}}
 {{- end -}}
 
 <script type="application/ld+json">

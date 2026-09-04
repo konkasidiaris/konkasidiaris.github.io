@@ -3,6 +3,7 @@
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
+      "DOCKER_GID": "131",
       "VARIANT": "hugo_extended", // we use hugo_extended as we need to process images
       "VERSION": "latest"
     }
@@ -16,6 +17,7 @@
         "bradlc.vscode-tailwindcss",
         "budparr.language-hugo-vscode",
         "davidanson.vscode-markdownlint",
+        "golang.go",
         "tamasfe.even-better-toml"
       ]
     }
@@ -23,7 +25,7 @@
   "forwardPorts": [
     1313
   ],
-  "remoteUser": "vscode",
+  "remoteUser": "website",
   "runArgs": [
     "--volume",
     "/var/run/docker.sock:/var/run/docker.sock"

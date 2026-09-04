@@ -1,7 +1,7 @@
 {{- $siteTitle := .Site.Title -}}
 {{- $baseURL := .Site.BaseURL -}}
 {{- $description := .Site.Params.description -}}
-{{- $languageCode := .Site.LanguageCode -}}
+{{- $languageCode := .Site.Language.Locale -}}
 {{- $authorName := .Site.Params.author -}}
 {{- $logo := .Site.Params.logo -}}
 
@@ -15,7 +15,7 @@
   {{- errorf "WebSite schema: .Site.Params.description is required" -}}
 {{- end -}}
 {{- if not $languageCode -}}
-  {{- errorf "WebSite schema: .Site.LanguageCode is required" -}}
+  {{- errorf "WebSite schema: .Site.Language.Locale is required" -}}
 {{- end -}}
 {{- if not $authorName -}}
   {{- errorf "WebSite schema: .Site.Params.author is required" -}}

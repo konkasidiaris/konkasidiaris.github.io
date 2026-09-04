@@ -15,11 +15,11 @@ help:
 	@echo "  make serve       - Serve the built site"
 
 css:
-	tailwindcss -i ./assets/css/main.css -o ./public/css/main.css --minify
+	tailwindcss -m -i ./assets/css/main.css -o ./assets/css/main.min.css
 
 css-watch:
 	@echo "Watching Tailwind CSS..."
-	NODE_ENV=development tailwindcss -i ./assets/css/main.css -o ./public/css/main.css --watch
+	NODE_ENV=development tailwindcss -i ./assets/css/main.css -o ./assets/css/main.min.css --watch
 
 dev: 
 	@trap 'kill 0' EXIT; \
@@ -33,7 +33,7 @@ build:
 
 production: 
 	$(MAKE) css; \
-	hugo --cleanDestinationDir --gc --minify --baseURL "https://konkasidiaris.com"; \
+	hugo --cleanDestinationDir --gc --minify --baseURL "https://konkasidiaris.com" --environment="production"; \
 	$(MAKE) pagefind
 
 serve:
