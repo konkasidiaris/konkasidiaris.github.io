@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en" class="motion-safe:scroll-smooth scroll-pt-32 [scrollbar-gutter:both-edges] [scrollbar-width:thin]">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content=Building&#32;scalable&#32;infrastructure,&#32;automating&#32;everything,&#32;and&#32;sharing&#32;engineering&#32;insights>
+<link rel="preload" href="/fonts/JetBrainsMono-SemiBold-subset.woff2" as="font" type="font/woff2"
+    crossorigin="anonymous">
+<link rel="preload" href="/fonts/JetBrainsMono-Medium-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/fonts/JetBrainsMono-Italic-subset.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<title>Photo tag | Kon&#39;s Internet Corner</title>
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512x512.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+
+<meta name="mobile-web-app-capable" content="yes">
+
+
+
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+
+
+<meta name="msapplication-config" content="none">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/projects/photo_tag/">
+
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/index.xml" title="RSS Feed">
+
+
+
+<meta property="og:title" content="Photo tag">
+<meta property="og:image" content="photos.jpg">
+<meta property="og:url" content="http://localhost:1313/projects/photo_tag/">
+<meta property="og:description" content="Building scalable infrastructure, automating everything, and sharing engineering insights">
+<meta property="og:site_name" content="Kon&#39;s Internet Corner">
+<meta property="og:locale" content="en">
+
+<meta property="og:type" content="website">
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Photo tag" />
+<meta name="twitter:description" content="Building scalable infrastructure, automating everything, and sharing engineering insights" />
+<meta name="twitter:image" content="photos.jpg" />
+
+
+
+  
+    <link rel="stylesheet" href="/css/main.min.css" crossorigin>
+  
+
+
+      <script src="/js/main.js" defer></script>
+
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Photo tag",
+  "description": "How to search a bucket of more than 10.000 items with privacy in mind",
+  "url": "http:\/\/localhost:1313\/projects\/photo_tag\/",
+  "inLanguage": "en",
+  "datePublished": "2026-09-05T00:00:00Z",
+  "dateModified": "2026-09-05T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Konstantinos Kasidiaris"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "http:\/\/localhost:1313\/"
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "http:\/\/localhost:1313\/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Projects",
+      "item": "http:\/\/localhost:1313\/projects\/photo_tag\/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Photo tag",
+      "item": "http:\/\/localhost:1313\/projects\/photo_tag\/"
+    }
+  ]
+}
+</script>
+
+</head>
+<body class="font-family-mono h-screen grid grid-rows-[auto_1fr_auto] transition-colors duration-500 ease-in-out text-base bg-bg-base text-text-base p-4 lg:p-6 max-w-7xl mx-auto">
+    <header id="header" class="flex flex-row justify-between gap-2 sticky items-center z-50">
+    <div id="hamburger" class="w-6 h-5 relative z-50 rotate-0 ease-in-out duration-500 cursor-pointer group">
+        
+        <span
+            class=block&#32;absolute&#32;h-1&#32;w-full&#32;bg-text-base&#32;rounded-lg&#32;opacity-100&#32;left-0&#32;rotate-0&#32;ease-in-out&#32;duration-250&#32;top-0&#32;group-[.open]:w-0&#32;group-[.open]:left-1/2&#32;group-[.open]:top-2></span>
+        <span
+            class=block&#32;absolute&#32;h-1&#32;w-full&#32;bg-text-base&#32;rounded-lg&#32;opacity-100&#32;left-0&#32;rotate-0&#32;ease-in-out&#32;duration-250&#32;top-2&#32;group-[.open]:rotate-45></span>
+        <span
+            class=block&#32;absolute&#32;h-1&#32;w-full&#32;bg-text-base&#32;rounded-lg&#32;opacity-100&#32;left-0&#32;rotate-0&#32;ease-in-out&#32;duration-250&#32;top-2&#32;group-[.open]:-rotate-45></span>
+        <span
+            class=block&#32;absolute&#32;h-1&#32;w-full&#32;bg-text-base&#32;rounded-lg&#32;opacity-100&#32;left-0&#32;rotate-0&#32;ease-in-out&#32;duration-250&#32;top-4&#32;group-[.open]:w-0&#32;group-[.open]:left-1/2&#32;group-[.open]:top-2></span>
+    </div>
+    <span class="flex flex-row gap-2 bg-bg-subtle/70 backdrop-blur py-2 px-4 rounded-2xl">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+
+        <input
+            id="searchbox"
+            type="text"
+            placeholder="Search (Ctrl+K)"
+            autocomplete="off" />
+    </span>
+    <button id="dark-mode-toggle" class="group/button cursor-pointer w-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" aria-hidden="true" class="text-amber-300 group-[.dark]/button:text-black"><path fill="hsl(0, 0%, 50%)" d="M19.21 6.36c-1.04-2.1-3.05-3.65-5.38-4.16-2.44-.54-4.94.04-6.85 1.58a7.973 7.973 0 0 0-3.01 6.27c0 2.59 1.55 5.3 3.89 6.87v.83c-.01.28-.02.71.32 1.06.35.36.87.4 1.28.4h5.13c.54 0 .95-.15 1.23-.43.38-.39.37-.89.36-1.16v-.7c3.1-2.09 5.05-6.5 3.03-10.56Z" opacity=".4"/><path fill="hsl(0, 0%, 50%)" d="M15.26 22c-.06 0-.13-.01-.19-.03-2.01-.57-4.12-.57-6.13 0-.37.1-.76-.11-.86-.48a.69.69 0 0 1 .48-.86c2.26-.64 4.64-.64 6.9 0 .37.11.59.49.48.86-.1.31-.38.51-.68.51Z"/><path fill="currentColor" d="M12 13.85a.754.754 0 0 1-.65-1.12l.85-1.48h-.84c-.5 0-.91-.22-1.13-.59-.22-.38-.2-.84.05-1.28l1.07-1.86c.21-.36.67-.48 1.02-.28.36.21.48.67.28 1.02l-.85 1.49h.84c.5 0 .91.22 1.13.59.22.38.2.84-.05 1.28l-1.07 1.86c-.14.24-.39.37-.65.37Z"/></svg>
+    </button>
+</header>
+
+
+<div id="kbar"
+     class="fixed inset-0 z-50 hidden bg-bg-base/40 backdrop-blur-sm items-start justify-center pt-32">
+    <div class="w-full max-w-2xl bg-bg-subtle rounded-2xl shadow-2xl p-6 space-y-4">
+        <div class="flex items-center gap-3 border border-border rounded-xl px-4 py-3">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+
+            <input id="kbar-input" type="text" placeholder="Type to search…"
+                   class="flex-1" />
+            <kbd class="text-xs text-text-muted border border-border rounded-md px-2 py-1">Esc</kbd>
+        </div>
+        <div id="kbar-results" class="max-h-80 overflow-y-auto text-sm text-text-muted">
+            Start typing to see results…
+        </div>
+    </div>
+</div>
+
+
+<nav id="nav-menu"
+    class="fixed hidden inset-0 bg-bg-base/10 backdrop-blur-sm w-full h-dvh z-40
+          flex-row lg:flex-col gap-2 lg:gap-6 justify-center items-end lg:items-center rounded-xl lg:rounded-none py-10">
+    
+    <a href=/
+        class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+         hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+         bg-bg-subtle text-text-subtle">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z"/></svg>
+
+        <span>Home</span>
+    </a>
+    
+    <a href=/posts/
+        class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+         hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+         bg-bg-subtle text-text-subtle">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"/></svg>
+
+        <span>Blog</span>
+    </a>
+    
+    <a href=/projects/
+        class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+         hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+         bg-bg-subtle text-text-subtle">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"/></svg>
+
+        <span>Projects</span>
+    </a>
+    
+    <a href=/resume/
+        class="w-20 lg:w-32 flex flex-col lg:flex-row p-4 rounded-2xl gap-2 items-center justify-center shadow-xl
+         hover:scale-105 active:scale-105 transition-transform ease-in-out duration-150 hover:text-primary
+         bg-bg-subtle text-text-subtle">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z"/></svg>
+
+        <span>Résumé</span>
+    </a>
+    
+</nav>
+    
+    <main id="page-content" class="view-transition py-6" data-pagefind-body>
+        
+<div class="w-full py-8 px-4 max-w-5xl mx-auto relative post-page" style="view-transition-name: card-55726a7ba04e0a6a4444e34d3714f1e4;">
+    <div class="flex flex-col lg:flex-row gap-8">
+        
+        <aside class="hidden 2xl:block fixed right-28 3xl:right-36 w-56 top-32 max-h-[calc(100vh-10rem)] bg-bg-muted/20 rounded-2xl p-6" data-pagefind-ignore="all">
+            <nav class="sticky top-24 space-y-4">
+                <h2 class="text-sm font-semibold text-text-base uppercase tracking-wide">Table of Contents</h2>
+                <div class="space-y-2 text-sm">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#some-context">Some Context</a></li>
+    <li><a href="#my-point-of-view">My point of view</a></li>
+    <li><a href="#the-problem">The problem</a>
+      <ul>
+        <li><a href="#breakdown">Breakdown</a></li>
+        <li><a href="#problem-1-models-need-ram-and-resources">Problem 1: Models need RAM and resources</a></li>
+        <li><a href="#problem-2-image-classification">Problem 2: Image classification</a></li>
+        <li><a href="#problem-3-image-recognition">Problem 3: Image Recognition</a></li>
+        <li><a href="#problem-4-models-reaching-to-the-internet">Problem 4: Models reaching to the internet</a></li>
+        <li><a href="#problem-5-the-daemon">Problem 5: The daemon</a></li>
+        <li><a href="#problem-6-extracting-exif-data">Problem 6: Extracting EXIF data</a></li>
+        <li><a href="#problem-7-store-exif-and-photo_tag-data-to-db">Problem 7: Store EXIF and photo_tag data to DB</a></li>
+        <li><a href="#problem-8-user-interaction">Problem 8: User interaction</a></li>
+        <li><a href="#problem-9-logging--monitoring">Problem 9: Logging &amp; Monitoring</a></li>
+        <li><a href="#problem-10-distribution">Problem 10: Distribution</a></li>
+      </ul>
+    </li>
+    <li><a href="#final-product">Final product</a></li>
+    <li><a href="#repositories">Repositories</a></li>
+    <li><a href="#closing-thoughts">Closing Thoughts</a></li>
+  </ul>
+</nav>
+                </div>
+            </nav>
+        </aside>
+
+        
+        <article class="w-full mx-auto">
+            <nav aria-label="Breadcrumb" class="mb-6">
+    <ol class="flex items-center gap-2 text-sm text-text-muted">
+        <li>
+            <a href="/" class="hover:text-primary transition-colors">Home</a>
+        </li>
+        
+        <li class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            
+            
+            <a href=http://localhost:1313/projects/ class="hover:text-primary transition-colors capitalize">projects</a>
+            
+        </li>
+        
+        <li class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+            <span class="text-text-base" aria-current="page">Photo tag</span>
+        </li>
+    </ol>
+</nav>
+            
+            <header class="mb-12 flex flex-col gap-6 items-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-text-base leading-tight">
+                    Photo tag
+                </h1>
+                
+                
+                <div class="flex flex-wrap gap-4 text-sm text-text-muted">
+                    <time datetime="2026-09-05" class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"/></svg>
+
+                        <span data-pagefind-sort="date">September 5, 2026</span>
+                    </time>
+                    
+                    
+                    <span class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+
+                        8 min read
+                    </span>
+                    
+                </div>
+                
+                
+                
+                 
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <div class="flex flex-wrap gap-2" data-pagefind-filter="tag[NAS], tag[Python], tag[Local AI], tag[GO], tag[SQLite], tag[Docker], tag[HTMX], tag[Tailwind]">
+                    
+                      
+                    
+                        
+                    <a href=http://localhost:1313/tags/nas/
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ NAS
+                    </a>
+                    
+                    
+                      
+                    
+                        
+                    <a href=http://localhost:1313/tags/python/
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ Python
+                    </a>
+                    
+                    
+                      
+                    
+                        
+                    <a href=http://localhost:1313/tags/local-ai/
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ Local AI
+                    </a>
+                    
+                    
+                      
+                    
+                        
+                    <a href=http://localhost:1313/tags/go/
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ GO
+                    </a>
+                    
+                    
+                      
+                    
+                        
+                    <a href=http://localhost:1313/tags/sqlite/
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ SQLite
+                    </a>
+                    
+                    
+                      
+                    
+                        
+                    <a href=http://localhost:1313/tags/docker/
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ Docker
+                    </a>
+                    
+                    
+                      
+                    
+                        
+                    <a href=http://localhost:1313/tags/htmx/
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ HTMX
+                    </a>
+                    
+                    
+                      
+                    
+                        
+                    <a href=http://localhost:1313/tags/tailwind/
+                       class="text-text-muted hover:text-primary text-xs transition-colors inline-flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607l-9.58-9.58A2.25 2.25 0 0 0 9.568 3Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z"/></svg>
+ Tailwind
+                    </a>
+                    
+                    
+                </div>
+                
+
+                <p class="text-xs text-text-muted">tldr; How to search a bucket of more than 10.000 items with privacy in mind</p>
+                
+                
+                
+                
+                
+                    
+                
+                
+                
+                    
+                    
+                    
+                    
+                    
+                    <figure class="rounded-2xl max-w-3xl overflow-hidden bg-bg-subtle w-full aspect-video">
+                        <picture>
+                            <source 
+                                srcset="/projects/photo_tag/photos_hu_17edb26be63fe7c0.webp 800w, /projects/photo_tag/photos_hu_90ddd509e5d92292.webp 1600w"
+                                sizes="(max-width: 768px) 100vw, 800px"
+                                type="image/webp" />
+                            <source 
+                                srcset="/projects/photo_tag/photos_hu_4862ec0d9337c691.jpg 800w, /projects/photo_tag/photos_hu_a0ea1c1ed243f808.jpg 1600w"
+                                sizes="(max-width: 768px) 100vw, 800px"
+                                type="image/jpeg" />
+                            <img 
+                                src="/projects/photo_tag/photos_hu_a0ea1c1ed243f808.jpg" 
+                                alt="Photo tag" 
+                                class="w-full h-auto"
+                                loading="eager" />
+                        </picture>
+                        
+                        <figcaption class="px-4 py-2 text-sm text-text-muted italic">
+                            4 instant photos on a desk
+                        </figcaption>
+                        
+                    </figure>
+                
+                
+            </header>
+
+            
+            <nav class="2xl:hidden mb-8 p-6 bg-bg-subtle rounded-2xl">
+                <h2 class="text-sm font-semibold text-text-base uppercase tracking-wide mb-4">Table of Contents</h2>
+                <div class="space-y-2 text-sm">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#some-context">Some Context</a></li>
+    <li><a href="#my-point-of-view">My point of view</a></li>
+    <li><a href="#the-problem">The problem</a>
+      <ul>
+        <li><a href="#breakdown">Breakdown</a></li>
+        <li><a href="#problem-1-models-need-ram-and-resources">Problem 1: Models need RAM and resources</a></li>
+        <li><a href="#problem-2-image-classification">Problem 2: Image classification</a></li>
+        <li><a href="#problem-3-image-recognition">Problem 3: Image Recognition</a></li>
+        <li><a href="#problem-4-models-reaching-to-the-internet">Problem 4: Models reaching to the internet</a></li>
+        <li><a href="#problem-5-the-daemon">Problem 5: The daemon</a></li>
+        <li><a href="#problem-6-extracting-exif-data">Problem 6: Extracting EXIF data</a></li>
+        <li><a href="#problem-7-store-exif-and-photo_tag-data-to-db">Problem 7: Store EXIF and photo_tag data to DB</a></li>
+        <li><a href="#problem-8-user-interaction">Problem 8: User interaction</a></li>
+        <li><a href="#problem-9-logging--monitoring">Problem 9: Logging &amp; Monitoring</a></li>
+        <li><a href="#problem-10-distribution">Problem 10: Distribution</a></li>
+      </ul>
+    </li>
+    <li><a href="#final-product">Final product</a></li>
+    <li><a href="#repositories">Repositories</a></li>
+    <li><a href="#closing-thoughts">Closing Thoughts</a></li>
+  </ul>
+</nav>
+                </div>
+            </nav>
+            
+            
+<div class="prose prose-lg 
+    prose-headings:text-text-base prose-headings:font-semibold
+    prose-h1:text-3xl prose-h1:mt-12 prose-h1:mb-6
+    prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+    prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+    prose-p:text-text-base prose-p:leading-relaxed prose-p:mb-6
+    prose-a:text-primary prose-a:no-underline prose-a:hover:underline prose-a:transition-colors
+    prose-strong:text-text-base prose-strong:font-semibold
+    prose-em:text-text-muted prose-em:italic
+    prose-code:text-primary prose-code:bg-bg-subtle prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+    prose-pre:bg-bg-subtle prose-pre:border prose-pre:border-border prose-pre:rounded-xl prose-pre:p-4
+    prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-text-muted
+    prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-6
+    prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-6
+    prose-li:text-text-base prose-li:mb-2
+    prose-img:rounded-xl prose-img:shadow-lg
+    prose-hr:border-border prose-hr:my-12
+    max-w-none">
+    <h2 id="some-context">Some Context</h2>
+<p>My wife and I back up photos taken by our phones automatically to our NAS. Why NAS and not <strong>insert_famous_company_s_name_here</strong> photos application? We value our privacy. We simple do not like the idea of models training on our family&rsquo;s data.</p>
+<p>The thing is that our solution so far was 2 buckets of photos on NAS, each one acting as a back up of each of our smartphones respectively. As you already thiking, this is not scalable. In just about 1 year, we have more than 10.000 photos, with obfuscated names like <code>PHONE_2026080822351234.jpeg</code>.</p>
+<p>My wife likes order. Sometimes she is adamant about it. Her biggest issue with that stuff was not that there were 2 buckets with all the photos scattered inside but that these were not inside nicely made folders like <code>Wife's birthday 2025</code>. Her idea was to spend a weekend or so to organize every photo we had taken so far.</p>
+<h2 id="my-point-of-view">My point of view</h2>
+<p>My initial thoughts were &ldquo;That&rsquo;s not scalable, we are going to need a weekend spend on photo taxonomy at least once a year&rdquo;! Coding to the resque.</p>
+<h2 id="the-problem">The problem</h2>
+<p>The thing is that it&rsquo;s not that my wife likes pretty folders, complex directory structures and stuff. She just wants to find what she is looking for easily. To be honest, I like that too. Scrolling and searching thousands of photos in the not so UX friendly app of the NAS, is not the thing everyone was wishing for.</p>
+<p><strong>A high level solution would be an app that given a couple of filters or a free text, would find the photos that we are searching for.</strong></p>
+<h3 id="breakdown">Breakdown</h3>
+<p>In order for a program to search through photos, photos should carry the proper metadata. For example</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;tags&#34;</span>: [<span style="color:#e6db74">&#34;beach&#34;</span>, <span style="color:#e6db74">&#34;candles&#34;</span>, <span style="color:#e6db74">&#34;birthday&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;people&#34;</span>: [<span style="color:#e6db74">&#34;mother&#34;</span>, <span style="color:#e6db74">&#34;kid&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;date&#34;</span>: <span style="color:#e6db74">&#34;2026-09-05T17:35:00Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;location&#34;</span>: <span style="color:#e6db74">&#34;/absolute/path/to/file.jpg&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol>
+<li>Some of these can be found by viewing the <a href="https://en.wikipedia.org/wiki/Exif">EXIF</a> data of the image, like <strong>date</strong>, <strong>thumbnail</strong> and <strong>location</strong> if it is enabled in your phone.</li>
+<li>The others are not so easy to create. Or is it? AI to the resque! I am not an AI maximizer, do not get me wrong. This is exactly the type of problems AI excels at, pattern recognition and classification.
+There are 2 cases where we need to fetch metadata:
+<ul>
+<li>initially to cover every existing photo</li>
+<li>when new photos are added to the buckets</li>
+</ul>
+</li>
+<li>OK, let&rsquo;s say we have a way to extract this kind of data from every photo. We need to frequently query on this data, so we will store it on a database.</li>
+<li>Data querying and fetching should be easy for non technical people, a nice simple interface is needed.</li>
+<li>This should run entirely on NAS. Meaning 4GB of RAM and an Intel Celeron CPU. Thus the AI should be local and the routine should not be resource hungry!</li>
+<li>Privacy! No outside-world calls.</li>
+</ol>
+<h3 id="problem-1-models-need-ram-and-resources">Problem 1: Models need RAM and resources</h3>
+<p>Having models loaded in the memory 24/7 is inefficient. The application will consist of two parts:</p>
+<ul>
+<li>A service which upon receiving requests will load the models in memory, respond to all incoming requests and after some idle time, stop, thus freeing the resources.</li>
+<li>A daemon/server which will be on top of everything else, extracting metadata from exif, read/write from thedatabase, serving the UI, on top of cronjobs, listen to ionotify for folder changes etc.</li>
+</ul>
+<p>In order to handle the start/stop of the first service, I used an NGINX as reverse proxy. Upon receiving requests, it starts the service container. When more than 2 minutes without request have passed, it stops the service.</p>
+<p>NOTE: <em>the service could be a command but -as I quickly found out- loading the models in memory has an overhead of ~10 seconds. This is heavy price to pay for thousands of photos</em></p>
+<h3 id="problem-2-image-classification">Problem 2: Image classification</h3>
+<p>I had my fair time of brainstorming with LLMs in order to find where should I start here. I am not an AI affictionado. I had to find my way around hugging face, the various models that exists, the industry standards etc. Long story short, if I use python to interact with the AI&rsquo;s, it would be easier and as a classification model for my low performance NAS, <a href="https://huggingface.co/openai/clip-vit-base-patch32">openai/clip-vit-base-patch32</a> would be sufficient.</p>
+<p>I set up a <a href="https://fastapi.tiangolo.com/">FastAPI</a> project with the help of <a href="https://docs.astral.sh/uv/">uv</a> and my beloved <a href="https://containers.dev/">devcontainers</a>.</p>
+<p>The service has only 2 endpoints:</p>
+<ul>
+<li><code>GET /health</code> with a typical <code>200</code> <code>{ &quot;status&quot;: &quot;ok&quot; }</code> response</li>
+<li><code>POST /images/labels</code> which accepts a multipart request with an <code>image</code> field and responds with</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;labels&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;setting&#34;</span>: [{<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;beach&#34;</span>,<span style="color:#f92672">&#34;confidence&#34;</span>:<span style="color:#ae81ff">0.88</span>}, <span style="color:#960050;background-color:#1e0010">...</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;people&#34;</span>: [{<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;small_group&#34;</span>,<span style="color:#f92672">&#34;confidence&#34;</span>:<span style="color:#ae81ff">0.34</span>}, <span style="color:#960050;background-color:#1e0010">...</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The model works by providing it a list of labels and an image and it responds with confidence per label.
+I kinda wanted a structured response and as much confidence as possible for each photo so I let performance take a hit and run the model 5 times for each photo, in order to have the following categories of tags:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;people&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;no_people&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;single_person&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;two_people&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;small_group&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;large_group&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;family_group&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;adult_and_child&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;multiple_children&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;multiple_adults&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;baby_present&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;toddler_present&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;setting&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;indoor&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;outdoor&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;home&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;living_room&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;kitchen&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;bedroom&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;garden&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;park&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;beach&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;pool&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;restaurant&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;school&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;playground&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;street&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;travel_destination&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;activity&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;portrait&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;group_portrait&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;candid&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;playing&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;eating&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;cooking&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;talking&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;hugging&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;holding_child&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;walking&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;running&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;sitting&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;standing&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;celebrating&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;opening_gifts&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;blowing_candles&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;taking_selfie&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;posing_for_camera&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;occasion&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;everyday&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;birthday&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;holiday&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;vacation&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;wedding&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;graduation&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;party&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;family_reunion&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;christmas&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;new_year&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;religious_event&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;sports_event&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;school_event&#34;</span>
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;photo_characteristics&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;close_up&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;medium_shot&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;wide_shot&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;selfie&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;group_photo&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;landscape&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;portrait_orientation&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;old_photo&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;black_and_white&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;photo_of_photo&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;indoor_low_light&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;outdoor_daylight&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="problem-3-image-recognition">Problem 3: Image Recognition</h3>
+<p>Did you know that CLIP models, responsible for image classification suck at image recognition? I did not. So it was a bummer when I found out. Having the classification model labeling an image as &ldquo;adult_and_child&rdquo; is not sufficient enough. Spending a couple of hours brainstorming with LLMs again, I found out about a pretrained model for face recognition called <a href="https://www.insightface.ai/">insightface</a>.</p>
+<p>The best way to use it is to generate image embeddings for the people you want it to recognize. 3-5 pictures at most for each person. I went with 4 pictures per family member. One <em>en face</em>, two <em>profile</em> pictures, left/right side respectively and 1 more <em>en face</em> wearing sunglasses.</p>
+<p>NOTE: <em>image embeddings are biometric data and should be treated with care. If you make such an app on your own, do not commit them to any VCS and/or upload them online</em></p>
+<p>Then I enriched the existing <code>POST /images/label</code> endpoint&rsquo;s response:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;people&#34;</span>: [{<span style="color:#f92672">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;Konstantinos&#34;</span>, <span style="color:#f92672">&#34;confidence&#34;</span>:<span style="color:#ae81ff">0.9834</span>, <span style="color:#960050;background-color:#1e0010">...</span>}],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;labels&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;setting&#34;</span>: [{<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;beach&#34;</span>,<span style="color:#f92672">&#34;confidence&#34;</span>:<span style="color:#ae81ff">0.88</span>}, <span style="color:#960050;background-color:#1e0010">...</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;people&#34;</span>: [{<span style="color:#f92672">&#34;label&#34;</span>:<span style="color:#e6db74">&#34;small_group&#34;</span>,<span style="color:#f92672">&#34;confidence&#34;</span>:<span style="color:#ae81ff">0.34</span>}, <span style="color:#960050;background-color:#1e0010">...</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>and for sanity reasons I also enriched the <code>GET /health</code> endpoint&rsquo;s response:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{ <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;ok&#34;</span>, <span style="color:#f92672">&#34;people_loaded&#34;</span>: <span style="color:#ae81ff">3</span> }
+</span></span></code></pre></div><h3 id="problem-4-models-reaching-to-the-internet">Problem 4: Models reaching to the internet</h3>
+<p>During development, it came to my attention that models were trying to connect to hugging face.
+After a quick search, I understood that libraries were searching for models in Hugging Face too, not only locally thus I added this to the <code>Dockerfile</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">ENV</span> HF_HUB_OFFLINE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ENV</span> TRANSFORMERS_OFFLINE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>In order to be 100% sure that there is no chit chatting with any third party, I built a docker image and run it with the <code>--network=none</code>, in order to be sure that it works offline.</p>
+<p>Up to this point, the first service is completed!</p>
+<h3 id="problem-5-the-daemon">Problem 5: The daemon</h3>
+<p>The server that would run 24/7 on the NAS should by any means be light on resources. That prohibits the usage of VM languages (eg python, server-side javascript, elixir, java).
+It should also be cross platform, as it would be developed and tested on a linux machine and run on another platform. <strong>GO</strong> enters the chat, this is were it shines.</p>
+<p>Database server should be easy on resources too. As the scale will not be that much. Let&rsquo;s say that we produce <code>10.000 photos/year * 20 years = 200.000 photos</code> to search. Let&rsquo;s get rid of the server, use just a file but keep all the SQL niceties. <strong>SQLite</strong> it is. If it is suficient for an <a href="https://www.sqlite.org/famous.html">Airbus A350</a>, it will do for this usecase.</p>
+<p><strong>Why a daemon and not just a webserver with a couple of cronjobs though?</strong></p>
+<p>It would be far easier to listen to <code>ionotify</code> (or similar tech depending on the platform) and store the new picture location in the database in order to be processed later than to compare which photos are not in the database or check a whole bucket&rsquo;s photos&rsquo; timestamps again and again daily.</p>
+<h4 id="listen-for-file-events">Listen for file events</h4>
+<h4 id="cronjob">Cronjob</h4>
+<h3 id="problem-6-extracting-exif-data">Problem 6: Extracting EXIF data</h3>
+<h3 id="problem-7-store-exif-and-photo_tag-data-to-db">Problem 7: Store EXIF and photo_tag data to DB</h3>
+<h3 id="problem-8-user-interaction">Problem 8: User interaction</h3>
+<h4 id="htmx">HTMX</h4>
+<h4 id="templ">Templ</h4>
+<h4 id="tailwind">Tailwind</h4>
+<h3 id="problem-9-logging--monitoring">Problem 9: Logging &amp; Monitoring</h3>
+<h3 id="problem-10-distribution">Problem 10: Distribution</h3>
+<h2 id="final-product">Final product</h2>
+<h2 id="repositories">Repositories</h2>
+<p>This work is open-source, please have a look and get inspired for your own projects:</p>
+<ul>
+<li><a href="https://github.com/konkasidiaris/photo_tag">photo_tag repository</a></li>
+<li><a href="https://github.com/konkasidiaris/photo_daemon">photo_daemon repository</a></li>
+</ul>
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+<p>This was an amazing experiment. I learnt a lot about local AI. I had fun working with python after years, the ecosystem around the language has changed A LOT. Containers proved once again their amazing value. Working on constrained environments had me question a lot of <strong>best practices</strong> and <strong>industry standards</strong> out there. Last but not least, I made my wife happy and saved us a couple of weekends.
+This was a refreshing reminder that coding is fun.</p>
+
+</div>
+            
+            
+            <footer class="mt-16 pt-8 border-t border-border space-y-8">
+                
+                
+                <div class="text-xs text-text-muted space-y-1">
+                    <p class="font-semibold">Credits</p>
+                    
+                    <p>
+                        
+                        <a href="https://unsplash.com/@corinnekutz?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" class="hover:text-primary transition-colors inline-flex gap-2" target="_blank" rel="noopener">
+                            Photo by Corinne Kutz on Unsplash <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"/></svg>
+
+                        </a>
+                        
+                    </p>
+                    
+                </div>
+                
+                
+                
+                <nav class="flex justify-between items-center text-sm">
+                    
+                    <a href="/projects/xot/" 
+                       class="flex items-center gap-2 text-text-muted hover:text-primary transition-colors group">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>
+
+                        <span class="group-hover:underline">XOT - Static Website</span>
+                    </a>
+                    
+                    
+                    
+                </nav>
+                
+                
+                <div class="text-center">
+                    
+                    
+                      
+                    
+                    
+                    
+                    <a href=http://localhost:1313/projects/
+                       class="inline-flex items-center gap-2 px-6 py-3 bg-bg-muted hover:bg-primary hover:text-white rounded-full transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>
+
+                        Back to all projects
+                    </a>
+                    
+                    
+                </div>
+            </footer>
+        </article>
+    </div>
+</div>
+
+<style>
+    #TableOfContents nav {
+        padding-left: 0;
+    }
+    
+    #TableOfContents ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+    }
+    
+    #TableOfContents ul ul {
+        padding-left: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    #TableOfContents a {
+        color: var(--color-text-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+        display: block;
+        padding: 0;
+    }
+    
+    #TableOfContents a:hover {
+        color: var(--color-primary);
+    }
+    
+    #TableOfContents a.active {
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+</style>
+
+    </main>
+    
+    <footer id="footer" class="border-t border-text-base flex flex-col gap-4 mx-auto p-2 pt-4 md:p-6">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 md:my-10">
+        <div class="col-span-1 flex flex-col md:flex-row gap-2 md:gap-6 items-center">
+            <div class="flex flex-row gap-2 items-center mx-auto shrink-0">
+                
+
+
+    
+    
+    <picture>
+        <source srcset="/images/logo_hu_86d94efbbf181210.webp" type="image/webp">
+        <source srcset="/images/logo_hu_36ddcadc5296dca3.jpg" type="image/jpeg">
+        <img src="/images/logo_hu_36ddcadc5296dca3.jpg" class="size-20" alt="Konstantinos Kasidiaris" width="80" height="80" />
+    </picture>
+
+                <h2 class="font-semibold text-lg w-44 md:hidden">Konstantinos Kasidiaris</h2>
+            </div>
+            <div class="flex flex-col gap-2">
+                <h2 class="font-semibold text-lg hidden md:block">Konstantinos Kasidiaris</h2>
+                <p>
+                    Curious pragmatist <em>or maybe just a tinkerer who refuses to stop debugging life</em>. Building
+                    applications that can take a beating and keep performing.
+                </p>
+            </div>
+        </div>
+        <div class="col-span-1 flex flex-col md:flex-row gap-4 md:mt-10">
+            <div class="flex flex-col gap-4">
+                <p>
+                    Reach out if you want to build something that scales <em>and</em> makes sense.
+                </p>
+                <div class="flex flex-row gap-4 mx-auto md:mx-0">
+                    
+                    <a href="mailto:kkasidiaris@gmail.com" class="hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+
+                    </a>
+                    
+                    <a href="https://github.com/konkasidiaris" class="hover:text-primary">
+                        <svg class="size-5" viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg"><path d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z" fill="currentColor"/></svg>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/konstantinos-kasidiaris/" class="hover:text-primary">
+                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 512 512"  fill="currentColor"><path d="M449.446 0C483.971 0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97 0 449.446V62.554C0 28.03 28.029 0 62.554 0h386.892ZM160.461 423.278V197.561h-75.04v225.717h75.04Zm270.539 0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804 0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181 0 225.717 0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135 0 38.007 20.707 38.007 51.037v120.768H431ZM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165 0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002Z"/></svg>
+                    </a>
+                    
+                    <a href="https://x.com/konkasidiaris" class="hover:text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="size-5" viewBox="0 0 1200 1200"><g clip-path="url(#a)"><path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"/></g><defs><clipPath id="a"><path d="M0 0h1200v1227H0z"/></clipPath></defs></svg>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="flex flex-row md:flex-col mx-auto md:w-20">
+                
+                <a href=/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Home</a>
+                
+                <a href=/posts/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Blog</a>
+                
+                <a href=/projects/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Projects</a>
+                
+                <a href=/resume/
+                    class="text-text-muted hover:text-primary border-l first:border-l-0 border-border md:border-0 px-2 md:px-0">Résumé</a>
+                
+            </div>
+        </div>
+    </section>
+    <section
+        class="border-t border-border-muted flex flex-col md:flex-row gap-2 md:mx-auto px-4 md:px-6 py-4 text-xs text-text-muted">
+        <span>&copy; 2018-2026 Konstantinos Kasidiaris</span> <span>All Rights and Lefts
+            reserved</span>
+            <a href="/posts/credits/" class="underline hover:text-primary">Credits</a>
+    </section>
+</footer>
+</body>
+</html>

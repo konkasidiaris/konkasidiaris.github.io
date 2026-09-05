@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Tags on Kon&#39;s Internet Corner</title>
-		<link>https://konkasidiaris.com/tags/</link>
+		<link>http://localhost:1313/tags/</link>
 		<description>Recent content in Tags on Kon&#39;s Internet Corner</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -10,96 +10,131 @@
 		
 		
 		
-			<atom:link href="https://konkasidiaris.com/tags/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Cloudflare</title>
-				<link>https://konkasidiaris.com/tags/cloudflare/</link>
+				<link>http://localhost:1313/tags/cloudflare/</link>
 				<pubDate>Sun, 16 Nov 2025 00:04:42 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/cloudflare/</guid>
+				<guid>http://localhost:1313/tags/cloudflare/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Dev Containers</title>
-				<link>https://konkasidiaris.com/tags/dev-containers/</link>
+				<link>http://localhost:1313/tags/dev-containers/</link>
 				<pubDate>Sun, 16 Nov 2025 00:04:42 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/dev-containers/</guid>
+				<guid>http://localhost:1313/tags/dev-containers/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Docker</title>
-				<link>https://konkasidiaris.com/tags/docker/</link>
-				<pubDate>Sun, 16 Nov 2025 00:04:42 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/docker/</guid>
+				<link>http://localhost:1313/tags/docker/</link>
+				<pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/tags/docker/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Frontend</title>
-				<link>https://konkasidiaris.com/tags/frontend/</link>
+				<link>http://localhost:1313/tags/frontend/</link>
 				<pubDate>Sun, 16 Nov 2025 00:04:42 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/frontend/</guid>
+				<guid>http://localhost:1313/tags/frontend/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>GitHub Actions</title>
-				<link>https://konkasidiaris.com/tags/github-actions/</link>
+				<link>http://localhost:1313/tags/github-actions/</link>
 				<pubDate>Sun, 16 Nov 2025 00:04:42 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/github-actions/</guid>
+				<guid>http://localhost:1313/tags/github-actions/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Go</title>
-				<link>https://konkasidiaris.com/tags/go/</link>
-				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/go/</guid>
+				<link>http://localhost:1313/tags/go/</link>
+				<pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/tags/go/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>HTMX</title>
+				<link>http://localhost:1313/tags/htmx/</link>
+				<pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/tags/htmx/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Hugo</title>
-				<link>https://konkasidiaris.com/tags/hugo/</link>
+				<link>http://localhost:1313/tags/hugo/</link>
 				<pubDate>Sun, 16 Nov 2025 00:04:42 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/hugo/</guid>
+				<guid>http://localhost:1313/tags/hugo/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Local AI</title>
+				<link>http://localhost:1313/tags/local-ai/</link>
+				<pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/tags/local-ai/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>NAS</title>
+				<link>http://localhost:1313/tags/nas/</link>
+				<pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/tags/nas/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Oss</title>
-				<link>https://konkasidiaris.com/tags/oss/</link>
+				<link>http://localhost:1313/tags/oss/</link>
 				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/oss/</guid>
+				<guid>http://localhost:1313/tags/oss/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Pagefind</title>
-				<link>https://konkasidiaris.com/tags/pagefind/</link>
+				<link>http://localhost:1313/tags/pagefind/</link>
 				<pubDate>Sun, 16 Nov 2025 00:04:42 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/pagefind/</guid>
+				<guid>http://localhost:1313/tags/pagefind/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Python</title>
+				<link>http://localhost:1313/tags/python/</link>
+				<pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/tags/python/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Sanity.io</title>
-				<link>https://konkasidiaris.com/tags/sanity.io/</link>
+				<link>http://localhost:1313/tags/sanity.io/</link>
 				<pubDate>Sun, 16 Nov 2025 00:04:42 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/sanity.io/</guid>
+				<guid>http://localhost:1313/tags/sanity.io/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>SEO</title>
-				<link>https://konkasidiaris.com/tags/seo/</link>
+				<link>http://localhost:1313/tags/seo/</link>
 				<pubDate>Sun, 16 Nov 2025 00:04:42 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/seo/</guid>
+				<guid>http://localhost:1313/tags/seo/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>SQLite</title>
+				<link>http://localhost:1313/tags/sqlite/</link>
+				<pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/tags/sqlite/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Tailwind</title>
-				<link>https://konkasidiaris.com/tags/tailwind/</link>
-				<pubDate>Sun, 16 Nov 2025 00:04:42 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/tailwind/</guid>
+				<link>http://localhost:1313/tags/tailwind/</link>
+				<pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/tags/tailwind/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Web</title>
-				<link>https://konkasidiaris.com/tags/web/</link>
+				<link>http://localhost:1313/tags/web/</link>
 				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://konkasidiaris.com/tags/web/</guid>
+				<guid>http://localhost:1313/tags/web/</guid>
 				<description></description>
 			</item>
 	</channel>

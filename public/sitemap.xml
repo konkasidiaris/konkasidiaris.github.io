@@ -2,70 +2,88 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://konkasidiaris.com/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-11-02T19:52:33+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2025-11-25T19:50:03+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-11-09T17:29:35+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/cloudflare/</loc>
+    <loc>http://localhost:1313/tags/cloudflare/</loc>
     <lastmod>2025-11-22T11:58:58+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/dev-containers/</loc>
+    <loc>http://localhost:1313/tags/dev-containers/</loc>
     <lastmod>2025-11-22T11:58:58+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/docker/</loc>
+    <loc>http://localhost:1313/tags/docker/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/frontend/</loc>
     <lastmod>2025-11-22T11:58:58+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/frontend/</loc>
+    <loc>http://localhost:1313/tags/github-actions/</loc>
     <lastmod>2025-11-22T11:58:58+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/github-actions/</loc>
+    <loc>http://localhost:1313/tags/go/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/htmx/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/hugo/</loc>
     <lastmod>2025-11-22T11:58:58+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/go/</loc>
-    <lastmod>2025-11-10T18:11:08+02:00</lastmod>
+    <loc>http://localhost:1313/tags/local-ai/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/hugo/</loc>
-    <lastmod>2025-11-22T11:58:58+02:00</lastmod>
-  </url><url>
-    <loc>https://konkasidiaris.com/toolbox/</loc>
+    <loc>http://localhost:1313/toolbox/</loc>
     <lastmod>2026-01-14T18:11:41+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/oss/</loc>
+    <loc>http://localhost:1313/tags/nas/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/oss/</loc>
     <lastmod>2025-11-10T18:11:08+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/pagefind/</loc>
+    <loc>http://localhost:1313/tags/pagefind/</loc>
     <lastmod>2025-11-22T11:58:58+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/projects/</loc>
+    <loc>http://localhost:1313/projects/photo_tag/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/</loc>
     <lastmod>2025-11-19T17:10:52+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/resume/</loc>
+    <loc>http://localhost:1313/tags/python/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/resume/</loc>
     <lastmod>2026-09-04T15:11:28+03:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/sanity.io/</loc>
+    <loc>http://localhost:1313/tags/sanity.io/</loc>
     <lastmod>2025-11-22T11:58:58+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/seo/</loc>
+    <loc>http://localhost:1313/tags/seo/</loc>
     <lastmod>2025-11-22T11:58:58+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/</loc>
-    <lastmod>2025-11-22T11:58:58+02:00</lastmod>
+    <loc>http://localhost:1313/tags/sqlite/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/tailwind/</loc>
-    <lastmod>2025-11-22T11:58:58+02:00</lastmod>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/tags/web/</loc>
+    <loc>http://localhost:1313/tags/tailwind/</loc>
+    <lastmod>2026-09-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/web/</loc>
     <lastmod>2025-11-10T18:11:08+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/posts/credits/</loc>
+    <loc>http://localhost:1313/posts/credits/</loc>
     <lastmod>2025-11-10T18:11:08+02:00</lastmod>
   </url><url>
-    <loc>https://konkasidiaris.com/projects/xot/</loc>
+    <loc>http://localhost:1313/projects/xot/</loc>
     <lastmod>2025-11-22T11:58:58+02:00</lastmod>
   </url>
 </urlset>

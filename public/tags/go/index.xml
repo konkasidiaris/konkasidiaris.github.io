@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Go on Kon&#39;s Internet Corner</title>
-		<link>https://konkasidiaris.com/tags/go/</link>
+		<link>http://localhost:1313/tags/go/</link>
 		<description>Recent content in Go on Kon&#39;s Internet Corner</description>
 		<generator>Hugo</generator>
 		<language>en</language>
@@ -10,12 +10,19 @@
 		
 		
 		
-			<atom:link href="https://konkasidiaris.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Photo tag</title>
+				<link>http://localhost:1313/projects/photo_tag/</link>
+				<pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/projects/photo_tag/</guid>
+				<description>How to search a bucket of more than 10.000 items with privacy in mind</description>
+			</item>
 			<item>
 				<title>Website credits</title>
-				<link>https://konkasidiaris.com/posts/credits/</link>
+				<link>http://localhost:1313/posts/credits/</link>
 				<pubDate>Tue, 11 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>https://konkasidiaris.com/posts/credits/</guid>
+				<guid>http://localhost:1313/posts/credits/</guid>
 				<description>Pay respect to the giants on whose shoulders this website stands</description>
 			</item>
 	</channel>
